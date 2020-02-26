@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SiteController!{% endblock %}
+
+{% block body %}
+    <section id="acceil">
+        <div class="accueil_left">
+            <img id="baton" src="{{ asset('assets/Baton.png') }}"/>
+            <img id="diagramme" src="{{ asset('assets/Diagramme.png') }}"/>
+            <img id="document" src="{{ asset('assets/Document.png') }}"/>
+            <img id="livres" src="{{ asset('assets/Livres.png') }}"/>
+            <img id="illustration_accueil" src="{{ asset('assets/illustration_accueil.png') }}"/>
+            <img id="cafe" src="{{ asset('assets/cafe_souris.png') }}"/>
+            <img id="plante" src="{{ asset('assets/plante.png') }}"/>
+        </div>
+        <div class="accueil_right">
+            <div class="accroche">
+                <h1>Josselin Balde</h1>
+                <h2>Devenez un expert des outils bureautiques</h2>
+                <h3>Formateur indépendant et passionné</h3>
+                <a class="bt-link" href="#formations">Voir les formations</a>
+            </div>
+        </div>
+    </section>
+    <section id="video"></section>
+    <section id="formations"></section>
+    <section id="apropos"></section>
+    
+{% endblock %}
