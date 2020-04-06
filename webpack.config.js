@@ -12,7 +12,7 @@ Encore
     // public path used by the web server to access the output path
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
-    //.setManifestKeyPrefix('build/')
+    .setManifestKeyPrefix('build/')
 
     /*
      * ENTRY CONFIG
@@ -45,7 +45,7 @@ Encore
     .enableBuildNotifications()
     .enableSourceMaps(!Encore.isProduction())
     // enables hashed filenames (e.g. app.abc123.css)
-    .enableVersioning(Encore.isProduction())
+    //.enableVersioning(Encore.isProduction())
 
     // enables @babel/preset-env polyfills
     .configureBabelPresetEnv((config) => {
@@ -70,5 +70,9 @@ Encore
     //.enableReactPreset()
     //.addEntry('admin', './assets/js/admin.js')
 ;
+var config = Encore.getWebpackConfig();
+config.watchOptions = {
+    poll: true
+};
 
-module.exports = Encore.getWebpackConfig();
+module.exports = config;

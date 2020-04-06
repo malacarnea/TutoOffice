@@ -3,13 +3,15 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-    <div class="connection_page">
-        <fieldset class="fieldset_connection">
+    <div class="slide-to-co connection">
+        <fieldset id="fieldset_connection">
             <h1>Connexion</h1>
-            <form method="post" target="{{ path(connect) }}">
+            {# {{ path("/") }} #}
+            <form method="post" target="/">
                 <input type="text" id="email" name="email" placeholder="Email"/>
-                <input type="text" id="password" name="password" />
-                <input type="submit" value="Se connecter"/>
+                <input type="password" id="password" name="password" placeholder="Mot de passe"/>
+                <input type="submit" class="bt-link" value="Se connecter"/>
+                <a href="#" >Mot de passe oublié ?</a>
             </form>
             
         </fieldset>

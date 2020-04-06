@@ -5,6 +5,8 @@ accueil:
     path: /
     controller: App\Controller\SiteController::index
     
-connexion:
-    path: /
+connection:
+    path: /connection
     controller: App\Controller\SiteController::connection
+    
+    

@@ -1,3 +1,251 @@
-body {
-    background-color: lightgray;
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14 nov. 2019, 20:45:07
+    Author     : alici
+*/
+
+html, body, #global{
+    font-family: Montserrat, sans-serif;
+    font-size: 1em;
+    margin:0;
+}
+#global{
+    margin-top: 0;
+}
+
+.main-grid{
+    display:grid;
+    grid-area:"auto footer";
+    grid-template-columns: auto;
+    grid-template-rows: 100% 5%;
+}
+header, footer{
+    margin-left:5%;
+}
+header{
+   width:100%;
+   position:absolute;
+}
+#index{
+    align-self: auto;
+    display:grid;
+    grid-template-rows: repeat(4, 1fr);
+    margin:0;
+    padding:0;
+    align-items:stretch;
+}
+footer{
+    align-self: end;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+nav{
+    width:100%;
+    margin:0;
+}
+ul{
+  list-style: none;  
+}
+ul.nav{
+    display:grid;
+    grid-template-columns: 4fr repeat(3, 1fr);
+    justify-items:start;
+    align-items: center;
+    width:100%;
+    height:48px;
+    margin:0;
+    padding:0;
+}
+
+ul.nav #ln_home{
+    justify-self: start; 
+}
+ul.nav li a{
+    text-decoration: none;
+    font-weight:500;
+    color:#fff;
+}
+#ln_home a{
+    color:#2572FF;
+}
+a:visited{
+    color:#2572FF;
+}
+img{
+    width:100%;
+    height:100%;
+}
+#accueil{
+    display:grid;
+    grid-template-columns: 4fr 6fr;
+    grid-row: span;
+}
+.slide-to-co, #img-box{
+    height:100vh;
+}
+.slide-to-co{
+    background: transparent linear-gradient(216deg, #2969FF 0%, #00D3FF 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
+    display:grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-column-gap: 16px;
+    align-items: center;
+}
+
+.accroche{
+    grid-column: 3/10;
+    color:#fff;
+}
+p.josselin{
+    font-weight: 600;
+    margin-bottom:4%;
+    font-size:1.3em;
+}
+.separateur1{
+    width: 7.5em;
+    margin-left:0;
+    border:2px solid #ffffff;
+}
+h1{
+    font-size:2em;
+    margin-top:4%;
+    margin-bottom:2%;
+}
+p.metier{
+    margin-top:0;
+    font-size:1.3em;
+    width: 14em;
+}
+.bt-link{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000063;
+    opacity: 1;
+    border-radius: 50px;
+    padding:2% 5%;
+    font-size:1em;
+    text-decoration: none;
+}
+.bt-link:hover{
+    background-color: #2081FF;
+    color: #fff;
+    box-shadow: none;
+}
+#ln_connection{
+    background-color: #FFFFFF;
+    border-radius: 50px;
+    font-size:1em;
+    text-decoration: none;
+    padding:3% 10%;
+}
+#ln_connection a{
+    color:#2572FF;
+}
+.bt-accueil{
+    color:#0FABFF;
+    font-size:1em;
+    font-weight: 550;
+}
+
+
+#baton{
+    top : 22%;
+    left : 21%;
+    height : 19%;
+    width : auto;
+    position:absolute;
+    z-index:999;
+}
+#diagramme{
+    top:21%;
+    left:15%;
+    height:23%;
+    width:auto;
+    position:absolute;
+    z-index:222;
+}
+#document{
+    top:10%;
+    left:24%;
+    height:19%;
+    width:auto;
+    position:absolute;
+    z-index:222;
+}
+#illustration_accueil{
+    top:36%;
+    left:21%;
+    height:46%;
+    width:auto;
+    position:absolute;
+    z-index:222;
+}
+#cafe{
+    top:52%;
+    left:38%;
+    height:13%;
+    width:auto;
+    position:absolute;
+    z-index:333;
+}
+#plante{
+    top:53%;
+    left:15%;
+    height:26%;
+    width:auto;
+    position:absolute;
+    z-index:333;
+}
+#livres{
+    top:73%;
+    left:21%;
+    height:11%;
+    width:auto;
+    position:absolute;
+    z-index:333;
+}
+
+
+/*Connection page*/
+.slide-to-co.connection{
+    justify-content: center;
+    
+}
+#fieldset_connection{
+    background-color: #FFFFFF;
+    border:none;
+    box-shadow: 0px 3px 15px #0044FF;
+    opacity: 1;
+    height:50%;
+    width:50%;
+    grid-column:5/16;
+}
+
+#fieldset_connection > h1{
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0px;
+    color: #2081FF;
+    opacity: 1;
+}
+
+form{
+    margin-top:5%;
+    display:grid;
+    grid-gap:1%;
+    grid-row-template:repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:75%;
+    border:1px solid red;
+}
+
+input[type="text"], input[type="password"]{
+    border: 2px solid #2081FF;
+    width:50vh;
+    height:5vh;
 }
