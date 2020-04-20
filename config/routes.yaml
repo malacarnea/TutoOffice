@@ -9,4 +9,6 @@ connection:
     path: /connection
     controller: App\Controller\SiteController::connection
     
-    
+admin:
+    path: /admin
+    controller: App\Controller\AdminController::index
