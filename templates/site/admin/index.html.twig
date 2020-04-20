@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Josselin Balde - Formations{% endblock %}
+
+{% block body %}
+    <div class="content">
+        <div class="formations-list">
+            <div class="title-page">
+                <h1>Formations disponibles</h1>
+                <hr class="separator-blue"></hr>
+            </div>
+            <div class="fieldset-formation">
+                <div class="formation-header-title">
+                    <svg width="2%" height="2%" viewBox="0 0 10 10"
+                         xmlns="http://www.w3.org/2000/svg" 
+                         xmlns:xlink="http://www.w3.org/1999/xlink"> 	 		
+                        <image xlink:href="{{ asset('build/images/chevron-right-solid.svg') }}" x="0" y="0" height="10" width="10" />  	
+                    </svg>
+                    <h2>Excel - Intermédiaire </h2>
+                </div>
+                <ul class="chapters">
+                    <li>
+                        <h3>1.Présentation</h3>
+                        <ul class="tutorials">
+                            <li><a href="#" class="btn-tutorials">
+                                    1.1. Présentation
+                                </a></li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <h3>2.Générer un Tableau Croisé Dynamique</h3>
+                        <ul class="tutorials">
+                            <li><a href="#" class="btn-tutorials">
+                                    1.1. Présentation
+                                </a></li>
+                            <li><a href="#" class="btn-tutorials">
+                                    1.1. Présentation
+                                </a></li>
+                            <li><a href="#" class="btn-tutorials">
+                                    1.1. Présentation
+                                </a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>3.Créer des rapports de Tableau Croisé Dynamique</h3>
+                        <ul class="tutorials">
+                            <li><a href="#" class="btn-tutorials">
+                                    1.1. Présentation
+                                </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </div>
+{% endblock %}

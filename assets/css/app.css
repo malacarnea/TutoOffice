@@ -105,7 +105,7 @@ p.josselin{
     margin-bottom:4%;
     font-size:1.3em;
 }
-.separateur1{
+.separateur{
     width: 7.5em;
     margin-left:0;
     border:2px solid #ffffff;
@@ -224,7 +224,7 @@ p.metier{
     grid-column:5/16;
 }
 
-#fieldset_connection > h1{
+#fieldset_connection > h2{
     text-align: center;
     font-weight: 600;
     letter-spacing: 0px;
@@ -238,7 +238,7 @@ form{
     grid-gap:1%;
     grid-row-template:repeat(4, 1fr);
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     width:100%;
     height:75%;
     border:1px solid red;
@@ -248,4 +248,66 @@ input[type="text"], input[type="password"]{
     border: 2px solid #2081FF;
     width:50vh;
     height:5vh;
+    padding-left:2%;
+}
+input[type="submit"]{
+    border:none;
+    width:60%;
+    font-size: 0.9em;
+    font-weight: 700;
+    color: #2081FF;
+    justify-self:center;
+    align-self:center;
+}
+#fieldset_connection form a{
+    font-size: 0.8em;
+    color: #2081FF;
+    justify-self:center;
+    text-decoration: none;
+}
+/**formations page*/
+.content{
+    margin-top: 5%;
+    display:grid;
+ 	grid-template-columns: repeat(16, 1fr);
+    border: 1px solid blue;
+}
+.formations-list{
+	grid-column:4/16;
+    display:grid;
+     grid-template-rows:2fr auto;
+     align-items: start;
+     border: 1px solid green;
+}
+.formation-header-title, .title-page{  
+    border:1px solid red;
+}
+.formation-header-title svg{
+	display:inline;
+	color:#2081ff;
+}
+
+.formation-header-title h2{
+	display:inline;
+}
+.formation-header-title h2::before{
+	content:">";
+}
+.formations-list h1,.formations-list h2,.formations-list h3 {
+	color:#2081FF;
+}
+.formations-list h1{
+     
+     font-size:1.1em;
+     padding:0;
+     margin:0;
+}
+.formations-list h2,.formations-list h3 {
+	font-size:1em;
+}
+.separator-blue{
+    width: 32em;
+    height:0;
+    margin-left:0;
+    border:2px solid #2081ff;
 }
