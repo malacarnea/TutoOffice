@@ -53,7 +53,7 @@ class Chapters
 
         return $this;
     }
-    public function getFormation():?Formation{
+    public function getFormation():?Formations{
         return $this->formation;
     }
     

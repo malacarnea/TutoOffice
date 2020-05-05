@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\Chapters;
+use App\Entity\Categories;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,11 +23,6 @@ class Formations
      * @ORM\Column(type="string", length=255)
      */
     private $title;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $level;
     
      /**
      * @ORM\OneToMany(targetEntity="App\Entity\Chapters",  cascade={"persist", "remove"}, mappedBy="formation") 

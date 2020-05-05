@@ -61,10 +61,10 @@ class Tutorials
         return $this;
     }
     
-    public function getChapter(): ?Chapter{
+    public function getChapter(): ?Chapters{
         return $this->chapter;
     }
-    public function setChapter(Chapter $chap){
+    public function setChapter(Chapters $chap){
         $this->chapter=$chap;
     }
             

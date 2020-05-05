@@ -60,12 +60,13 @@ ul.nav{
     margin:0;
     padding:0;
 }
-
+a{
+	text-decoration:none;
+}
 ul.nav #ln_home{
     justify-self: start; 
 }
 ul.nav li a{
-    text-decoration: none;
     font-weight:500;
     color:#fff;
 }
@@ -127,7 +128,6 @@ p.metier{
     border-radius: 50px;
     padding:2% 5%;
     font-size:1em;
-    text-decoration: none;
 }
 .bt-link:hover{
     background-color: #2081FF;
@@ -138,7 +138,6 @@ p.metier{
     background-color: #FFFFFF;
     border-radius: 50px;
     font-size:1em;
-    text-decoration: none;
     padding:3% 10%;
 }
 #ln_connection a{
@@ -263,26 +262,28 @@ input[type="submit"]{
     font-size: 0.8em;
     color: #2081FF;
     justify-self:center;
-    text-decoration: none;
 }
 /**formations page*/
 .content{
     margin-top: 5%;
     display:grid;
  	grid-template-columns: repeat(16, 1fr);
+ 	grid-template-rows:auto;
     border: 1px solid blue;
 }
-.formations-list{
-	grid-column:4/16;
+.formations-block{
+	grid-column:3/16;
     display:grid;
-     grid-template-rows:2fr auto;
+    grid-template-columns: repeat(12, 1fr);
+     grid-template-rows:1fr auto;
+     grid-row-gap: 5%;
      align-items: start;
      border: 1px solid green;
 }
 .formation-header-title, .title-page{  
     border:1px solid red;
 }
-.formation-header-title svg{
+.formation-header-title i{
 	display:inline;
 	color:#2081ff;
 }
@@ -290,19 +291,17 @@ input[type="submit"]{
 .formation-header-title h2{
 	display:inline;
 }
-.formation-header-title h2::before{
-	content:">";
-}
-.formations-list h1,.formations-list h2,.formations-list h3 {
+
+.formations-block h1,.formations-block h2,.formations-block h3 {
 	color:#2081FF;
 }
-.formations-list h1{
-     
+.formations-block h1{
      font-size:1.1em;
      padding:0;
      margin:0;
+     width:100%;
 }
-.formations-list h2,.formations-list h3 {
+.formations-block h2,.formations-block h3 {
 	font-size:1em;
 }
 .separator-blue{
@@ -311,3 +310,22 @@ input[type="submit"]{
     margin-left:0;
     border:2px solid #2081ff;
 }
+
+.title-page{
+	grid-column: 1/ span 12;
+}
+
+.fieldset-formation{
+	grid-row: 2;
+	grid-column: 2/ 10;
+	box-shadow: 0px 3px 15px #00000029;
+	
+}
+a.btn-tutorials{
+	background-color:#2081ff;
+	color:#ffffff;
+	border-radius:14px;
+	font-size:0.75em;
+	padding:2px 10px;
+}
+
