@@ -10,48 +10,30 @@
                 <hr class="separator-blue"></hr>
             </div>
             <!-- boucle pour afficher les formations -->
-            <div class="fieldset-formation">
-                <div class="formation-header-title">
-                    <i class="fas fa-chevron-right"></i>
-                    <h2>Excel - Intermédiaire </h2>
+            {% for formation in formations %}
+                <div class="fieldset-formation">
+                    <div class="formation-header-title">
+                        <i class="fas fa-chevron-right"></i>
+                        <h2>{{ formation.formation.title }}</h2>
+                    </div>
+                    <!-- boucle pour afficher les chapitres -->
+                    <ul class="chapters">
+                        {% for chapter in formation.chapters %}
+                            <li>
+                                <h3>{{ chapter.chapter.title }}</h3>
+                                <ul class="tutorials">
+                                    {% for tuto in chapter.tutorials %}
+                                        <!-- boucle pour afficher les tuto -->
+                                        <li><a href="{{ tuto.url }}" class="btn-tutorials">
+                                                <i class="far fa-play-circle"></i> {{ tuto.title }}
+                                            </a></li>
+                                        {% endfor %}
+                                </ul>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
-                <!-- boucle pour afficher les chapitres -->
-                <ul class="chapters">
-                    <li>
-                        <h3>1.Présentation</h3>
-                        <ul class="tutorials">
-                            <!-- boucle pour afficher les tuto -->
-                            <li><a href="#" class="btn-tutorials">
-                                  <i class="far fa-play-circle"></i>  1.1. Présentation
-                                </a></li>
-                        </ul>
-
-                    </li>
-                    <li>
-                        <h3>2.Générer un Tableau Croisé Dynamique</h3>
-                        <ul class="tutorials">
-                            <li><a href="#" class="btn-tutorials">
-                                    1.1. Présentation
-                                </a></li>
-                            <li><a href="#" class="btn-tutorials">
-                                    1.1. Présentation
-                                </a></li>
-                            <li><a href="#" class="btn-tutorials">
-                                    1.1. Présentation
-                                </a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>3.Créer des rapports de Tableau Croisé Dynamique</h3>
-                        <ul class="tutorials">
-                            <li><a href="#" class="btn-tutorials">
-                                    1.1. Présentation
-                                </a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
+            {% endfor %}
 
         </div>
 
