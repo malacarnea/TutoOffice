@@ -6,27 +6,29 @@
     <div class="content">
         <div class="formations-block">
             <div class="title-page">
-                <h1>Formations vidéos disponibles</h1>
+                <h1>Formations vidéos disponibles</h1> 
                 <hr class="separator-blue"></hr>
+                <input type="button" class="bt-link add-formation" value="+ Nouvelle Formation"/>
             </div>
             <!-- boucle pour afficher les formations -->
             {% for formation in formations %}
                 <div class="fieldset-formation">
                     <div class="formation-header-title">
                         <i class="fas fa-chevron-right"></i>
-                        <h2>{{ formation.formation.title }}</h2>
+                        <h2>{{ formation.formation.title }} <i class="fas fa-pen modify"></i><i class="fas fa-trash-alt delete"></i></h2>
+                            
                     </div>
                     <!-- boucle pour afficher les chapitres -->
                     <ul class="chapters">
                         {% for chapter in formation.chapters %}
                             <li>
-                                <h3>{{ chapter.chapter.title }}</h3>
+                                <h3>{{ chapter.chapter.title }} <i class="fas fa-pen modify"></i><i class="fas fa-trash-alt delete"></i></h3>
                                 <ul class="tutorials">
                                     {% for tuto in chapter.tutorials %}
                                         <!-- boucle pour afficher les tuto -->
                                         <li><a href="{{ tuto.url }}" class="btn-tutorials">
                                                 <i class="far fa-play-circle"></i> {{ tuto.title }}
-                                            </a></li>
+                                            </a> <i class="fas fa-pen modify"></i><i class="fas fa-trash-alt delete"></i></li>
                                         {% endfor %}
                                 </ul>
                             </li>

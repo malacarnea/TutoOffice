@@ -295,7 +295,7 @@ input[type="submit"]{
     font-size:1.1em;
     padding:0;
     margin:0;
-    width:100%;
+    border:1px solid red;
 }
 .formations-block h2,.formations-block h3 {
     font-size:1em;
@@ -304,11 +304,16 @@ input[type="submit"]{
     width: 32em;
     height:0;
     margin-left:0;
+    grid-column: 1;
     border:2px solid #2081ff;
 }
 
 .title-page{
-    grid-column: 1/ span 12;
+    grid-column: 1/ span 10;
+    display:grid;
+    grid-template-column:2fr 1fr;
+    align-items: start;
+    grid-column-gap:15px;
 }
 
 .fieldset-formation{
@@ -342,4 +347,26 @@ ul.chapters{
 ul.tutorials{
     padding:0;
     margin:0 0 5% 0;
+}
+
+i.modify{
+    color:#2081ff;
+    margin-left:10px;
+}
+i.modify:hover, i.delete:hover{
+    cursor:pointer;
+}
+
+i.delete{
+    color:grey;
+    margin-left:10px;
+}
+
+input.add-formation{
+    color:#2081FF;
+    border:none;
+    justify-self:start;
+    grid-row:1; 
+    grid-column:2;
+    
 }
