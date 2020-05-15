@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Chapters;
 use App\Entity\Formations;
 use App\Entity\Tutorials;
+use App\Form\FormationsType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class AdminController extends AbstractController
 {
@@ -31,6 +33,19 @@ class AdminController extends AbstractController
             'formations' => $toSend,
         ]);
     }
+    
+    public function addFormation(Request $request){
+        $formation=new Formations();
+        
+        
+        $form=$this->createForm(FormationsType::class, $formation);
+        
+        return $this->render('site/admin/addFormation.html.twig',[
+                'form'=>$form->createView(),
+            ]);
+    }
+    
+    
     
     
 }
