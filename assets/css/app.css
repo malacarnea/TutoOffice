@@ -242,11 +242,12 @@ form{
     height:75%;
 }
 
-input[type="text"], input[type="password"]{
+input[type="text"], input[type="password"], select{
     border: 2px solid #2081FF;
     width:50vh;
     height:5vh;
     padding-left:2%;
+    margin: 2% 0;
 }
 input[type="submit"]{
     border:none;
@@ -295,7 +296,6 @@ input[type="submit"]{
     font-size:1.1em;
     padding:0;
     margin:0;
-    border:1px solid red;
 }
 .formations-block h2,.formations-block h3 {
     font-size:1em;
@@ -349,20 +349,25 @@ ul.tutorials{
     margin:0 0 5% 0;
 }
 
-i.modify{
+i[data-action="modify"]{
     color:#2081ff;
     margin-left:10px;
 }
-i.modify:hover, i.delete:hover{
+i[data-action="add"]{
+    color:#00cc00;
+    margin-left:10px;
+    
+}
+i[data-action="modify"]:hover, i[data-action="delete"]:hover, i[data-action="add"]:hover{
     cursor:pointer;
 }
 
-i.delete{
+i[data-action="delete"]{
     color:grey;
     margin-left:10px;
 }
 
-input.add-formation{
+input[data-action="add"]{
     color:#2081FF;
     border:none;
     justify-self:start;

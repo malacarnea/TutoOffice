@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Chapters;
 use App\Entity\Formations;
 use App\Entity\Tutorials;
+use App\Form\ChaptersType;
 use App\Form\FormationsType;
+use App\Form\TutorialsType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -34,14 +36,33 @@ class AdminController extends AbstractController
         ]);
     }
     
-    public function addFormation(Request $request){
-        $formation=new Formations();
+    public function add(Request $request){
+        if(isset($request->request)){
+            switch($request->request->get('entity')){
+                case 'formations':
+                    $title="Nouvelle Formation";
+                    $formation=new Formations();
+                    $form=$this->createForm(FormationsType::class, $formation);
+                    break;
+                case 'chapters':
+                     $title="Ajouter un chapitre";
+                    $chapter=new Chapters();
+                    //create form with formation id pasted in parameter
+                    $form=$this->createForm(ChaptersType::class, $chapter, ['id'=>intval($request->request->get('id_parent'))]);
+                    break;
+                case 'tutorials':
+                 $title="Ajouter un tutoriel";
+                    $tuto=new Tutorials();
+                    $form=$this->createForm(TutorialsType::class, $tuto, ['id'=>intval($request->request->get('id_parent'))]);
+                    break;
+            }
+        }
         
         
-        $form=$this->createForm(FormationsType::class, $formation);
         
-        return $this->render('site/admin/addFormation.html.twig',[
+        return $this->render('site/admin/add.html.twig',[
                 'form'=>$form->createView(),
+                'title'=>$title,
             ]);
     }
     

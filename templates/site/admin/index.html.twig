@@ -8,32 +8,42 @@
             <div class="title-page">
                 <h1>Formations vidéos disponibles</h1> 
                 <hr class="separator-blue"></hr>
-                <input type="button" class="bt-link add-formation" data-toggle='modal' data-target="#formBox" value="+ Nouvelle Formation"/>
+                <input type="button" class="bt-link" data-action="add" data-entity="formations" data-toggle='modal' data-target="#formBox" value="+ Nouvelle Formation"/>
             </div>
             <!-- boucle pour afficher les formations -->
             {% for formation in formations %}
                 <div class="fieldset-formation">
                     <div class="formation-header-title">
                         <i class="fas fa-chevron-right"></i>
-                        <h2 data-field="formation" data-id="{{ formation.formation.id }}">{{ formation.formation.title }} <i class="fas fa-pen modify"></i><i class="fas fa-trash-alt delete"></i></h2>
-
+                        <h2 data-field="formation" data-id="{{ formation.formation.id }}">{{ formation.formation.title }} <i class="fas fa-pen" data-action="modify"></i><i class="fas fa-trash-alt" data-action="delete"></i>
+                            <i class="fas fa-plus" data-action="add" data-entity="chapters" data-toggle='modal' data-target="#formBox"></i>
+                        </h2>
+                        
+           
                     </div>
                     <!-- boucle pour afficher les chapitres -->
                     <ul class="chapters">
                         {% for chapter in formation.chapters %}
                             <li>
-                                <h3 data-field="chapter" data-id="{{ chapter.chapter.id }}">{{ chapter.chapter.title }} <i class="fas fa-pen modify"></i><i class="fas fa-trash-alt delete"></i></h3>
+                                <h3 data-field="chapter" data-id="{{ chapter.chapter.id }}" data-id-parent="{{ formation.formation.id }}">{{ chapter.chapter.title }} <i class="fas fa-pen" data-action="modify"></i><i class="fas fa-trash-alt" data-action="delete"></i>
+                                    <i class="fas fa-plus" data-action="add" data-entity="tutorials" data-toggle='modal' data-target="#formBox"></i>
+           
+                                </h3>
+                               
                                 <ul class="tutorials">
                                     {% for tuto in chapter.tutorials %}
                                         <!-- boucle pour afficher les tuto -->
-                                        <li data-field="tutorial" data-id="{{ tuto.id }}"><a href="{{ tuto.url }}" class="btn-tutorials">
+                                        <li data-field="tutorial" data-id="{{ tuto.id }}" data-id-parent="{{ chapter.chapter.id }}"><a href="{{ tuto.url }}" class="btn-tutorials">
                                                 <i class="far fa-play-circle"></i> {{ tuto.title }}
-                                            </a> <i class="fas fa-pen modify"></i><i class="fas fa-trash-alt delete"></i></li>
+                                            </a> <i class="fas fa-pen" data-action="modify"></i><i class="fas fa-trash-alt" data-action="delete"></i></li>
                                             {% endfor %}
+                                     
+           
                                 </ul>
                             </li>
                         {% endfor %}
                     </ul>
+                     
                 </div>
             {% endfor %}
 

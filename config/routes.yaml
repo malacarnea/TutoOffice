@@ -12,3 +12,11 @@ connection:
 admin:
     path: /admin
     controller: App\Controller\AdminController::index
+    
+admin_add:
+    path: /admin/add
+    controller: App\Controller\AdminController::add
+    
+admin_delete:
+    path: /admin/delete/{id}
+    controller: App\Controller\AdminController::delete
