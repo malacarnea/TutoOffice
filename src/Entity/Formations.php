@@ -7,6 +7,8 @@ use App\Entity\Categories;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\FormationsRepository")
  */
@@ -20,12 +22,14 @@ class Formations
     private $id;
 
     /**
+     * @Assert\NotBlank
+     * @Assert\Type("string")
      * @ORM\Column(type="string", length=255)
      */
     private $title;
     
      /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Chapters",  cascade={"persist", "remove"}, mappedBy="formation") 
+     * @ORM\OneToMany(targetEntity="App\Entity\Chapters", cascade={"persist", "remove"}, mappedBy="formation") 
      */
     protected $chapters;
     

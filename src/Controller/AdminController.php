@@ -37,34 +37,46 @@ class AdminController extends AbstractController
     }
     
     public function add(Request $request){
+        $entity=null; $form=null;
         if(isset($request->request)){
             switch($request->request->get('entity')){
                 case 'formations':
                     $title="Nouvelle Formation";
-                    $formation=new Formations();
-                    $form=$this->createForm(FormationsType::class, $formation);
+                    $entity=new Formations();
+                    $form=$this->createForm(FormationsType::class, $entity);
                     break;
                 case 'chapters':
                      $title="Ajouter un chapitre";
-                    $chapter=new Chapters();
+                    $entity=new Chapters();
                     //create form with formation id pasted in parameter
-                    $form=$this->createForm(ChaptersType::class, $chapter, ['id'=>intval($request->request->get('id_parent'))]);
+                    $form=$this->createForm(ChaptersType::class, $entity, ['id'=>intval($request->request->get('id_parent'))]);
                     break;
                 case 'tutorials':
                  $title="Ajouter un tutoriel";
-                    $tuto=new Tutorials();
-                    $form=$this->createForm(TutorialsType::class, $tuto, ['id'=>intval($request->request->get('id_parent'))]);
+                    $entity=new Tutorials();
+                    $form=$this->createForm(TutorialsType::class, $entity, ['id'=>intval($request->request->get('id_parent'))]);
                     break;
             }
+            //save data from submitted form
+            $form->handleRequest($request);
+            if($form->isSubmitted()&& $form->isValid()){
+                $entity=$form->getData();
+                $em=$this->getDoctrine()->getManager();
+                $em->persist($entity);
+                $em->flush();
+                //TODO add flash message to warn about the success
+                
+                return $this->redirectToRoute('admin');
+            }
         }
-        
-        
-        
+        //render form
         return $this->render('site/admin/add.html.twig',[
                 'form'=>$form->createView(),
                 'title'=>$title,
             ]);
     }
+    
+
     
     
     

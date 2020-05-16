@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Chapters;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TutorialsRepository")
  */
@@ -18,11 +20,15 @@ class Tutorials
     private $id;
 
     /**
+     * @Assert\NotBlank
+     * @Assert\Type("string")
      * @ORM\Column(type="string", length=255)
      */
     private $title;
 
     /**
+     * @Assert\NotBlank
+     * @Assert\Url(message="L'url n'est pas valide")
      * @ORM\Column(type="string", length=255)
      */
     private $url;

@@ -6,6 +6,8 @@ use App\Entity\Formations;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ChaptersRepository")
  */
@@ -19,6 +21,8 @@ class Chapters
     private $id;
 
     /**
+     * @Assert\NotBlank
+     * @Assert\Type("string")
      * @ORM\Column(type="string", length=255)
      */
     private $title;
