@@ -13,9 +13,17 @@ admin:
     path: /admin
     controller: App\Controller\AdminController::index
     
-admin_add:
-    path: /admin/add
-    controller: App\Controller\AdminController::add
+admin_add_chapter:
+    path: /admin/add/chapter
+    controller: App\Controller\AdminController::addChapter
+
+admin_add_formation:
+    path: /admin/add/formation
+    controller: App\Controller\AdminController::addFormation
+    
+admin_add_tutorial:
+    path: /admin/add/tutorial
+    controller: App\Controller\AdminController::addTutorial
     
 admin_delete:
     path: /admin/delete/{id}

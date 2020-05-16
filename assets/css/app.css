@@ -17,6 +17,7 @@ html, body, #global{
     margin-top: 0;
 }
 
+
 .main-grid{
     display:grid;
     grid-area:"auto footer";
@@ -29,6 +30,9 @@ header, footer{
 header{
    width:95%;
    position:absolute;
+}
+.alert{
+    grid-column:1/span 10;  
 }
 #index{
     align-self: auto;
@@ -231,7 +235,7 @@ p.metier{
     opacity: 1;
 }
 
-form{
+#fieldset_connection form{
     margin-top:5%;
     display:grid;
     grid-gap:1%;

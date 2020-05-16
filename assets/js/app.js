@@ -16,19 +16,16 @@ import $ from 'jquery';
 require('bootstrap');
 
 $(document).ready(function(){
-   console.log("booh Jquery !"); 
+   
 });
 
 $('#formBox').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget); // Button that triggered the modal
-  var action=button.data("action");
-  var entity=button.data("entity");
-  console.log(entity);
+  var url=button.data("url");
+  
   var modal = $(this);
-  var url='/admin/'+action;
   $.post(url, {
-      entity: entity,
-      id_parent: button.parent().data('id-parent')
+      id_parent: button.parent().data('id')
   }, function(response){
     modal.find('.modal-content').html(response);
   });
@@ -38,7 +35,7 @@ $('#formBox').on('show.bs.modal', function (event) {
   
 });
 
+
 const imagesContext = require.context('../images', true, /\.(png|jpg|jpeg|gif|ico|svg|webp)$/);
 imagesContext.keys().forEach(imagesContext);
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
