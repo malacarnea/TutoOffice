@@ -2,6 +2,8 @@
 
 namespace App\Form;
 
+use App\Entity\Tutorials;
+use App\Form\DataTransformer\ChaptersTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -10,6 +12,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class TutorialsType extends AbstractType {
 
+    private $transformer;
+    public function __construct(ChaptersTransformer $transformer){
+        $this->transformer=$transformer;
+    }
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add("title", TextType::class, [
@@ -21,17 +27,18 @@ class TutorialsType extends AbstractType {
                 'label' => false,
             ])
             ->add('chapter', HiddenType::class, [
-                'attr' => ['name' => 'chapter','value' => $options["id"]]
+                 'invalid_message' => 'Le transformer a buggé',
                 ])
 
         ;
+        $builder->get('chapter')
+                ->addModelTransformer($this->transformer);
     }
 
     public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults([
-            'id' => 1,
+            'data_class' => Tutorials::class,
         ]);
-         $resolver->setAllowedTypes('id', 'int');
     }
 
 }

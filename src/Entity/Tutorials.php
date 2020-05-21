@@ -28,7 +28,7 @@ class Tutorials
 
     /**
      * @Assert\NotBlank
-     * @Assert\Url(message="L'url n'est pas valide")
+     * @Assert\Type("string")
      * @ORM\Column(type="string", length=255)
      */
     private $url;

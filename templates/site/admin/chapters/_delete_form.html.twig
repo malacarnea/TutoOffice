@@ -1,0 +1,5 @@
+<form class="inline-form" method="post" action="{{ path('admin.chapters.delete', {'id': id}) }}" onsubmit="return confirm('Voulez-vous vraiment supprimer ce chapitre ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ id) }}">
+    <button type="submit"><i class="fas fa-trash-alt" data-action="delete"></i></button>
+</form>

@@ -251,7 +251,7 @@ input[type="text"], input[type="password"], select{
     width:50vh;
     height:5vh;
     padding-left:2%;
-    margin: 2% 0;
+    margin: 2% auto;
 }
 input[type="submit"]{
     border:none;
@@ -362,7 +362,7 @@ i[data-action="add"]{
     margin-left:10px;
     
 }
-i[data-action="modify"]:hover, i[data-action="delete"]:hover, i[data-action="add"]:hover{
+i[data-action="modify"]:hover, i[data-action="add"]:hover{
     cursor:pointer;
 }
 
@@ -377,5 +377,19 @@ input[data-action="add"]{
     justify-self:start;
     grid-row:1; 
     grid-column:2;
-    
+}
+
+.inline-form{
+    display:inline;
+}
+.inline-form button{
+    border:none;
+    background: none;
+    padding:0;
+    margin:0;
+}
+
+.modal-body{
+    display:grid;
+    justify-content: center;
 }
