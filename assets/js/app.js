@@ -12,7 +12,6 @@ import '../css/app.css';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
-require('util');
 require('bootstrap');
 
 $(document).ready(function(){
@@ -34,6 +33,7 @@ $('#formBox').on('show.bs.modal', function (event) {
   
   
 });
+
 
 
 const imagesContext = require.context('../images', true, /\.(png|jpg|jpeg|gif|ico|svg|webp)$/);
