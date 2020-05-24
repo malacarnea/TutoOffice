@@ -293,33 +293,35 @@ input[type="submit"]{
     justify-self: start;
     border:1px solid green;
 }
+.btn-ctl{
+    display: inline;
+}
 .formation-header-title i{
     display:inline;
     color:#2081ff;
 }
-.formation-header-title h2{
-    display:inline;
-}
+
 .formation-header-title{
     grid-column:1/ span 12;
     padding:1%;
 }
 
-.formations-block h1,.formations-block h2,.formations-block h3 {
+.tabpanel-block h1,.tabpanel-block h2,.tabpanel-block h3 {
     color:#2081FF;
+    display:inline;
 }
-.formations-block h1{
+.tabpanel-block h1{
     font-size:1.1em;
     padding:0;
     margin:0;
 }
-.formations-block h2,.formations-block h3 {
+.tabpanel-block h2,.tabpanel-block h3 {
     font-size:1em;
 }
 .separator-blue{
     width: 32em;
     height:0;
-    margin-left:0;
+    margin:0;
     grid-column: 1;
     border:2px solid #2081ff;
 }
@@ -339,7 +341,7 @@ input[type="submit"]{
     grid-template-columns:repeat(12, 1fr);
     grid-template-rows:1fr auto;
     box-shadow: 0px 3px 15px #00000029;
-    margin-top: 3%;
+    margin-top: 5%;
     padding-bottom:3%;
 }
 a.btn-tutorials{
