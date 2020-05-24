@@ -1,16 +1,13 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Chapters;
 use App\Entity\Formations;
 use App\Entity\Tutorials;
-use App\Form\ChaptersType;
-use App\Form\FormationsType;
-use App\Form\TutorialsType;
+use App\Entity\Users;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends AbstractController {
@@ -40,10 +37,18 @@ class AdminController extends AbstractController {
             }
             array_push($toSend, Array("formation" => $formation, "chapters" => $temp_chap));
         }
+        
+        $users=$this->em->getRepository(Users::class)->findAll();
         return $this->render('site/admin/index.html.twig', [
                     'formations' => $toSend,
+                    'users'=>$users,
         ]);
     }
+    
+//    public function indexUsers(){
+//        $users=$this->em->getRepository(Users::class)->findAll();
+//        
+//    }
     
 
 }

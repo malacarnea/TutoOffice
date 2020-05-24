@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Chapters;
 use App\Entity\Categories;
+use App\Entity\Users;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -40,7 +41,7 @@ class Formations
     protected $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="formations")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Users", mappedBy="formations")
      */
     private $users;
     
@@ -102,7 +103,7 @@ class Formations
         return $this->users;
     }
 
-    public function addUser(User $user): self
+    public function addUser(Users $user): self
     {
         if (!$this->users->contains($user)) {
             $this->users[] = $user;
@@ -112,7 +113,7 @@ class Formations
         return $this;
     }
 
-    public function removeUser(User $user): self
+    public function removeUser(Users $user): self
     {
         if ($this->users->contains($user)) {
             $this->users->removeElement($user);
