@@ -18,12 +18,12 @@ class UsersController extends AbstractController
     
 
     /**
-     * @Route("/new", name="user_new", methods={"GET","POST"})
+     * @Route("/add", name="admin.users.add", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function add(Request $request): Response
     {
         $user = new Users();
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UsersType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -31,47 +31,47 @@ class UsersController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('admin.index');
         }
 
-        return $this->render('user/new.html.twig', [
+        return $this->render('site/admin/users/add.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="user_show", methods={"GET"})
+     * @Route("/{id}", name="admin.users.show", methods={"GET"})
      */
     public function show(Users $user): Response
     {
-        return $this->render('user/show.html.twig', [
+        return $this->render('site/admin/users/show.html.twig', [
             'user' => $user,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="admin.users.edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Users $user): Response
     {
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UsersType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('admin.index');
         }
 
-        return $this->render('user/edit.html.twig', [
+        return $this->render('site/admin/users/edit.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="user_delete", methods={"DELETE"})
+     * @Route("/{id}", name="admin.users.delete", methods={"DELETE"})
      */
     public function delete(Request $request, Users $user): Response
     {
@@ -81,6 +81,6 @@ class UsersController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('user_index');
+        return $this->redirectToRoute('admin.index');
     }
 }

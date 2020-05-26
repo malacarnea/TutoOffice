@@ -18,7 +18,10 @@
                 <td>{{ user.access ? user.access.format('%y year(s), %m month(s), %d day(s)') : '' }}</td>
                 <td>{{ user.dateFirstConnect ? user.dateFirstConnect|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                     <div class="btn-ctl" data-field="formation" data-id="{{ user.id }}"> <i class="fas fa-pen" data-action="modify" data-url="/admin/formations/edit/{{ formation.formation.id }}" data-toggle='modal' data-target="#formBox"></i>
+                   
+                    <div class="btn-ctl" data-field="users" data-id="{{ user.id }}"> 
+                        <i class="fas fa-info-circle" data-action="modify" data-url="/admin/users/{{ user.id }}" data-toggle='modal' data-target="#formBox"></i>
+                        <i class="fas fa-pen" data-action="modify" data-url="/admin/users/edit/{{ user.id }}" data-toggle='modal' data-target="#formBox"></i>
                     {{ include('site/admin/users/_delete_form.html.twig', {'id':user.id}) }}
                      </div>
                 </td>
@@ -31,5 +34,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('user_new') }}">Create new</a>
+
 
