@@ -246,12 +246,16 @@ p.metier{
     height:75%;
 }
 
-input[type="text"], input[type="password"], select{
-    border: 2px solid #2081FF;
-    width:50vh;
+input[type="text"], input[type="password"], input[type="email"], input[type="number"]{
     height:5vh;
+    width:50vh;
     padding-left:2%;
     margin: 2% auto;
+    border-radius:4px;
+}
+input[type="checkbox"]{
+    marin:0;
+    padding:0;
 }
 input[type="submit"]{
     border:none;
@@ -416,4 +420,34 @@ input[data-action="add"]{
 .modal-body{
     display:grid;
     justify-content: center;
+}
+.modal-body div{
+    width:51vh;
+}
+label{
+    font-weight: 700;
+    color:#2081ff;
+}
+th label {
+    font-weight:500;
+    color:gray;
+    padding:0 2%;
+}
+label{
+    display:block;
+}
+
+/*Styles rewritten*/
+span.select2-selection.select2-selection--multiple,
+span.select2-selection.select2-selection--single,
+input[type="text"], input[type="password"], input[type="email"], input[type="number"]{
+    border:1px solid #2081ff;
+}
+span.select2-selection.select2-selection--multiple{
+    width:50vh;
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple,
+.select2-container--default.select2-container--focus .select2-selection--single,
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="number"]:focus{
+    border:2px solid #2081ff;
 }

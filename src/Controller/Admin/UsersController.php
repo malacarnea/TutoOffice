@@ -4,83 +4,92 @@ namespace App\Controller\Admin;
 
 use App\Entity\Users;
 use App\Form\UsersType;
-use App\Repository\UsersRepository;
+use App\Services\PasswordGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/admin/users")
  */
-class UsersController extends AbstractController
-{
-    
+class UsersController extends AbstractController {
 
     /**
      * @Route("/add", name="admin.users.add", methods={"GET","POST"})
      */
-    public function add(Request $request): Response
-    {
+    public function add(Request $request, PasswordGenerator $pg, UserPasswordEncoderInterface $encoder): Response {
         $user = new Users();
+        //call password generator and encode the password
         $form = $this->createForm(UsersType::class, $user);
         $form->handleRequest($request);
-
+        $plainPassword=$pg->generatePassword();
+        $user->setPlainPassword($plainPassword);
+        $encoded = $encoder->encodePassword($user, $plainPassword);
+        $user->setPassword($encoded);
+        $this->addFlash('success', "password : " . $plainPassword);
+        //TODO send email here with the plain password
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('admin.index');
+//            $entityManager = $this->getDoctrine()->getManager();
+//            $entityManager->persist($user);
+//            $entityManager->flush();
+            $url = $this->UsersIndexUrl();
+            return $this->redirectToRoute($url);
         }
 
         return $this->render('site/admin/users/add.html.twig', [
-            'user' => $user,
-            'form' => $form->createView(),
+                    'user' => $user,
+                    'form' => $form->createView(),
         ]);
     }
 
     /**
      * @Route("/{id}", name="admin.users.show", methods={"GET"})
      */
-    public function show(Users $user): Response
-    {
+    public function show(Users $user): Response {
         return $this->render('site/admin/users/show.html.twig', [
-            'user' => $user,
+                    'user' => $user,
         ]);
     }
 
     /**
      * @Route("/edit/{id}", name="admin.users.edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Users $user): Response
-    {
+    public function edit(Request $request, Users $user): Response {
         $form = $this->createForm(UsersType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('admin.index');
+            $url = $this->UsersIndexUrl();
+            return $this->redirectToRoute($url);
         }
 
         return $this->render('site/admin/users/edit.html.twig', [
-            'user' => $user,
-            'form' => $form->createView(),
+                    'user' => $user,
+                    'form' => $form->createView(),
         ]);
     }
 
     /**
      * @Route("/{id}", name="admin.users.delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Users $user): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+    public function delete(Request $request, Users $user): Response {
+        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('admin.index');
+        $url = $this->UsersIndexUrl();
+        return $this->redirectToRoute($url);
     }
+
+    protected function UsersIndexUrl() {
+        return $this->generateUrl('admin.index', [
+                    '_fragment' => 'users_list'
+        ]);
+    }
+
 }

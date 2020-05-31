@@ -22,6 +22,7 @@ class Tutorials
     /**
      * @Assert\NotBlank
      * @Assert\Type("string")
+     * @Assert\Length(min=10)
      * @ORM\Column(type="string", length=255)
      */
     private $title;

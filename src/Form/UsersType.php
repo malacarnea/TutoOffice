@@ -18,44 +18,48 @@ class UsersType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
                 ->add('lastname', TextType::class, [
-                    'attr' => ['name' => 'lastname', 'placeholder' => 'Nom',],  
-                    'label'=>false,
+                    'attr' => ['name' => 'lastname',],  
+                    'label'=>"Nom",
                 ])
                 ->add('firstname', TextType::class, [
-                    'attr' => ['name' => 'firstname', 'placeholder' => 'Prénom',],       
-                    'label'=>false,
+                    'attr' => ['name' => 'firstname',],       
+                    'label'=> 'Prénom',
                 ])
                 ->add('email', EmailType::class, [
-                    'attr' => ['name' => 'email', 'placeholder' => 'Email',],      
-                    'label'=>false,
+                    'attr' => ['name' => 'email',],      
+                    'label'=>'Email',
                 ])
                 ->add('roles', ChoiceType::class, [
                     'choices' => [
-                        'Admin'=> 'admin',
-                        'Formateur'=> 'teacher',
-                        'Stagiaire' => 'user',
+                        'Admin'=> 'ROLE_ADMIN',
+                        'Formateur'=> 'ROLE_TEACHER',
+                        'Stagiaire'=>'ROLE_TRAINEE'
                     ],
                     'multiple' => true,
-                    'expanded' => true,
+                    'expanded' => false,
                     'attr' => ['name' => 'roles'],
+                    'label' =>'Roles de l\'utilisateur',
                 ])
                 ->add('access', DateIntervalType::class, [
-                    'widget' => 'integer', // render a text field for each part
+                    'widget' => 'choice', // render a text field for each part
                     // 'input'    => 'string',  // if you want the field to return a ISO 8601 string back to you
                     // customize which text boxes are shown
-                    'with_years' => true,
-                    'with_months' => true,
-                    'with_days' => true,
-                    'with_hours' => false,
-                    'label'=>false,
+                    'years' => range(1,10),
+                    'months' => range(1,12),
+                    'with_days'=>false,
+                    'label'=>"Accès",
+                    'labels'=>[
+                        'months'=>'Mois',
+                        'years'=>'Années',
+                    ],
                 ])
                 ->add('formations', EntityType::class, [
                     'class' => Formations::class,
                     'choice_label' => 'title',
-                    'multiple' => false,
+                    'multiple' => true,
                     'expanded' => false,
                     'attr' => ['name' => 'formations'],
-                    'label'=>false,
+                    'label'=>'Peut suivre les formations :',
                 ])
         ;
     }

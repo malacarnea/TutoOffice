@@ -25,6 +25,7 @@ class Formations
 
     /**
      * @Assert\NotBlank
+     * @Assert\NotNull
      * @Assert\Type("string")
      * @ORM\Column(type="string", length=255)
      */

@@ -6,9 +6,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
+ * @UniqueEntity("email")
  */
 class Users implements UserInterface
 {
@@ -20,6 +23,9 @@ class Users implements UserInterface
     private $id;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Email(message="Cet email n'est pas valide.")
+     * @Assert\Length(max=180)
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
@@ -28,29 +34,43 @@ class Users implements UserInterface
      * @ORM\Column(type="json")
      */
     private $roles = [];
-
+    
     /**
+     * @Assert\NotBlank()
+     * @Assert\Regex(pattern="/[0-9]+[A-Z]+/", message="Votre mot de passe doit contenir au moins un chiffre et une lettre en majuscule.")
+     * @Assert\Length(max=4096, min=10, minMessage="Votre mot de passe doit contenir au moins 10 caractères.")
+     */
+    private $plainPassword;
+    
+
+     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=255)
      * @ORM\Column(type="string", length=255)
      */
     private $firstname;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=255)
      * @ORM\Column(type="string", length=255)
      */
     private $lastname;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\ManyToMany(targetEntity="App\Entity\Formations", inversedBy="users")
      */
     private $formations;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="dateinterval")
      */
     private $access;
@@ -110,6 +130,15 @@ class Users implements UserInterface
 
         return $this;
     }
+    
+    function getPlainPassword() {
+        return $this->plainPassword;
+    }
+
+    function setPlainPassword($plainPassword): void {
+        $this->plainPassword = $plainPassword;
+    }
+    
 
     /**
      * @see UserInterface

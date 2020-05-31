@@ -7,6 +7,7 @@ use App\Entity\Tutorials;
 use App\Form\TutorialsType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -41,7 +42,7 @@ class TutorialsController extends AbstractController {
             $this->em->persist($tuto);
             $this->em->flush();
             $this->addFlash('success', 'Le tutoriel \'' . $tuto->getTitle() . '\' a bien été ajouté.');
-            return $this->redirectToRoute('admin');
+            return $this->redirectToRoute('admin.index');
         }
         //render form
         return $this->render('site/admin/tutorials/add.html.twig', [
@@ -58,14 +59,14 @@ class TutorialsController extends AbstractController {
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-            $this->addFlash('success', 'Le tutoriel \'' . $tuto->getTitle() . '\' a bien été modifié.');
-            return $this->redirectToRoute('admin.index');
+            $this->addFlash('success', 'Le tutoriel \'' . $tutorial->getTitle() . '\' a bien été modifié.');
+            return $this->redirectToRoute("admin.index"); //new JsonResponse(["url"=>"admin.index"]);
         }
-
         return $this->render('/site/admin/tutorials/edit.html.twig', [
                     'tutorial' => $tutorial,
                     'form' => $form->createView(),
         ]);
+
     }
 
     /**

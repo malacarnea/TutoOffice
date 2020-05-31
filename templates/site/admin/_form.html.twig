@@ -12,7 +12,7 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-    <button id="save" type="submit" formaction="{{ target }}" class="btn btn-primary">Enregistrer</button>
+    <button id="save" type="button" data-action="form" data-url="{{ target }}" data-toggle='modal' data-target="#formBox" class="btn btn-primary">Enregistrer</button>
 
 </div>
 {{ form_end(form) }}
