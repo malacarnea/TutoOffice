@@ -7,6 +7,7 @@ use App\Entity\Formations;
 use App\Form\ChaptersType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,7 +41,8 @@ class ChaptersController extends AbstractController {
             $this->em->persist($chapter);
             $this->em->flush();
             $this->addFlash('success', 'Le chapitre \'' . $chapter->getTitle() . '\' a bien été ajouté.');
-            return $this->redirectToRoute('admin.index');
+            //redirection will be made with AJAX
+            return new JsonResponse(["url"=>"/admin"]);
         }
         //render form
         return $this->render('site/admin/chapters/add.html.twig', [
@@ -57,7 +59,7 @@ class ChaptersController extends AbstractController {
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash("success", "Le chapitre a bien été modifié.");
-            return $this->redirectToRoute('admin.index');
+            return new JsonResponse(["url"=>"/admin"]);
         }
         return $this->render('site/admin/chapters/edit.html.twig', [
                     'chapter' => $chapter,

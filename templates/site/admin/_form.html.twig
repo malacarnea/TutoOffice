@@ -6,6 +6,7 @@
 </div>
 {{ form_start(form) }}
 <div class="modal-body">
+    {{ form_errors(form) }}
     {% for f in form %}
         {{ form_row(f) }}
     {% endfor %}

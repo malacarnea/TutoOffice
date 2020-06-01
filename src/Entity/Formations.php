@@ -26,6 +26,7 @@ class Formations
     /**
      * @Assert\NotBlank
      * @Assert\NotNull
+     * @Assert\Length(min=10, max=255, minMessage="Le titre est trop court. Il doit avoir au moins 10 caractères.", maxMessage="Le titre est trop long. Il doit faire moins de 255 caractères.")
      * @Assert\Type("string")
      * @ORM\Column(type="string", length=255)
      */

@@ -19,38 +19,36 @@ $(document).ready(function () {
 
 });
 
-$('#formBox').on('show.bs.modal', callBackModal);
-
-function callBackModal(event) {
-    var button;
-    var modal;
-    var data;
-    if ($(this).attr("id") === "formBox") {
-        button = $(event.relatedTarget); // Button that triggered the modal
-        modal = $(this);
-        data = {id_parent: button.parent().data('id')};
-    } else {
-        button = $(this);
-        modal = $("#formBox");
-        data = button.closest("form").serialize();
-
-    }
-
+$('#formBox').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget); // Button that triggered the modal
+    var modal = $(this);
+    var data = {id_parent: button.parent().data('id')};
     var url = button.data("url");
+    $.get(url, data, function (res) {
+        modal.find('.modal-content').html(res);
+        $('select').select2();
+        $('#save').on('click', callModalBySaveBtn);
+
+    });
+});
+
+function callModalBySaveBtn(e) {
+    var button = $(this);
+    var modal = $("#formBox");
+    var data = button.closest("form").serialize();
+    var url = button.data("url");
+    e.stopPropagation();//keep the modal visible
     $.post(url, data, function (res) {
-        console.log(res);
         if (res.hasOwnProperty("url")) {
             window.location.assign(res.url);
         } else {
-            event.preventDefault();
             modal.find('.modal-content').html(res);
             $('select').select2();
-            $("#save").on("click", callBackModal);
-           // modal.modal('show');
+            $('#save').on('click', callModalBySaveBtn);
         }
     });
-
 }
+
 
 
 const imagesContext = require.context('../images', true, /\.(png|jpg|jpeg|gif|ico|svg|webp)$/);

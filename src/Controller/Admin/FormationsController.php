@@ -6,6 +6,7 @@ use App\Entity\Formations;
 use App\Form\FormationsType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -34,7 +35,7 @@ class FormationsController extends AbstractController {
             $this->em->persist($formation);
             $this->em->flush();
             $this->addFlash('success', 'La formation \'' . $formation->getTitle() . '\' a bien été ajoutée.');
-            return $this->redirectToRoute('admin.index');
+            return new JsonResponse(["url"=>"/admin"]);
         }
         //render form
         return $this->render('site/admin/formations/add.html.twig', [
@@ -52,7 +53,7 @@ class FormationsController extends AbstractController {
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin.index');
+            return new JsonResponse(["url"=>"/admin"]);
         }
 
         return $this->render('site/admin/formations/edit.html.twig', [
