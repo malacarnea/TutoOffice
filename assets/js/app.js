@@ -16,7 +16,15 @@ import $ from 'jquery';
 require('bootstrap');
 require('select2');
 $(document).ready(function () {
-
+    console.log(window.location.href);
+    //change highlight on admin menu
+    if(RegExp("admin\/$").test(window.location.href)){
+        $("#formations-tab").addClass("active");
+        $("#users-tab").removeClass("active");
+    }else if(RegExp("admin\/users$").test(window.location.href)){
+         $("#users-tab").addClass("active");
+        $("#formations-tab").removeClass("active");
+    }
 });
 
 $('#formBox').on('show.bs.modal', function (event) {

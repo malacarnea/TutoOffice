@@ -85,10 +85,13 @@ class UsersType extends AbstractType {
     public function onPreSubmitData(FormEvent $event) {
         $plainPassword = $this->pg->generatePassword();
         $form = $event->getForm();
+        $user=$event->getData();
         $form->add('plainPassword', HiddenType::class, [
             'attr' => ['name' => 'plainPassword'],
             'data' => $plainPassword,
         ]);
+        $user['plainPassword']=$plainPassword;
+        $event->setData($user);
     }
 
 }

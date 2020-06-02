@@ -1,3 +1,5 @@
+{% extends '/site/admin/index.html.twig' %}
+{% block tab_content  %}
 <div class="tabpanel-block">
     {% for msg in app.flashes('success') %}
         <div class="alert alert-success" role="alert">
@@ -62,3 +64,4 @@
     {% endfor %}
 
 </div>
+{% endblock %}

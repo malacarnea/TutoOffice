@@ -72,7 +72,7 @@ class FormationsController extends AbstractController {
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('admin.index');
+        return $this->redirectToRoute('admin.index.formations');
     }
 
 }

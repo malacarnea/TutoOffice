@@ -10,6 +10,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("admin")
+ */
 class AdminController extends AbstractController {
 
     private $em;
@@ -19,10 +22,10 @@ class AdminController extends AbstractController {
     }
     
     /**
-     * @Route("/admin", name="admin.index")
+     * @Route("/", name="admin.index.formations")
      * @return type
      */
-    public function index() {
+    public function indexFormations() {
         //pour la mise en place des utilisateurs, il faudra checker si l'utilisateur peut 
         //bien suivre la formation et adapter la requete en fonction
         $toSend = Array();
@@ -39,16 +42,21 @@ class AdminController extends AbstractController {
         }
         
         $users=$this->em->getRepository(Users::class)->findAll();
-        return $this->render('site/admin/index.html.twig', [
+        return $this->render('site/admin/list_formations.html.twig', [
                     'formations' => $toSend,
-                    'users'=>$users,
         ]);
     }
-    
-//    public function indexUsers(){
-//        $users=$this->em->getRepository(Users::class)->findAll();
-//        
-//    }
+    /**
+     * @Route("/users", name="admin.index.users")
+     * @return type
+     */
+    public function indexUsers(){
+        $users=$this->em->getRepository(Users::class)->findAll();
+        return $this->render('site/admin/list_users.html.twig', [
+                    'users' => $users,
+        ]);
+        
+    }
     
 
 }

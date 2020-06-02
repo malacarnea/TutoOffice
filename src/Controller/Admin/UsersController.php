@@ -22,22 +22,22 @@ class UsersController extends AbstractController {
      */
     public function add(Request $request, UserPasswordEncoderInterface $encoder): Response {
         $user = new Users();
-
+        //alicia :sg6Nl1ukZz
         //call password generator and encode the password
         $form = $this->createForm(UsersType::class, $user);
         $form->handleRequest($request);
 
         //TODO send email here with the plain password
         if ($form->isSubmitted() && $form->isValid()) {
-            $plainPassword= $request->request->get("users")['plainPassword'];
-            $this->addFlash('success', "password : " . $plainPassword);
+            $plainPassword= $user->getPlainPassword();
+            $this->addFlash('success', "L'utilisateur a bien été ajouté. password : " . $plainPassword);
             $encoded = $encoder->encodePassword($user, $plainPassword);
             $user->setPassword($encoded);
 
-//            $entityManager = $this->getDoctrine()->getManager();
-//            $entityManager->persist($user);
-//            $entityManager->flush();
-            return new JsonResponse(["url" => "/admin#users-list"]);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+            return new JsonResponse(["url" =>$this->generateUrl('admin.index.users')]);
         }
 
         return $this->render('site/admin/users/add.html.twig', [
@@ -63,8 +63,9 @@ class UsersController extends AbstractController {
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', "L'utilisateur a bien été modifié.");
             $this->getDoctrine()->getManager()->flush();
-            return new JsonResponse(["url" => "/admin#users-list"]);
+            return new JsonResponse(["url" =>$this->generateUrl('admin.index.users')]);
         }
 
         return $this->render('site/admin/users/edit.html.twig', [
@@ -81,16 +82,11 @@ class UsersController extends AbstractController {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);
             $entityManager->flush();
+            $this->addFlash('success', "L'utilisateur a bien été supprimé");
         }
 
-        $url = $this->UsersIndexUrl();
-        return $this->redirectToRoute($url);
+         return new JsonResponse(["url" =>$this->generateUrl('admin.index.users')]);
     }
 
-    protected function UsersIndexUrl() {
-        return $this->generateUrl('admin.index', [
-                    '_fragment' => 'users-list'
-        ]);
-    }
 
 }

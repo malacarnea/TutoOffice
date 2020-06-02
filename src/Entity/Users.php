@@ -37,7 +37,8 @@ class Users implements UserInterface
     
     /**
      * @Assert\NotBlank(message="Le mot de passe ne doit pas être vide")
-     * @Assert\Regex(pattern="/[0-9]+[A-Z]+/", message="Votre mot de passe doit contenir au moins un chiffre et une lettre en majuscule.")
+     * @Assert\Regex(pattern="/([A-Z]+)/", message="Votre mot de passe doit contenir au moins une lettre en majuscule.")
+     * @Assert\Regex(pattern="/([0-9]+)/", message="Votre mot de passe doit contenir au moins un chiffre.")
      * @Assert\Length(max=4096, min=10, minMessage="Votre mot de passe doit contenir au moins 10 caractères.")
      */
     private $plainPassword;

@@ -1,8 +1,2 @@
-<h1>Modification de {{ user.firstname~" "~ user.lastname }}</h1>
-
-{{ include('site/admin/users/_form.html.twig', {'button_label': 'Modifier'}) }}
-
-<a href="{{ path('admin.index')~"#users" }}">back to list</a>
-
-{{ include('site/admin/users/_delete_form.html.twig') }}
+{{ include('/site/admin/_form.html.twig', {'target':path('admin.users.add'), 'title':'Modification de '~ user.firstname~" "~ user.lastname })}}
 

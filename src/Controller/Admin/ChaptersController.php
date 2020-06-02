@@ -78,7 +78,7 @@ class ChaptersController extends AbstractController {
             $this->addFlash("success", "Le chapitre a bien été supprimé.");
         }
 
-        return $this->redirectToRoute('admin.index');
+        return $this->redirectToRoute('admin.index.formations');
     }
 
 }
