@@ -35,7 +35,7 @@ class FormationsController extends AbstractController {
             $this->em->persist($formation);
             $this->em->flush();
             $this->addFlash('success', 'La formation \'' . $formation->getTitle() . '\' a bien été ajoutée.');
-            return new JsonResponse(["url"=>"/admin"]);
+            return new JsonResponse(["url" =>$this->generateUrl('admin.index.formations')]);
         }
         //render form
         return $this->render('site/admin/formations/add.html.twig', [
@@ -53,7 +53,7 @@ class FormationsController extends AbstractController {
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return new JsonResponse(["url"=>"/admin"]);
+            return new JsonResponse(["url" =>$this->generateUrl('admin.index.formations')]);
         }
 
         return $this->render('site/admin/formations/edit.html.twig', [

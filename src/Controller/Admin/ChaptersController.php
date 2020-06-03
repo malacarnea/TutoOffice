@@ -42,7 +42,7 @@ class ChaptersController extends AbstractController {
             $this->em->flush();
             $this->addFlash('success', 'Le chapitre \'' . $chapter->getTitle() . '\' a bien été ajouté.');
             //redirection will be made with AJAX
-            return new JsonResponse(["url"=>"/admin"]);
+            return new JsonResponse(["url" =>$this->generateUrl('admin.index.formations')]);
         }
         //render form
         return $this->render('site/admin/chapters/add.html.twig', [
@@ -59,7 +59,7 @@ class ChaptersController extends AbstractController {
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash("success", "Le chapitre a bien été modifié.");
-            return new JsonResponse(["url"=>"/admin"]);
+            return new JsonResponse(["url" =>$this->generateUrl('admin.index.formations')]);
         }
         return $this->render('site/admin/chapters/edit.html.twig', [
                     'chapter' => $chapter,

@@ -1,2 +1,2 @@
-{{ include('/site/admin/_form.html.twig', {'target':path('admin.users.add'), 'title':'Modification de '~ user.firstname~" "~ user.lastname })}}
+{{ include('/site/admin/_form.html.twig', {'target':path('admin.users.edit',  {'id': user.id}), 'title':'Modification de '~ user.firstname~" "~ user.lastname })}}
 

@@ -85,7 +85,7 @@ class UsersController extends AbstractController {
             $this->addFlash('success', "L'utilisateur a bien été supprimé");
         }
 
-         return new JsonResponse(["url" =>$this->generateUrl('admin.index.users')]);
+         return $this->redirectToRoute('admin.index.users');
     }
 
 

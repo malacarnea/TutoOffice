@@ -5,7 +5,6 @@
                 <th>Prénom</th>
                 <th>Roles</th>
                 <th>Accès</th>
-                <th>Première connection</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -16,9 +15,7 @@
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>{{ user.access ? user.access.format('%y year(s), %m month(s), %d day(s)') : '' }}</td>
-                <td>{{ user.dateFirstConnect ? user.dateFirstConnect|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                   
                     <div class="btn-ctl" data-field="users" data-id="{{ user.id }}"> 
                         <i class="fas fa-info-circle" data-action="modify" data-url="/admin/users/{{ user.id }}" data-toggle='modal' data-target="#formBox"></i>
                         <i class="fas fa-pen" data-action="modify" data-url="/admin/users/edit/{{ user.id }}" data-toggle='modal' data-target="#formBox"></i>
@@ -28,7 +25,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="9">no records found</td>
+                <td colspan="9">Pas d'utilisateurs enregistrés</td>
             </tr>
         {% endfor %}
         </tbody>

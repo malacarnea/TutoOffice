@@ -42,7 +42,7 @@ class TutorialsController extends AbstractController {
             $this->em->persist($tuto);
             $this->em->flush();
             $this->addFlash('success', 'Le tutoriel \'' . $tuto->getTitle() . '\' a bien été ajouté.');
-            return new JsonResponse(["url"=>"/admin"]);
+            return new JsonResponse(["url" =>$this->generateUrl('admin.index.formations')]);
         }
         //render form
         return $this->render('site/admin/tutorials/add.html.twig', [
@@ -60,7 +60,7 @@ class TutorialsController extends AbstractController {
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash('success', 'Le tutoriel \'' . $tutorial->getTitle() . '\' a bien été modifié.');
-            return new JsonResponse(["url"=>"/admin"]);
+            return new JsonResponse(["url" =>$this->generateUrl('admin.index.formations')]);
         }
         return $this->render('/site/admin/tutorials/edit.html.twig', [
                     'tutorial' => $tutorial,
@@ -80,7 +80,7 @@ class TutorialsController extends AbstractController {
             $this->addFlash('success', 'Le tutoriel a bien été supprimé.');
         }
 
-        return $this->redirectToRoute('admin.index');
+        return $this->redirectToRoute('admin.index.formations');
     }
 
 }

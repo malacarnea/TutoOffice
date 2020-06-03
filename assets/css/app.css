@@ -398,7 +398,9 @@ i[data-action="delete"]{
     color:grey;
     margin-left:10px;
 }
-
+td div.btn-ctl i{
+    margin-left:0;
+}
 input[data-action="add"]{
     color:#2081FF;
     border:none;
