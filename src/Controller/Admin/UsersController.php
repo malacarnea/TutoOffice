@@ -22,7 +22,7 @@ class UsersController extends AbstractController {
      */
     public function add(Request $request, UserPasswordEncoderInterface $encoder): Response {
         $user = new Users();
-        //alicia :sg6Nl1ukZz
+        //alicia :ntCepu33Jp
         //call password generator and encode the password
         $form = $this->createForm(UsersType::class, $user);
         $form->handleRequest($request);
@@ -47,7 +47,7 @@ class UsersController extends AbstractController {
     }
 
     /**
-     * @Route("/{id}", name="admin.users.show", methods={"GET"})
+     * @Route("/{id}", name="admin.users.show", methods={"GET", "POST"})
      */
     public function show(Users $user): Response {
         return $this->render('site/admin/users/show.html.twig', [

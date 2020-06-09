@@ -32,7 +32,7 @@ $('#formBox').on('show.bs.modal', function (event) {
     var modal = $(this);
     var data = {id_parent: button.parent().data('id')};
     var url = button.data("url");
-    $.get(url, data, function (res) {
+    $.post(url, data, function (res) {
         modal.find('.modal-content').html(res);
         $('select').select2();
         $('#save').on('click', callModalBySaveBtn);
