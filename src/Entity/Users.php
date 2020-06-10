@@ -246,4 +246,8 @@ class Users implements UserInterface
 
         return $this;
     }
+    
+    public function hasRole($role):bool{
+        return in_array($role, $this->roles);
+    }
 }

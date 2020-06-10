@@ -9,9 +9,12 @@ use App\Entity\Users;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("admin")
+ * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_TEACHER')")
  */
 class AdminController extends AbstractController {
 

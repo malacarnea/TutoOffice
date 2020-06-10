@@ -11,9 +11,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/admin/users")
+ * @Security("is_granted('ROLE_ADMIN') or is_granted('ROLE_TEACHER')")
  */
 class UsersController extends AbstractController {
 
@@ -23,6 +26,7 @@ class UsersController extends AbstractController {
     public function add(Request $request, UserPasswordEncoderInterface $encoder): Response {
         $user = new Users();
         //alicia :ntCepu33Jp
+        //laposte: 1medEn1vGm
         //call password generator and encode the password
         $form = $this->createForm(UsersType::class, $user);
         $form->handleRequest($request);
