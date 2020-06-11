@@ -1,0 +1,23 @@
+{% extends '/site/admin/index.html.twig' %}
+{% block tab_content  %}
+    <div class="tabpanel-block">
+        {% for msg in app.flashes('success') %}
+            <div class="alert alert-success" role="alert">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+
+                {{ msg }}
+
+            </div>
+        {% endfor %}
+        {% for msg in app.flashes('error') %}
+            <div class="alert alert-danger fade in" role="alert">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+
+                {{ msg }}
+
+            </div>
+        {% endfor %}    
+        {% include "/site/list_formations.html.twig" %}
+
+    </div>
+{% endblock %}

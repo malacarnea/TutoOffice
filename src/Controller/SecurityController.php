@@ -2,13 +2,21 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\EntityManagerInterface;
+use LogicException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
+
 class SecurityController extends AbstractController {
 
+    private $em;
+    
+    public function __construct(EntityManagerInterface $manager){
+        $this->em=$manager;
+    }
     /**
      * @Route("/login", name="app_login")
      */
@@ -20,6 +28,13 @@ class SecurityController extends AbstractController {
                 $path = 'admin.index.formations';
             } else {
                 $path = 'formations';
+                //update firstConnect field
+                if($user->getDateFirstConnect()===null){
+                    $now=new \DateTime();
+                    $user->setDateFirstConnect($now);
+                    $this->em->persist($user);
+                    $this->em->flush();
+                }
             }
             return $this->redirectToRoute($path);
         }
@@ -36,7 +51,7 @@ class SecurityController extends AbstractController {
      * @Route("/logout", name="app_logout")
      */
     public function logout() {
-        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+        throw new LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 
 }

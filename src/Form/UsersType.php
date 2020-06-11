@@ -54,8 +54,8 @@ class UsersType extends AbstractType {
                     'widget' => 'choice', // render a text field for each part
                     // 'input'    => 'string',  // if you want the field to return a ISO 8601 string back to you
                     // customize which text boxes are shown
-                    'years' => range(1, 10),
-                    'months' => range(1, 12),
+                    'years' => range(0, 10),
+                    'months' => range(0, 11),
                     'with_days' => false,
                     'label' => "Accès",
                     'labels' => [

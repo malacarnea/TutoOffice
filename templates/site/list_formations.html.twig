@@ -1,0 +1,58 @@
+<div class="title-page">
+    <h1>Formations vidéos disponibles</h1> 
+    <hr class="separator-blue"/>
+    {% if(is_granted('ROLE_ADMIN')) %}
+        <input type="button" class="bt-link" data-action="add" data-url="/admin/formations/add" data-toggle='modal' data-target="#formBox" value="+ Nouvelle Formation"/>
+    {% endif %}
+</div>
+<!-- boucle pour afficher les formations -->
+{% for formation in formations %}
+    <div class="fieldset-formation">
+        <div class="formation-header-title">
+            <i class="fas fa-chevron-right"></i>
+            <h2>{{ formation.formation.title }} 
+            </h2>
+            {% if(is_granted('ROLE_ADMIN')) %}
+                <div class="btn-ctl" data-field="formation" data-id="{{ formation.formation.id }}"> <i class="fas fa-pen" data-action="modify" data-url="/admin/formations/edit/{{ formation.formation.id }}" data-toggle='modal' data-target="#formBox"></i>
+                    {{ include('site/admin/formations/_delete_form.html.twig', {'id':formation.formation.id}) }}
+                    <i class="fas fa-plus" data-action="add" data-url="/admin/chapters/add" data-toggle='modal' data-target="#formBox"></i>
+
+                </div>
+            {% endif %}
+        </div>
+        <!-- boucle pour afficher les chapitres -->
+        <ul class="chapters">
+            {% for chapter in formation.chapters %}
+                <li>
+                    <h3>{{ chapter.chapter.title }} </h3>
+                    {% if(is_granted('ROLE_ADMIN')) %}
+                        <div class="btn-ctl" data-field="chapter" data-id="{{ chapter.chapter.id }}" data-id-parent="{{ formation.formation.id }}">
+                            <i class="fas fa-pen" data-action="modify" data-url="/admin/chapters/edit/{{ chapter.chapter.id }}" data-toggle='modal' data-target="#formBox"></i>
+                            {{ include('site/admin/chapters/_delete_form.html.twig', {'id':chapter.chapter.id}) }}
+                            <i class="fas fa-plus" data-action="add" data-url="/admin/tutorials/add" data-toggle='modal' data-target="#formBox"></i>
+                        </div>
+                    {% endif %}
+                    <ul class="tutorials">
+                        {% for tuto in chapter.tutorials %}
+                            <!-- boucle pour afficher les tuto -->
+                            <li data-field="tutorial" data-id="{{ tuto.id }}" data-id-parent="{{ chapter.chapter.id }}"><a href="{{ tuto.url }}" class="btn-tutorials">
+                                    <i class="far fa-play-circle"></i> {{ tuto.title }}
+                                </a>
+                                {% if(is_granted('ROLE_ADMIN')) %}
+                                    <i class="fas fa-pen" data-action="modify" data-url="/admin/tutorials/edit/{{ tuto.id }}" data-toggle='modal' data-target="#formBox"></i>
+                                    {{ include('site/admin/tutorials/_delete_form.html.twig', {'id':tuto.id}) }}
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+{% else %}
+    <div class="alert alert-danger" id="formation-user-alert" role="alert">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        Votre période d'accès aux tutoriels est terminée.
+    </div>
+{% endfor %}
