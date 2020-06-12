@@ -1,19 +1,19 @@
-{% extends 'base.html.twig' %}
+{% extends 'site/user_page_template.html.twig' %}
 
-{% block title %}Mon Profile{% endblock %}
+{% block title %}Mon Profil{% endblock %}
 
+{% block tabpanel_block %}
+    {% for msg in app.flashes('success') %}
+        <div class="alert alert-success" role="alert">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 
-{% block body %}
-    <div class="content">
-        <div class="onglets">
-            <div class="profile-formation-content">
-                <div class="tabpanel-block">
-                  {{ include('site/user_infos.html.twig', {'user':user}) }}
-                         
-                    <button type="button" id="chg-password" class="btn btn-primary">Modifier le mot de passe</button>
-                </div>
-            </div>
+            {{ msg }}
+
         </div>
-    </div>
+    {% endfor %}
+    {{ include('site/user_infos.html.twig', {'user':user}) }}
+
+    <a id="chg-password" class="btn btn-primary" href="{{ path("profile.reset_password") }}">Modifier le mot de passe</a>
+
 {% endblock %}
 

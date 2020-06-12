@@ -65,7 +65,7 @@ ul.nav{
     padding:0;
 }
 a{
-	text-decoration:none;
+    text-decoration:none;
 }
 ul.nav #ln_home{
     justify-self: start; 
@@ -257,7 +257,7 @@ input[type="checkbox"]{
     marin:0;
     padding:0;
 }
-input[type="submit"], button{
+input[type="submit"]{
     border:none;
     width:60%;
     font-size: 0.9em;
@@ -460,4 +460,7 @@ span.select2-selection.select2-selection--multiple{
 .select2-container--default.select2-container--focus .select2-selection--single,
 input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="number"]:focus{
     border:2px solid #2081ff;
+}
+#chg-password{
+    color:#fff;
 }

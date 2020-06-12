@@ -1,37 +1,23 @@
 {% apply inline_css(source('@css/email.css')) %}
 <div class="fieldset">
-    {% apply inline_css(source('@css/email.css')) %}
     <h1>Formation bureautique Josselin Baldé</h1>
-    {% endapply %}
-
-    {% apply inline_css(source('@css/email.css')) %}
     <p>Votre compte sur le site josselinbalde.fr a été créé avec succès. Vous pouvez dès maintenant vous connecter et visionnez librement les tutoriels des formations suivantes :</p>
-    {% endapply %}
-    {% apply inline_css(source('@css/email.css')) %}
+  
     <ul class="formations">
         {% for formation in user.formations %}
             <li><a href="{{ url("formations") }}">{{ formation.title }}</a></li>
             {% endfor %}
     </ul>
-    {% endapply %}
-    {% apply inline_css(source('@css/email.css')) %}
     <p>Vos identifiants de connexion :</p>
-    {% endapply %}
-    {% apply inline_css(source('@css/email.css')) %}
     <ul>
         <li><b>Login : </b>{{ user.email }}</li>
 
         <li><b>Mot de Passe : </b> {{ user.plainPassword }}</li>
     </ul>
-    {% endapply %}
-    {% apply inline_css(source('@css/email.css')) %}
     <p>Vous pouvez modifier vos informations et votre mot de passe sur ce lien : <a href="{{ url("profile") }}">{{ url("profile") }}</a></p>
-    {% endapply %}
-    {% apply inline_css(source('@css/email.css')) %}
+
     <p>A bientôt !</p>
-     {% endapply %}
-     {% apply inline_css(source('@css/email.css')) %}
      <p><b>Josselin Baldé</b><br>josselin.balde@gmail.com<br>https://josselinbalde.fr</p>
-     {% endapply %}
+  
 </div>
 {% endapply %}

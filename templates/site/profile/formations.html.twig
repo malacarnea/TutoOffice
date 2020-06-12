@@ -1,16 +1,8 @@
-{# empty Twig template #}
-{% extends 'base.html.twig' %}
+{% extends 'site/user_page_template.html.twig' %}
 
 {% block title %}Mes Formations{% endblock %}
 
-{% block body %}
-    <div class="content">
-        <div class="onglets">
-            <div class="profile-formation-content">
-                <div class="tabpanel-block">
-                    {% include "site/list_formations.html.twig" %}
-                </div>
-            </div>
-        </div>
-    </div>
+{% block tabpanel_block %}
+    {% include "site/list_formations.html.twig" %}
+
 {% endblock %}

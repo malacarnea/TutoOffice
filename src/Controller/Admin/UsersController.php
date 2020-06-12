@@ -27,7 +27,7 @@ class UsersController extends AbstractController {
     public function add(Request $request, UserPasswordEncoderInterface $encoder, MailerService $mailer): Response {
         $user = new Users();
         //alicia :ntCepu33Jp
-        //laposte: 1medEn1vGm
+        //laposte: Laposte1
         //user : iWpCdrp5g3
         //call password generator and encode the password
         $form = $this->createForm(UsersType::class, $user);

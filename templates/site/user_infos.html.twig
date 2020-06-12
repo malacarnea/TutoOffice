@@ -11,6 +11,7 @@
 
         <tr><th scope="row">Email : </th><td> {{ user.email }}</td></tr>
         <tr><th scope="row">Roles : </th><td> {{ user.roles ? user.roles|json_encode : '' }}</td></tr>
+        {% if is_granted("ROLE_TRAINEE") %}
         <tr><th scope="row">Accès : </th><td> {{ user.access ? user.access.format('%y année(s), %m mois') : '' }}
             </td></tr>
         <tr><th scope="row">Date de première connection : </th><td> {{ user.dateFirstConnect ? user.dateFirstConnect|date('d/m/Y H:i:s') : 'Ne s\'est pas encore connecté.' }}
@@ -23,5 +24,6 @@
                         {% endfor %}
                 </ul>
             </td></tr></tr>
+        {% endif %}
     </tbody>
 </table>

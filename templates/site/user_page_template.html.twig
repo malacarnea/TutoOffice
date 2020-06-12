@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="content">
+        <div class="onglets">
+            <div class="profile-formation-content">
+                <div class="tabpanel-block">
+                    {% block tabpanel_block%}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

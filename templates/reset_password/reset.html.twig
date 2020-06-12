@@ -1,0 +1,12 @@
+{% extends 'site/user_page_template.html.twig' %}
+
+{% block title %}Réinitialisation mot de passe{% endblock %}
+
+{% block tabpanel_block %}
+    <h1>Réinitialisez votre mot de passe</h1>
+
+    {{ form_start(resetForm) }}
+        {{ form_row(resetForm.plainPassword) }}
+        <button class="btn btn-primary">Sauvegarder</button>
+    {{ form_end(resetForm) }}
+{% endblock %}

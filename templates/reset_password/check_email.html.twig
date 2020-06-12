@@ -1,0 +1,8 @@
+{% extends 'site/user_page_template.html.twig' %}
+
+{% block title %}Envoie email de réinitialisation{% endblock %}
+
+{% block tabpanel_block %}
+    <p>Un email contenant un lien pour réinitialiser votre mot de passe a été envoyé. Ce lien expirera dans {{ tokenLifetime|date('g') }} heure(s).</p>
+    <p>Si vous ne recevez pas d'email, vérifiez votre dossier de spam ou <a href="{{ path('app_forgot_password_request') }}">ré-éssayez</a>.</p>
+{% endblock %}
