@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Flex\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 /**
  * @Security("is_granted('ROLE_USER')")
  */
@@ -39,14 +40,26 @@ class ProfileController extends AbstractController {
     public function formations(FormationsListService $fls) {
         /** @var Users $user */
         $user = $this->getUser();
+        if (in_array("ROLE_ADMIN", $user->getRoles()) || in_array("ROLE_TEACHER", $user->getRoles())) {
+            return $this->redirectToRoute("admin.index.formations");
+        }
+
         //check access to formations
         $firstConnect = $user->getDateFirstConnect();
+
         $access = $user->getAccess();
         $now = new \DateTime();
-        $checkDate=$firstConnect->add($access);
-        $toSend=null;
+        //if first connection, update date
+        if ($firstConnect == null) {
+            $user->setDateFirstConnect($now);
+            $firstConnect = $now;
+            $this->em->persist($user);
+            $this->em->flush();
+        }
+        $firstConnect->add($access);
+        $toSend = null;
 
-        if ($checkDate > $now) {
+        if ($firstConnect > $now) {
             $formations = $user->getFormations();
             $toSend = $fls->getFormationsCT($formations);
         }

@@ -5,12 +5,13 @@ namespace App\Controller\Admin;
 use App\Entity\Users;
 use App\Form\UsersType;
 use App\Services\PasswordGenerator;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Services\MailerService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
@@ -23,7 +24,7 @@ class UsersController extends AbstractController {
     /**
      * @Route("/add", name="admin.users.add", methods={"GET","POST"})
      */
-    public function add(Request $request, UserPasswordEncoderInterface $encoder): Response {
+    public function add(Request $request, UserPasswordEncoderInterface $encoder, MailerService $mailer): Response {
         $user = new Users();
         //alicia :ntCepu33Jp
         //laposte: 1medEn1vGm
@@ -32,7 +33,6 @@ class UsersController extends AbstractController {
         $form = $this->createForm(UsersType::class, $user);
         $form->handleRequest($request);
 
-        //TODO send email here with the plain password
         if ($form->isSubmitted() && $form->isValid()) {
             $plainPassword= $user->getPlainPassword();
             $this->addFlash('success', "L'utilisateur a bien été ajouté. password : " . $plainPassword);
@@ -42,6 +42,7 @@ class UsersController extends AbstractController {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
+            $mailer->sendEmail($user);
             return new JsonResponse(["url" =>$this->generateUrl('admin.index.users')]);
         }
 

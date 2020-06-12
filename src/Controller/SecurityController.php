@@ -21,23 +21,12 @@ class SecurityController extends AbstractController {
      * @Route("/login", name="app_login")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response {
-        $user = $this->getUser();
-        $path = "";
-        if ($user) {
-            if ($this->isGranted('ROLE_ADMIN') || $this->isGranted('ROLE_TEACHER')) {
-                $path = 'admin.index.formations';
-            } else {
-                $path = 'formations';
-                //update firstConnect field
-                if($user->getDateFirstConnect()===null){
-                    $now=new \DateTime();
-                    $user->setDateFirstConnect($now);
-                    $this->em->persist($user);
-                    $this->em->flush();
-                }
-            }
-            return $this->redirectToRoute($path);
-        }
+//        $user = $this->getUser();
+//        $path = "";
+//        if ($user) {
+//          
+//            return $this->redirectToRoute($path);
+//        }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
