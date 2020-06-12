@@ -7,7 +7,6 @@ use App\Services\FormationsListService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-//use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Flex\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -26,9 +25,10 @@ class ProfileController extends AbstractController {
     /**
      * @Route("/profile", name="profile")
      */
-    public function index() {
-        return $this->render('site/profile/index.html.twig', [
-                    'controller_name' => 'ProfileController',
+    public function profile() {
+        $user=$this->getUser();
+        return $this->render('site/profile/profile.html.twig', [
+                    'user' => $user,
         ]);
     }
 

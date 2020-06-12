@@ -5,26 +5,7 @@
     </button>
 </div>
 <div class="modal-body">
-    <ul>
-        <li>Email : {{ user.email }}</li>
-        <li>Roles : {{ user.roles ? user.roles|json_encode : '' }}</li>
-
-        <li>Prénom : {{ user.firstname }}
-        </li>
-        <li>Nom : {{ user.lastname }}
-        </li>
-        <li>Accès : {{ user.access ? user.access.format('%y year(s), %m month(s), %d day(s)') : '' }}
-        </li>
-        <li>Date de première connection : {{ user.dateFirstConnect ? user.dateFirstConnect|date('Y-m-d H:i:s') : 'Ne s\'est pas encore connecté.' }}
-        </li>
-        <li>
-            Formations : 
-            <ul>
-            {% for formation in user.formations %}
-                <li>{{ formation.title }}</li>
-            {% endfor %}
-            </ul>
-    </ul>
+   {{ include('site/user_infos.html.twig',{'user':user}) }}
 
 </div>
 

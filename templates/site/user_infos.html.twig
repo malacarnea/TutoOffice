@@ -1,0 +1,27 @@
+<div class="title-page">
+    <h1>Mon Profil</h1> 
+    <hr class="separator-blue"/>
+</div>
+<table class="table">
+    <tbody>
+        <tr><th scope="row">Nom : </th><td> {{ user.lastname }}
+            </td></tr>
+        <tr><th scope="row">Prénom : </th><td> {{ user.firstname }}
+            </td></tr>
+
+        <tr><th scope="row">Email : </th><td> {{ user.email }}</td></tr>
+        <tr><th scope="row">Roles : </th><td> {{ user.roles ? user.roles|json_encode : '' }}</td></tr>
+        <tr><th scope="row">Accès : </th><td> {{ user.access ? user.access.format('%y année(s), %m mois') : '' }}
+            </td></tr>
+        <tr><th scope="row">Date de première connection : </th><td> {{ user.dateFirstConnect ? user.dateFirstConnect|date('d/m/Y H:i:s') : 'Ne s\'est pas encore connecté.' }}
+            </td></tr>
+        <tr><th scope="row">
+                Formations : </th><td>
+                <ul>
+                    {% for formation in user.formations %}
+                        <li>{{ formation.title }}</li>
+                        {% endfor %}
+                </ul>
+            </td></tr></tr>
+    </tbody>
+</table>
