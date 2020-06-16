@@ -42,8 +42,8 @@ class TutorialsController extends AbstractController {
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $tuto = $form->getData();
-            $this->em->persist($tuto);
-            $this->em->flush();
+//            $this->em->persist($tuto);
+//            $this->em->flush();
             $this->addFlash('success', 'Le tutoriel \'' . $tuto->getTitle() . '\' a bien été ajouté.');
             return new JsonResponse(["url" =>$this->generateUrl('admin.index.formations')]);
         }
