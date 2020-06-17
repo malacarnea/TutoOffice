@@ -18,11 +18,11 @@ require('select2');
 $(document).ready(function () {
     console.log(window.location.href);
     //change highlight on admin menu
-    if(RegExp("admin\/$").test(window.location.href)){
+    if (RegExp("admin\/$").test(window.location.href)) {
         $("#formations-tab").addClass("active");
         $("#users-tab").removeClass("active");
-    }else if(RegExp("admin\/users$").test(window.location.href)){
-         $("#users-tab").addClass("active");
+    } else if (RegExp("admin\/users$").test(window.location.href)) {
+        $("#users-tab").addClass("active");
         $("#formations-tab").removeClass("active");
     }
 });
@@ -43,16 +43,40 @@ $('#formBox').on('show.bs.modal', function (event) {
 function callModalBySaveBtn(e) {
     var button = $(this);
     var modal = $("#formBox");
-    var data = button.closest("form").serialize();
+    var form=button.closest("form")[0];
+    var data = new FormData(form);
     var url = button.data("url");
     e.stopPropagation();//keep the modal visible
-    $.post(url, data, function (res) {
-        if (res.hasOwnProperty("url")) {
-            window.location.assign(res.url);
-        } else {
-            modal.find('.modal-content').html(res);
-            $('select').select2();
-            $('#save').on('click', callModalBySaveBtn);
+//    $.post(url, data, function (res) {
+//        if (res.hasOwnProperty("url")) {
+//            window.location.assign(res.url);
+//        } else {
+//            modal.find('.modal-content').html(res);
+//            $('select').select2();
+//            $('#save').on('click', callModalBySaveBtn);
+//        }
+//    });
+    var contentType = "application/x-www-form-urlencoded; charset=UTF-8";
+    var processData = true;
+    if (url.search("tutorials") !== -1) {
+        contentType = false;
+        processData = false;
+    }
+    console.log(contentType+ " "+processData);
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: data,
+        contentType: contentType,
+        processData: processData,
+        success: function (res) {
+            if (res.hasOwnProperty("url")) {
+                window.location.assign(res.url);
+            } else {
+                modal.find('.modal-content').html(res);
+                $('select').select2();
+                $('#save').on('click', callModalBySaveBtn);
+            }
         }
     });
 }

@@ -105,5 +105,14 @@ class ProfileController extends AbstractController {
             'resetForm'=>$form->createView(),
         ]);
     }
+    
+    /**
+     * @Route("/tutorial/{slug}", name="profile.tutorial")
+     */
+    public function tutorial(){
+        return $this->render("profile/tutorialReader.html.twig", [
+            'tuto'=>$tuto,
+        ]);
+    }
 
 }

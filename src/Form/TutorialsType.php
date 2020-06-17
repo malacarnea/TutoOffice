@@ -26,11 +26,11 @@ class TutorialsType extends AbstractType {
                     'attr' => ['name' => 'title'],
                     'label' => "Titre",
                 ])
-                ->add("tuto", FileType::class, [
-//                    'required' => false,
-//                    'allow_delete' => true,
-//                    'download_uri' => true,
-//                    'asset_helper' => true,
+                ->add("tuto", VichFileType::class, [
+                    'required' => false,
+                    'allow_delete' => true,
+                    'download_uri' => true,
+                    'asset_helper' => true,
                     'label'=>"Fichier",
                 ])
                 ->add('chapter', HiddenType::class, [
