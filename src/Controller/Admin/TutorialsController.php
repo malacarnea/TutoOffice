@@ -77,9 +77,8 @@ class TutorialsController extends AbstractController {
      */
     public function delete(Request $request, Tutorials $tutorial): Response {
         if ($this->isCsrfTokenValid('delete' . $tutorial->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($tutorial);
-            $entityManager->flush();
+            $this->em->remove($tutorial);
+            $this->em->flush();
             $this->addFlash('success', 'Le tutoriel a bien été supprimé.');
         }
 

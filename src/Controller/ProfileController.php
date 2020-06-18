@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Users;
+use App\Entity\Tutorials;
 use App\Form\ChangePasswordFormType;
 use App\Services\FormationsListService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -107,11 +108,16 @@ class ProfileController extends AbstractController {
     }
     
     /**
-     * @Route("/tutorials/{slug}", name="profile.tutoviewer")
+     * @Route("/tutorials/{url}", name="profile.tutoviewer")
      */
-    public function tutoviewer(Request $request){
-        return $this->render("profile/tutoviewer.html.twig", [
+    public function tutoviewer(Request $request, Tutorials $tuto){
+//        $slug=$request->attributes->get("slug");
+//        $tuto=$this->em->getRepository(Tutorials::class)->findBy(["url"=>$slug]);
+        
+        return $this->render("site/profile/tutoviewer.html.twig", [
             'tuto'=>$tuto,
+            'tutoPrev'=>null,
+            'tutoNext'=>null,
         ]);
     }
 

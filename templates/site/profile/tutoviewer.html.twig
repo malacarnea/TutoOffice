@@ -1,1 +1,26 @@
-{# empty Twig template #}
+{% extends "base.html.twig" %}
+{% block title %} {{ tuto.title }} {% endblock %}
+{% block body %}
+    <div class="content">
+        <a href="{{ is_granted("ROLE_TRAINEE") ? path('formations'): path("admin.index.formations")}}" class="back-to-formations">< Retour</a>
+        {% if(tutoPrev is not null) %}
+            <a href="{{ path("profile.tutoviewer", {slug:tutoPrev.url}) }}" class="tuto-nav"><i class="fas fa-chevron-left"></i></a>
+            {% endif %}
+        <div class="tuto-block">
+            <div class="tutoviewer">
+                <video controls width="1020px">
+                    <source src="{{ tuto.url }}" type="video/mp4">
+
+                    Désolé, votre navigateur ne peux pas lire les fichiers de type MP4.
+                </video>
+            </div>
+            <div class="tuto-title">
+                <h1>{{ tuto.chapter.title }}</h1>
+                <p>{{ tuto.title }}</p>
+            </div>
+        </div>
+        {% if(tutoNext is not null) %}
+            <a href="{{ path("profile.tutoviewer", {slug:tutoNext.url}) }}" class="tuto-nav"><i class="fas fa-chevron-right"></i></a>
+            {% endif %}
+    </div>
+{% endblock %}

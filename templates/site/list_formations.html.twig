@@ -35,7 +35,7 @@
                     <ul class="tutorials">
                         {% for tuto in chapter.tutorials %}
                             <!-- boucle pour afficher les tuto -->
-                            <li data-field="tutorial" data-id="{{ tuto.id }}" data-id-parent="{{ chapter.chapter.id }}"><a href="{{ url('profile.tutoviewer', {slug:tuto.url})  }}" class="btn-tutorials">
+                            <li data-field="tutorial" data-id="{{ tuto.id }}" data-id-parent="{{ chapter.chapter.id }}"><a href="{{ url('profile.tutoviewer', {url:tuto.url})  }}" class="btn-tutorials">
                                     <i class="far fa-play-circle"></i> {{ tuto.title }}
                                 </a>
                                 {% if(is_granted('ROLE_ADMIN')) %}
