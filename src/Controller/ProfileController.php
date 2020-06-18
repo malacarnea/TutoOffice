@@ -107,10 +107,10 @@ class ProfileController extends AbstractController {
     }
     
     /**
-     * @Route("/tutorial/{slug}", name="profile.tutorial")
+     * @Route("/tutorials/{slug}", name="profile.tutoviewer")
      */
-    public function tutorial(){
-        return $this->render("profile/tutorialReader.html.twig", [
+    public function tutoviewer(Request $request){
+        return $this->render("profile/tutoviewer.html.twig", [
             'tuto'=>$tuto,
         ]);
     }
