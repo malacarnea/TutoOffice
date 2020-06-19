@@ -84,7 +84,7 @@ class Tutorials
         return $this->url;
     }
 
-    public function setUrl(string $url): self
+    public function setUrl(?string $url): ?self
     {
         $this->url = $url;
 
@@ -102,8 +102,9 @@ class Tutorials
     public function getTutoSize():int{
         return $this->tutoSize;
     }
-    public function setTutoSize(int $size){
+    public function setTutoSize(?int $size): ?self{
         $this->tutoSize=$size;
+        return $this;
     }
     
     public function getTuto():?File{
