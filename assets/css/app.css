@@ -456,7 +456,15 @@ label{
     grid-template-columns:repeat(16, 1fr);
     grid-column:2 / span 15;
 }
+.tuto-viewer-main{
+    display:grid;
+    grid-template-columns:repeat(16, 1fr);
+    grid-column:2 / span 16;
+}
 .tuto-block{
+    grid-column:2/span 12;
+}
+.tuto-title{
     grid-column:3/span 12;
 }
 video{
@@ -464,17 +472,37 @@ video{
     opacity:1;
     width:100%;
 }
-.tuto-block h1, .tuto-block p{
+.tuto-title h1, .tuto-title p{
     color:#2081FF;
 }
-.tuto-block h1{
+.tuto-title h1{
     font-size:1.3em;
     font-weight:600;
     padding:0;
     margin:0;
 }
-.tuto-block p{
+.tuto-title p{
     font-size:.9em;
+}
+.tutoviewer-bt{
+    display:grid;
+    grid-template-rows: 1fr 11fr; 
+    align-content: center;
+}
+a.tuto-nav{
+    padding:10% 15%;
+    border-radius:100px;
+    box-shadow: 0px 1px 5px #aaa;
+    width:45px;
+    height:45px;
+    display:grid;
+    align-self: center;
+    justify-self:center;
+    justify-content: center;
+    align-content: center;
+}
+.tuto-nav i{
+    font-size:1.7em;
 }
 
 /*** Styles rewritten ***/

@@ -3,27 +3,31 @@
 {% block body %}
     <div class="content">
         <div class="tutoviewer-template">
-            <div class="tutoviewer-bt">
-                <a href="{{ is_granted("ROLE_TRAINEE") ? path('formations'): path("admin.index.formations")}}" class="back-to-formations"><i class="fas fa-chevron-left"></i> Retour</a>
-                {% if(tutoPrev is not null) %}
-                    <a href="{{ path("profile.tutoviewer", {url:tutoPrev.url}) }}" class="tuto-nav"><i class="fas fa-chevron-left"></i></a>
-                    {% endif %}
-            </div>
-            <div class="tuto-block">
-                <video controls class="tuto-viewer">
-                    <source src="{{ asset("uploads/tutorials/"~tuto.url) }}" type="video/mp4">
+            <div class="tuto-viewer-main">
+                <div class="tutoviewer-bt">
+                    <a href="{{ is_granted("ROLE_TRAINEE") ? path('formations'): path("admin.index.formations")}}" class="back-to-formations"><i class="fas fa-chevron-left"></i> Retour</a>
+                    {% if(tutoPrev is not null) %}
+                        <a href="{{ path("profile.tutoviewer", {url:tutoPrev.url}) }}" class="tuto-nav"><i class="fas fa-chevron-left"></i></a>
+                        {% endif %}
+                </div>
+                <div class="tuto-block">
+                    <video controls class="tuto-viewer">
+                        <source src="{{ asset("uploads/tutorials/"~tuto.url) }}" type="video/mp4">
 
-                    Désolé, votre navigateur ne peux pas lire les fichiers de type MP4.
-                </video>
-                <div class="tuto-title">
-                    <h1>{{ tuto.chapter.title }}</h1>
-                    <p>{{ tuto.title }}</p>
+                        Désolé, votre navigateur ne peux pas lire les fichiers de type MP4.
+                    </video>
+
+                </div>
+                <div class="tutoviewer-bt">
+                    <span></span>
+                    {% if(tutoNext is not null) %}
+                        <a href="{{ path("profile.tutoviewer", {url:tutoNext.url}) }}" class="tuto-nav"><i class="fas fa-chevron-right"></i></a>
+                        {% endif %}
                 </div>
             </div>
-            <div class="tutoviewer-bt">
-                {% if(tutoNext is not null) %}
-                    <a href="{{ path("profile.tutoviewer", {url:tutoNext.url}) }}" class="tuto-nav"><i class="fas fa-chevron-right"></i></a>
-                    {% endif %}
+            <div class="tuto-title">
+                <h1>{{ tuto.chapter.title }}</h1>
+                <p>{{ tuto.title }}</p>
             </div>
         </div>
     </div>

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Users;
 use App\Entity\Tutorials;
+use App\Repository\TutorialsRepository;
 use App\Form\ChangePasswordFormType;
 use App\Services\FormationsListService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -110,14 +111,19 @@ class ProfileController extends AbstractController {
     /**
      * @Route("/tutorials/{url}", name="profile.tutoviewer")
      */
-    public function tutoviewer(Request $request, Tutorials $tuto){
+    public function tutoviewer(Request $request, Tutorials $tuto, FormationsListService $fls){
 //        $slug=$request->attributes->get("slug");
 //        $tuto=$this->em->getRepository(Tutorials::class)->findBy(["url"=>$slug]);
-        
+        $idFormation=$tuto->getChapter()->getFormation()->getId();
+        //find all tutorials from same formation.
+        $tutorials=$this->em->getRepository(Tutorials::class)->findOthersTutorialsByFormation($idFormation);
+        usort($tutorials, [$fls, 'chaptersSort']);
+         usort($tutorials, [$fls, 'tutorialsSort']);
+         $i=array_search($tuto, $tutorials);
         return $this->render("site/profile/tutoviewer.html.twig", [
             'tuto'=>$tuto,
-            'tutoPrev'=>null,
-            'tutoNext'=>null,
+            'tutoPrev'=>$tutorials[$i-1]?? null,
+            'tutoNext'=>$tutorials[$i+1]?? null,
         ]);
     }
 
