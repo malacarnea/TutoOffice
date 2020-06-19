@@ -43,25 +43,19 @@ $('#formBox').on('show.bs.modal', function (event) {
 function callModalBySaveBtn(e) {
     var button = $(this);
     var modal = $("#formBox");
-    var form=button.closest("form")[0];
-    var data = new FormData(form);
+    var form=button.closest("form");
+    var data=form.serialize();
     var url = button.data("url");
     e.stopPropagation();//keep the modal visible
-//    $.post(url, data, function (res) {
-//        if (res.hasOwnProperty("url")) {
-//            window.location.assign(res.url);
-//        } else {
-//            modal.find('.modal-content').html(res);
-//            $('select').select2();
-//            $('#save').on('click', callModalBySaveBtn);
-//        }
-//    });
-    var contentType = "application/x-www-form-urlencoded; charset=UTF-8";
+
+    var contentType = "application/x-www-form-urlencoded";
     var processData = true;
     if (url.search("tutorials") !== -1) {
         contentType = false;
         processData = false;
+        data = new FormData(form[0]);
     }
+    
     console.log(contentType+ " "+processData);
     $.ajax({
         type: "POST",
@@ -77,6 +71,9 @@ function callModalBySaveBtn(e) {
                 $('select').select2();
                 $('#save').on('click', callModalBySaveBtn);
             }
+        },
+        error: function(xhr,status,error){
+            console.log(error)
         }
     });
 }

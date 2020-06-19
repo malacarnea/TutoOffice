@@ -37,9 +37,8 @@ class Tutorials
     
     /**
      * @Vich\UploadableField(mapping="tuto_files", fileNameProperty="url", size="tutoSize")
-     * @Assert\NotBlank(message="Choisissez un fichier de type mp4")
-     * @Assert\File(maxSize ="300M", mimeTypes = {"video/mp4"}, mimeTypesMessage ="Votre fichier doit être de type MP4", maxSizeMessage ="Votre fichier ne doit pas dépasser 300Mo.")
-     * @var File
+     * @Assert\File(maxSize ="300M", mimeTypes = {"video/mp4"}, mimeTypesMessage ="Votre fichier doit être de type MP4", maxSizeMessage ="Votre fichier ne doit pas dépasser {{ limit }}{{suffix}}.")
+     * @var File|null
      */
     private $tuto;
     
