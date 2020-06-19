@@ -24,4 +24,4 @@ yarn-error.log
 ###>local files ###
 /demarrer.sh
 /stopper.sh
-#/public/uploads/tutorials/
+/public/uploads/tutorials/
