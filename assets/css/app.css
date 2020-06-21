@@ -25,14 +25,16 @@ html, body, #global{
     grid-template-rows: 100% 5%;
 }
 header, footer{
-    margin-left:5%;
+    padding-left:5%
 }
 header{
-   width:95%;
-   position:absolute;
+    width:100%;
+    position:absolute;
+    background: transparent linear-gradient(188deg, #29DAFF 0%, #6500FF 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 10px #00000029;
 }
 .alert{
-    grid-column:1/span 10;  
+    grid-column:1/span 16;  
 }
 #index{
     align-self: auto;
@@ -52,7 +54,7 @@ nav{
     margin:0;
 }
 ul{
-  list-style: none;  
+    list-style: none;  
 }
 ul.nav{
     display:grid;
@@ -67,6 +69,9 @@ ul.nav{
 a{
     text-decoration:none;
 }
+button{
+    border:none;
+}
 ul.nav #ln_home{
     justify-self: start; 
 }
@@ -74,9 +79,7 @@ ul.nav li a{
     font-weight:500;
     color:#fff;
 }
-#ln_home a{
-    color:#2572FF;
-}
+
 a:visited{
     color:#2572FF;
 }
@@ -138,14 +141,18 @@ p.metier{
     color: #fff;
     box-shadow: none;
 }
-#ln_connection{
+#ln_connection {
     background-color: #FFFFFF;
     border-radius: 50px;
     font-size:1em;
     padding:3% 10%;
-}
-#ln_connection a{
     color:#2572FF;
+}
+#ln_connection a, #ln_connection button{
+    color:#2572FF;
+}
+#ln_connection button{
+    background-color: transparent;
 }
 .bt-accueil{
     color:#0FABFF;
@@ -215,7 +222,7 @@ p.metier{
 /*Connection page*/
 .slide-to-co.connection{
     justify-content: center;
-    
+
 }
 #fieldset_connection{
     background-color: #FFFFFF;
@@ -227,7 +234,7 @@ p.metier{
     grid-column:5/16;
 }
 
-#fieldset_connection > h2{
+#fieldset_connection > h1{
     text-align: center;
     font-weight: 600;
     letter-spacing: 0px;
@@ -306,7 +313,7 @@ input[type="submit"]{
     border-top-left-radius: 0;
 }
 .tab-content{
-     border:1px solid #dee2e6;
+    border:1px solid #dee2e6;
 }
 
 .btn-ctl{
@@ -365,7 +372,7 @@ input[type="submit"]{
     /*padding-bottom:3%;*/
 }
 #formation-user-alert{
-   margin-top:5%;
+    margin-top:5%;
 }
 a.btn-tutorials{
     background-color:#2081ff;
@@ -373,7 +380,7 @@ a.btn-tutorials{
     border-radius:14px;
     font-size:0.75em;
     padding:2px 10px;
-   
+
 }
 .tutorials li{
     margin:1% 0 0 0;
@@ -397,7 +404,7 @@ i[data-action="modify"]{
 i[data-action="add"]{
     color:#00cc00;
     margin-left:10px;
-    
+
 }
 i[data-action="modify"]:hover, i[data-action="add"]:hover{
     cursor:pointer;
@@ -444,7 +451,6 @@ th label {
     color:gray;
     padding:0 2%;
 }
-
 
 label{
     display:block;
@@ -519,6 +525,11 @@ span.select2-selection.select2-selection--multiple{
 input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="number"]:focus{
     border:2px solid #2081ff;
 }
+
+table.table, #chg-password{
+    grid-column:1/span 10;
+}
 #chg-password{
     color:#fff;
+    grid-row:3; 
 }

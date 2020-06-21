@@ -3,6 +3,14 @@
 {% block title %}Mes Formations{% endblock %}
 
 {% block tabpanel_block %}
+    {% for msg in app.flashes('errors') %}
+        <div class="alert alert-danger" role="alert">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+
+            {{ msg }}
+
+        </div>
+    {% endfor %}    
     {% include "site/list_formations.html.twig" %}
 
 {% endblock %}

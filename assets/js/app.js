@@ -16,7 +16,12 @@ import $ from 'jquery';
 require('bootstrap');
 require('select2');
 $(document).ready(function () {
-    console.log(window.location.href);
+    //unset gradiant background on header when visit home page and login page.
+    if (RegExp("accueil|login|local\/$").test(window.location.href)) {
+        $('header').css({"background": "transparent",
+                        "box-shadow":"none"});
+        $("#ln_home a").css('color', "#2572ff")
+    }
     //change highlight on admin menu
     if (RegExp("admin\/$").test(window.location.href)) {
         $("#formations-tab").addClass("active");

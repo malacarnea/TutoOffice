@@ -11,6 +11,10 @@
 
         </div>
     {% endfor %}
+    <div class="title-page">
+        <h1>Mon Profil</h1> 
+        <hr class="separator-blue"/>
+    </div>
     {{ include('site/user_infos.html.twig', {'user':user}) }}
 
     <a id="chg-password" class="btn btn-primary" href="{{ path("profile.reset_password") }}">Modifier le mot de passe</a>

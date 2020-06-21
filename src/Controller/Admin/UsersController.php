@@ -28,7 +28,7 @@ class UsersController extends AbstractController {
         $user = new Users();
         //alicia :ntCepu33Jp
         //laposte: Laposte1
-        //user : iWpCdrp5g3
+        //user : iWpCdrp5g3 https://josselinbalde.local/tutorials/leve-la-tete-5eeca424ab0c8547348648.mp4
         //call password generator and encode the password
         $form = $this->createForm(UsersType::class, $user);
         $form->handleRequest($request);
