@@ -76,3 +76,13 @@ config.watchOptions = {
 };
 
 module.exports = config;
+module.rules = [
+      {
+        test: /\.(mp4)$/i,
+        use: [
+          {
+            loader: 'file-loader'
+          }
+        ]
+      }
+    ];

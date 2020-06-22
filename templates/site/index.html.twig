@@ -6,7 +6,7 @@
     <div id="index">
         <section id="accueil" class="index-section">
             <div id="img-box">
-               
+
                 <div id="baton"><img src="{{ asset('build/images/Baton.png') }}"/></div>
                 <div id="diagramme"><img src="{{ asset('build/images/Diagramme.png') }}"/></div>
                 <div id="document"><img src="{{ asset('build/images/Document.png') }}"/></div>
@@ -25,15 +25,33 @@
                 </div>
             </div>
         </section>
-            <section id="video" class="index-section">
-                
-            </section>
-            
-            <section id="formations" class="index-section">
-                
-            </section>
-            <section id="apropos" class="index-section">
-                
-            </section>
+        <section id="video" class="index-section">
+            <video controls>
+                <source src="{{ asset('videos/presentation.mp4') }}"
+                        type="video/mp4">
+            </video>
+        </section>
+
+        <section id="formations" class="index-section">
+            <div class="blue-band">
+                <h2>A vous de choisir</h2>
+                <div class="separator-white"></div>
+                <div class="floater">
+                <div class="white-block">
+                    <h3>Tutoriels en ligne</h3>
+                    <img src="{{ asset("build/images/picto_ordinateur.png") }}" alt="Tutoriels en ligne"/>
+                    <a class="bt-link" href="https://fr.tuto.com/formateur/membre-2183-1509.htm">Découvrir</a>
+                </div>
+                <div class="white-block">
+                    <h3>Formation en présentiel</h3>
+                    <img src="{{ asset("build/images/picto_groupe.png") }}" alt="Formation en prétentiel"/>
+                    <a class="bt-link" href="https://ganapati.fr/formateur/188-Josselin.Balde">Découvrir</a>
+                </div>
+                    </div
+            </div>
+        </section>
+        <section id="apropos" class="index-section">
+
+        </section>
     </div>
 {% endblock %}

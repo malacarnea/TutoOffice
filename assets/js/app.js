@@ -17,10 +17,12 @@ require('bootstrap');
 require('select2');
 $(document).ready(function () {
     //unset gradiant background on header when visit home page and login page.
-    if (RegExp("accueil|login|local\/$").test(window.location.href)) {
+    if (RegExp("login|local\/$").test(window.location.href)) {
         $('header').css({"background": "transparent",
-                        "box-shadow":"none"});
-        $("#ln_home a").css('color', "#2572ff")
+            "box-shadow": "none"});
+        if (!RegExp("login").test(window.location.href)) {
+            $("#ln_home a").css('color', "#2572ff");
+        }
     }
     //change highlight on admin menu
     if (RegExp("admin\/$").test(window.location.href)) {
@@ -48,8 +50,8 @@ $('#formBox').on('show.bs.modal', function (event) {
 function callModalBySaveBtn(e) {
     var button = $(this);
     var modal = $("#formBox");
-    var form=button.closest("form");
-    var data=form.serialize();
+    var form = button.closest("form");
+    var data = form.serialize();
     var url = button.data("url");
     e.stopPropagation();//keep the modal visible
 
@@ -60,8 +62,8 @@ function callModalBySaveBtn(e) {
         processData = false;
         data = new FormData(form[0]);
     }
-    
-    console.log(contentType+ " "+processData);
+
+    console.log(contentType + " " + processData);
     $.ajax({
         type: "POST",
         url: url,
@@ -77,7 +79,7 @@ function callModalBySaveBtn(e) {
                 $('#save').on('click', callModalBySaveBtn);
             }
         },
-        error: function(xhr,status,error){
+        error: function (xhr, status, error) {
             console.log(error)
         }
     });
@@ -87,4 +89,7 @@ function callModalBySaveBtn(e) {
 
 const imagesContext = require.context('../images', true, /\.(png|jpg|jpeg|gif|ico|svg|webp)$/);
 imagesContext.keys().forEach(imagesContext);
+
+//const videosContext = require.context('../videos', true, /\.(mp4)$/);
+//videosContext.keys().forEach(videosContext);
 

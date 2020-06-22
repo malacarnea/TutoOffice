@@ -218,6 +218,66 @@ p.metier{
     z-index:333;
 }
 
+/*** home page : video section***/
+section.index-section{
+    display:grid;
+    grid-template-columns:repeat(16, 1fr);
+    margin-bottom: 3%;
+}
+
+section#video video{
+    grid-column:2/span 14;
+}
+
+/*** homepage : formation section ***/
+section#formations{
+    grid-template-rows:repeat(16, 1fr);
+}
+.blue-band{
+    grid-column:1/span 16;
+    grid-row:1/span 10;
+    height:25rem;
+    position:relative;
+    background: transparent linear-gradient(188deg, #2969FF 0%, #00D3FF 100%) 0% 0% no-repeat padding-box;
+    /*display:grid;*/
+    /*grid-template-columns:repeat(16, 1fr);*/
+    padding-top: 6%;
+    text-align:center;
+}
+.floater{
+    position:absolute;
+    height:25rem;
+    display:grid;
+    width:100%;
+    grid-template-columns:repeat(2, 1fr);
+    align-content:end;
+    grid-column-gap: 10%;
+}
+.white-block{
+    box-shadow: 0px 3px 15px #00000057;
+    background-color: #fff;
+    display:grid;
+    height:19rem;
+    width:17rem;
+    padding:3% 4%;
+}
+.white-block:nth-child(1){
+    justify-self: end;
+}
+.white-block:nth-child(2){
+    justify-self: start;
+}
+.blue-band h2{
+    color:#fff;
+    font-weight: 600;
+    align-self: center;
+    justify-self:center;
+}
+.white-block h3{
+    color:#2081ff;
+    font-weight: 600;
+    font-size:1.2em;
+}
 
 /*Connection page*/
 .slide-to-co.connection{
@@ -474,10 +534,11 @@ label{
     grid-column:3/span 12;
 }
 video{
-    box-shadow: 0px 0px 10px #000000;
+    box-shadow: 0px 0px 10px #00000029;
     opacity:1;
     width:100%;
 }
+
 .tuto-title h1, .tuto-title p{
     color:#2081FF;
 }
@@ -504,8 +565,6 @@ a.tuto-nav{
     display:grid;
     align-self: center;
     justify-self:center;
-    justify-content: center;
-    align-content: center;
 }
 .tuto-nav i{
     font-size:1.7em;
