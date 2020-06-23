@@ -29,4 +29,26 @@ class SiteController extends AbstractController
             'controller_name' => 'SiteController',
         ]);
     }
+    
+    /**
+     * @Route("/apropos", name="apropos")
+     * @return type
+     */
+     public function apropos()
+    {
+        return $this->render('site/apropos.html.twig', [
+            'controller_name' => 'SiteController',
+        ]);
+    }
+    
+    /**
+     * @Route("/legales", name="legales")
+     * @return type
+     */
+     public function legales()
+    {
+        return $this->render('site/legales.html.twig', [
+            'controller_name' => 'SiteController',
+        ]);
+    }
 }
