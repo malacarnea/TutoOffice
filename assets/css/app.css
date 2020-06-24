@@ -269,7 +269,7 @@ section#formations{
 .white-block:nth-child(2){
     justify-self: start;
 }
-.blue-band h2{
+h2.section-title{
     color:#fff;
     font-weight: 600;
 }
@@ -292,11 +292,11 @@ section#formations{
     border:1px solid #2081ff;
     box-shadow: none;
 }
-/*** home page {a propos} ***/
+/*** home page #apropos ***/
 .gradient-blue{
-   background: transparent linear-gradient(14deg, #2969FF 0%, #00D3FF 100%) 0% 0% no-repeat padding-box;
-   opacity: 1;
-    
+    background: transparent linear-gradient(14deg, #2969FF 0%, #00D3FF 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
+
 }
 #apropos{
     grid-template-columns:55% 45%;
@@ -310,19 +310,48 @@ ol {
     counter-reset: li;
 }
 ol li::before {
-    content: counter(li);
-  display: inline-block; 
-  width: 2em;
+    content: "." counter(li);
+    display: inline-block; 
+    width: 1em;
+    height: 1em;
+    font-size:2em;
     font-weight:700;
-     margin-left: -1.5em;
+    margin-left: -2em;
     margin-right: 1em; 
     text-align: right; 
     direction: rtl;
 }
 ol li {
     counter-increment: li;
+     font-weight:700;
+     line-height: 1;
+     margin: 2% 0;
+     padding:0;
 }
-
+#more-h2::after{
+    content:" +";
+    font-size:2.5em;
+    position:absolute;
+    margin-top: -.35em;
+    margin-left: .2em;
+}
+#more-h2{
+    margin:10% 30% 3%;
+    font-weight:700;
+    position:relative;
+    display:inline-block;
+}
+.apropos{
+    grid-column:2;
+    display:grid;
+    justify-content: center;
+    align-items: center;
+}
+.apropos img{
+    width:50%;
+    height:24rem;
+    border:none;
+}
 /*Connection page*/
 .slide-to-co.connection{
     justify-content: center;

@@ -34,7 +34,7 @@
 
         <section id="formations" class="index-section">
             <div class="blue-band">
-                <h2>A vous de choisir</h2>
+                <h2 class="section-title">A vous de choisir</h2>
                 <div class="separator-white"></div>
                 <div class="floater">
                 <div class="white-block">
@@ -52,7 +52,7 @@
         </section>
         <section id="apropos" class="index-section">
             <div class="gradient-blue">
-                <h2>Les +</h2>
+                <h2 class="section-title" id="more-h2">Les</h2>
                 <div class="white-block">
                     <ol>
                         <li>Je prends en compte vos besoins précis par téléphone</li>
@@ -62,11 +62,11 @@
                         <li>En tant que client, vous aurez accès à l'ensemble des tutoriels vidéo concernant votre formation</li>
                     </ol>
                 </div>
-                <div class='apropos'>
-                    <img src=''/>
+            </div>
+            <div class='apropos'>
+                    <img src="{{ asset("/build/images/Josselin_clair.jpg") }}" alt="Josselin Balde"/>
                     <a class='bt-link' href="{{ path("apropos") }}">Découvrir</a>
                 </div>
-            </div>
         </section>
     </div>
 {% endblock %}
