@@ -20,7 +20,6 @@
     {% endfor %}    
     <div class="title-page">
         <h1>Listes des membres</h1> 
-        <hr class="separator-blue"/>
         <input type="button" class="bt-link" data-action="add" data-url="/admin/users/add" data-toggle='modal' data-target="#formBox" value="+ Nouveau Membre"/>
     </div>
     {{ include('site/admin/users/index.html.twig', {'users':users}) }}

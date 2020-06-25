@@ -1,6 +1,5 @@
 <div class="title-page">
     <h1>Formations vidéos disponibles</h1> 
-    <hr class="separator-blue"/>
     {% if(is_granted('ROLE_ADMIN')) %}
         <input type="button" class="bt-link" data-action="add" data-url="/admin/formations/add" data-toggle='modal' data-target="#formBox" value="+ Nouvelle Formation"/>
     {% endif %}
