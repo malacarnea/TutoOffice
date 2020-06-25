@@ -24,7 +24,7 @@ html, body, #global{
     grid-template-columns: auto;
     grid-template-rows: 100% 5%;
 }
-header, footer{
+header{
     padding-left:5%
 }
 header{
@@ -40,7 +40,7 @@ header{
 .title-white-border:after {
     content: ""; /* This is necessary for the pseudo element to work. */ 
     display: block; /* This will put the pseudo element on its own line. */
-    width: 12%; /* Change this to whatever width you want. */
+    width: 25%; /* Change this to whatever width you want. */
     padding-top: 6px; /* This creates some space between the element and the border. */
     border-bottom: 2px solid #fff; /* This creates the border. Replace black with whatever color you want. */
 }
@@ -52,11 +52,7 @@ header{
     padding:0;
     align-items:stretch;
 }
-footer{
-    align-self: end;
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
+
 nav{
     width:100%;
     margin:0;
@@ -372,15 +368,71 @@ ol li {
 
 
 /* home page : footer */
+
 footer{
     background: transparent linear-gradient(198deg, #29DAFF 0%, #6500FF 100%) 0% 0% no-repeat padding-box;
     opacity: 1;
     color:#fff;
     padding-top:3%;
+    align-self: end;
+    justify-items:center;
+    display:grid;
+    height:12rem;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+footer h6{
+    text-transform:uppercase;
+    font-weight: bold;
+}
+footer ul{
+    padding-left:0;
+    margin-top: 2%;
+    font-size:.9em;
+}
+footer ul li{
+    margin-top: 2%;
+}
+footer ul a{
+    color:#fff;
+}
+footer ul a:hover{
+    color:#fff;
+}
+ul.social-link{
+    display:grid;
+    grid-template-columns:1fr 1fr auto;
+    justify-items:center;
+    align-items:center;
+    grid-column-gap:0.6rem;
+}
+ul.social-link li a i#linkedin{
+    background-color:#fff;
+    color:#999;
+    padding:33%;
+    border-radius:50px;
+    font-size:1.4rem; 
+}
+ul.social-link li a i#tuto-com{
+    color:#fff;
+    font-size:2.4rem;
+}
+ul.social-link li a img{
+    width:152px;
+    height:48px;
 }
 
-
+footer div:nth-child(2){
+    justify-items:center;
+    display:grid;
+}
+p.developpement{
+    font-size:0.65em;
+    align-self: end;
+    text-align:center;
+}
+/***********************/
 /*** Connection page ***/
+/***********************/
 .slide-to-co.connection{
     justify-content: center;
 
@@ -440,8 +492,9 @@ input[type="submit"]{
     justify-self:center;
 }
 
-
-/**formations page*/
+/***********************/
+/*** formations page ***/
+/***********************/
 .content{
     margin-top: 5%;
     display:grid;
