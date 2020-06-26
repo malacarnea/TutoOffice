@@ -7,7 +7,6 @@ and open the template in the editor.
     Created on : 14 nov. 2019, 20:45:07
     Author     : alici
 */
-
 html, body, #global{
     font-family: Montserrat, sans-serif;
     font-size: 1em;
@@ -406,11 +405,15 @@ ul.social-link{
     align-items:center;
     grid-column-gap:0.6rem;
 }
-ul.social-link li a i#linkedin{
-    background-color:#fff;
-    color:#999;
+ul.social-link li:nth-child(1) a{
+     /*clip-path: url("../../node_modules/@fortawesome/fontawesome-free/svgs/brands/linkedin-in.svg");*/
+     display:inline-block;
+    background: url("../../node_modules/@fortawesome/fontawesome-free/svgs/brands/linkedin-in.svg") #fff no-repeat;
+    /*color:#999;*/
     padding:33%;
     border-radius:50px;
+    /*width:40px;*/
+    /*height:40px;*/
     font-size:1.4rem; 
 }
 ul.social-link li a i#tuto-com{

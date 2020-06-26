@@ -7,6 +7,7 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import '../../node_modules/@fortawesome/fontawesome-free/css/all.css';
+import linkedin_svg from '../../node_modules/@fortawesome/fontawesome-free/svgs/brands/linkedin.svg' ;
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../node_modules/select2/dist/css/select2.min.css';
 import '../css/app.css';
