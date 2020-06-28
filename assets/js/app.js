@@ -7,7 +7,7 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import '../../node_modules/@fortawesome/fontawesome-free/css/all.css';
-import linkedin_svg from '../../node_modules/@fortawesome/fontawesome-free/svgs/brands/linkedin.svg' ;
+//import linkedin_svg from '../../node_modules/@fortawesome/fontawesome-free/svgs/brands/linkedin.svg' ;
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../node_modules/select2/dist/css/select2.min.css';
 import '../css/app.css';
@@ -20,7 +20,7 @@ $(document).ready(function () {
     //unset gradiant background on header when visit home page and login page.
     if (RegExp("login|local\/$").test(window.location.href)) {
         $('header').css({"background": "transparent",
-            "box-shadow": "none"});
+            "box-shadow": "none", "position":"absolute"});
         if (!RegExp("login").test(window.location.href)) {
             $("#ln_home a").css('color', "#2572ff");
         }
