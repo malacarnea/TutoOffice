@@ -89,7 +89,7 @@ ul.nav li a{
     font-weight:500;
     color:#fff;
 }
-header nav ul.nav li a:hover, .active-nav{
+header nav ul.nav li a:hover, .active{
     border-bottom:2px solid #fff;
 }
 
