@@ -12,6 +12,10 @@ html, body, #global{
     font-size: 1em;
     margin:0;
 }
+
+body{
+    position:relative;
+}
 #global{
     margin-top: 0;
     display:grid;
@@ -32,6 +36,7 @@ header{
     position:none;
     background: transparent linear-gradient(188deg, #29DAFF 0%, #6500FF 100%) 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 10px #00000029;
+    z-index:999;
 }
 .alert{
     grid-column:1/span 16;  
@@ -61,7 +66,6 @@ ul{
     list-style: none;  
 }
 ul.nav{
-    
     display:grid;
     grid-template-columns: 4fr repeat(3, 1fr);
     justify-items:start;
@@ -81,8 +85,12 @@ ul.nav #ln_home{
     justify-self: start; 
 }
 ul.nav li a{
+     text-decoration:none;
     font-weight:500;
     color:#fff;
+}
+header nav ul.nav li a:hover, .active-nav{
+    border-bottom:2px solid #fff;
 }
 
 a:visited{
@@ -91,13 +99,21 @@ a:visited{
 img{
     height:100%;
 }
-#accueil{
-    display:grid;
-    grid-template-columns: 4fr 6fr;
-    grid-row: span;
-}
-.slide-to-co, #img-box{
+
+.slide-to-co, #img-box, .img-relative{
     height:100vh;
+     position:relative;
+     grid-row:1;
+}
+#img-box{
+    grid-column:1/span 7;
+}
+#slide{
+    grid-column:8/ span 16;
+}
+.img-relative{
+    margin:0;
+    grid-column:1/span 16;
 }
 .slide-to-co{
     background: transparent linear-gradient(216deg, #2969FF 0%, #00D3FF 100%) 0% 0% no-repeat padding-box;
@@ -414,20 +430,26 @@ ol li {
 #description{
     grid-column:2/10;
     grid-row:2;
+    margin: 10% auto;
 }
 #discover{
     grid-column:12/ span 15;
     grid-row:2;
      z-index: 2;
+     text-align: center;
 }
 .apropos-page .white-block p{
     font-size:0.75em;
 }
 .apropos-page .white-block img{
-    width:33%;
+    width:40%;
     height:auto;
 }
-
+#who-i-am h1{
+    color:#2081FF;
+    font-size:1.3em;
+    font-weight:bold;
+}
 /* home page : footer */
 
 footer{
@@ -611,21 +633,26 @@ input[type="submit"]{
 }
 .tabpanel-block h1,.tabpanel-block h2,.tabpanel-block h3, 
 .formation-header-title i{
-    color:#2081FF;
     display:inline;
 }
-.tabpanel-block h1{
+.tabpanel-block h1,.tabpanel-block h2,.tabpanel-block h3, 
+.formation-header-title i, #who-i-am h1, .tuto-title h1,
+.tuto-title p{
+    color:#2081FF;
+}
+
+.tabpanel-block h1, #who-i-am h1, .tuto-title h1{
     font-size:1.3em;
     padding:0;
     margin:0;
+    font-weight:600;
 }
 .tabpanel-block h2,.tabpanel-block h3 {
     font-size:1em;
 }
-.tabpanel-block h1:after{
+.tabpanel-block h1:after, #who-i-am h1:after{
     content:"";
     display:block;
-    width: 32em;
     height:0;
     margin:0;
     grid-column: 1;
@@ -761,15 +788,7 @@ video{
     width:100%;
 }
 
-.tuto-title h1, .tuto-title p{
-    color:#2081FF;
-}
-.tuto-title h1{
-    font-size:1.3em;
-    font-weight:600;
-    padding:0;
-    margin:0;
-}
+
 .tuto-title p{
     font-size:.9em;
 }
