@@ -42,12 +42,12 @@ class SiteController extends AbstractController
     }
     
     /**
-     * @Route("/legales", name="legales")
+     * @Route("/legal-notice", name="legal-notice")
      * @return type
      */
-     public function legales()
+     public function legal_notice()
     {
-        return $this->render('site/legales.html.twig', [
+        return $this->render('site/legal_notice.html.twig', [
             'controller_name' => 'SiteController',
         ]);
     }

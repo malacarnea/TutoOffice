@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Josselin Balde - Formation Bureautique{% endblock %}
+{% block stylesheets %}
+    {{ parent()}}
 
+{% endblock %}
 {% block content %}
     <div id="index">
-        <section id="accueil" class="index-section">
-            
+        <section id="accueil" class="index-section" data-spy>
+
             <div id="img-box">
-               
+
             </div>
             <div class="slide-to-co index" id="slide">
                 <div class="accroche">
@@ -17,7 +20,7 @@
                     <a class="bt-link bt-accueil" href="#formations">Voir les formations</a>
                 </div>
             </div>
-             <div class="img-relative">
+            <div class="img-relative">
                 <div id="baton"><img src="{{ asset('build/images/Baton.png') }}"/></div>
                 <div id="diagramme"><img src="{{ asset('build/images/Diagramme.png') }}"/></div>
                 <div id="document"><img src="{{ asset('build/images/Document.png') }}"/></div>
@@ -25,7 +28,7 @@
                 <img id="illustration_accueil" src="{{ asset('build/images/illustration_accueil.png') }}"/>
                 <img id="cafe" src="{{ asset('build/images/cafe_souris.png') }}"/>
                 <img id="plante" src="{{ asset('build/images/plante.png') }}"/>
-                </div>
+            </div>
         </section>
         <section id="video" class="index-section">
             <video controls>
@@ -34,24 +37,24 @@
             </video>
         </section>
 
-        <section id="formations" class="index-section">
+        <section id="formations" class="index-section" data-spy>
             <div class="blue-band">
                 <h2 class="section-title title-white-border">A vous de choisir</h2>
                 <div class="floater">
-                <div class="white-block">
-                    <h3>Tutoriels en ligne</h3>
-                    <img src="{{ asset("build/images/picto_ordinateur.png") }}" alt="Tutoriels en ligne"/>
-                    <a class="bt-link" href="https://fr.tuto.com/formateur/membre-2183-1509.htm">Découvrir</a>
-                </div>
-                <div class="white-block">
-                    <h3>Formation en présentiel</h3>
-                    <img src="{{ asset("build/images/picto_groupe.png") }}" alt="Formation en prétentiel"/>
-                    <a class="bt-link" href="https://ganapati.fr/formateur/188-Josselin.Balde">Découvrir</a>
-                </div>
+                    <div class="white-block">
+                        <h3>Tutoriels en ligne</h3>
+                        <img src="{{ asset("build/images/picto_ordinateur.png") }}" alt="Tutoriels en ligne"/>
+                        <a class="bt-link" href="https://fr.tuto.com/formateur/membre-2183-1509.htm">Découvrir</a>
+                    </div>
+                    <div class="white-block">
+                        <h3>Formation en présentiel</h3>
+                        <img src="{{ asset("build/images/picto_groupe.png") }}" alt="Formation en prétentiel"/>
+                        <a class="bt-link" href="https://ganapati.fr/formateur/188-Josselin.Balde">Découvrir</a>
+                    </div>
                 </div>
             </div>
         </section>
-        <section id="apropos" class="index-section">
+        <section id="apropos" class="index-section" data-spy>
             <div class="gradient-blue">
                 <h2 class="section-title" id="more-h2">Les</h2>
                 <div class="white-block">
@@ -65,9 +68,17 @@
                 </div>
             </div>
             <div class='apropos'>
-                    <img src="{{ asset("build/images/Josselin_clair.jpg") }}" alt="Josselin Balde"/>
-                    <a class='bt-link' href="{{ path("apropos") }}">Découvrir mon parcours</a>
-                </div>
+                <img src="{{ asset("build/images/Josselin_clair.jpg") }}" alt="Josselin Balde"/>
+                <a class='bt-link' href="{{ path("apropos") }}">Découvrir mon parcours</a>
+            </div>
         </section>
     </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('scrollspy') }}
+
+    <!-- Renders app.js & a webpack runtime.js file
+        <script src="/build/runtime.js"></script>
+        <script src="/build/app.js"></script> -->
 {% endblock %}

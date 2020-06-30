@@ -13,13 +13,14 @@ import '../css/app.css';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
+require('popper.js');
 require('bootstrap');
 require('select2');
 $(document).ready(function () {
     //unset gradiant background on header when visit home page and login page.
-    if (RegExp("login|local\/$").test(window.location.href)) {
-        $('header').css({"background": "transparent",
-            "box-shadow": "none", "position":"absolute"});
+    if (RegExp("login|local\/|#accueil$").test(window.location.href)) {
+//        $('header').css({"background": "transparent",
+//            "box-shadow": "none", "position":"absolute"});
         if (!RegExp("login").test(window.location.href)) {
             $("#ln_home a").css('color', "#2572ff");
         }

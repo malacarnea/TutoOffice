@@ -11,24 +11,18 @@
              <link rel="stylesheet" href="/build/app.css"> -->
         {% endblock %}
     </head>
-    <body data-spy="scroll" data-target="#main-navbar" >
+    <body>
         <div id="global">
-            <header>
-                <nav class="navbar" id="main-navbar" data-spy="affix" >
-                    <ul class="nav" >
-                        <li id="ln_home"><a href="{{ path('accueil') }}">Accueil</a></li>
+            <header class="fixed-top">
+                <nav id="main-navbar">
+                    <ul class="nav">
+                        <li id="ln_home"><a href="{{ path('accueil')~"#accueil" }}">Accueil</a></li>
 
                         {% block customNav %}
-                            <li id="ln_apropos"><a href="{{ path('accueil')~"#apropos" }}">À propos</a></li>
                             <li id="ln_formations">
-                                {% if is_granted("ROLE_TRAINEE") %}
-                                    <a href="{{ path('formations') }}">Formations</a>
-                                {% elseif is_granted("ROLE_ADMIN") or is_granted("ROLE_TEACHER")%}
-                                    <a href="{{ path('admin.index.formations') }}">Formations</a>
-                                {% else %}
-                                    <a href="{{ path('accueil')~"#formations" }}">Formations</a>
-                                {% endif %}
+                                <a href="{{ path('accueil')~"#formations" }}">Formations</a>
                             </li>
+                            <li id="ln_apropos"><a href="{{ path('accueil')~"#apropos" }}">À propos</a></li>
                         {% endblock %}
                         <li id="ln_connection">
                             {% if is_granted("ROLE_USER") %}
@@ -38,27 +32,30 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="menu-user">
                                         <a href="{{ path('profile') }}" class="dropdown-item">Mon Profil</a>
+                                        <a href='{{ is_granted("ROLE_TRAINEE")?path("formations"):path("admin.index.formations") }}' class="dropdown-item">Formation</a>
                                         <a href="{{ path('app_logout') }}" class="dropdown-item">Déconnexion</a>
-
                                     </div>
                                 </div>
-                            {% else %}   
-                                <a href="{{ path('app_login') }}">Connexion</a>
-                            {% endif %}
+                                {% else %}   
+                                    <a href="{{ path('app_login') }}">Connexion</a>
+                                {% endif %}
                         </li>
                     </ul>
                 </nav>
             </header>
 
-            
-                {% block body %}
-                    {% block content %}
-                    {% endblock %}
 
-                    {{ include("site/footer.html.twig") }}
+            {% block body %}
+                {% block content %}
                 {% endblock %}
-            </div>
-    
+
+                {{ include("site/footer.html.twig") }}
+            {% endblock %}
+
+        </div>
+        {% block test %}
+        {% endblock %}
+
         <!-- <script src="https://code.jquery.com/jquery-3.4.1.js"
                  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
          crossorigin="anonymous"></script>
