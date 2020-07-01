@@ -19,8 +19,8 @@ require('select2');
 $(document).ready(function () {
     //unset gradiant background on header when visit home page and login page.
     if (RegExp("login|local\/|#accueil$").test(window.location.href)) {
-//        $('header').css({"background": "transparent",
-//            "box-shadow": "none", "position":"absolute"});
+        $('header').css({"background": "transparent",
+            "box-shadow": "none", "position":"absolute"});
         if (!RegExp("login").test(window.location.href)) {
             $("#ln_home a").css('color', "#2572ff");
         }

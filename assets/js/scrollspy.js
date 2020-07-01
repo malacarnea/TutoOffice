@@ -10,16 +10,13 @@ const callback = function (entries) {
 }
 const activate = function (elem) {
     const id = elem.getAttribute('id')
-     console.log(id)
     const anchor = document.querySelector(`a[href="/#${id}"]`)
-     console.log(anchor)
     if (anchor === null) {
         return null
     }
     anchor.parentElement.parentElement
             .querySelectorAll('.active')
             .forEach(node => node.classList.remove('active'))
-    console.log(anchor)
     anchor.classList.add('active')
 }
 const debounce = function (callback, delay) {
