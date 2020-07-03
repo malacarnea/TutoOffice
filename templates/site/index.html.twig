@@ -30,18 +30,18 @@
                 <img id="plante" src="{{ asset('build/images/plante.png') }}"/>
             </div>
         </section>
-        <section id="video" class="index-section">
+        <section id="video" class="index-section reveal">
+            <div class="video reveal-2">
             <video controls>
                 <source src="{{ asset('videos/presentation.mp4') }}"
                         type="video/mp4">
             </video>
+            </div>
         </section>
 
-        <section id="formations" class="index-section" data-spy>
+        <section id="formations" class="index-section reveal" data-spy>
             <h2 class="section-title title-white-border">A vous de choisir</h2>
             <div class="blue-band reveal-3">
-
-
             </div>
             <div class="floater reveal-2">
                 <div class="white-block">
@@ -56,9 +56,8 @@
                 </div>
             </div>
         </section>
-        <section id="apropos" class="index-section" data-spy>
+        <section id="apropos" class="index-section reveal" data-spy>
             <div class="gradient-blue reveal-3">
-
             </div>
             <h2 class="section-title" id="more-h2">Les</h2>
             <div class="white-block reveal-2">
@@ -71,7 +70,9 @@
                 </ol>
             </div> 
             <img class="reveal-2" src="{{ asset("build/images/Josselin_clair.jpg") }}" alt="Josselin Balde"/>
-            <a class='bt-link reveal-2' href="{{ path("apropos") }}">Découvrir mon parcours</a>
+            <div class="container-bt-link reveal-2">
+            <a class='bt-link' href="{{ path("apropos") }}">Découvrir mon parcours</a>
+            </div>
         </section>
     </div>
 {% endblock %}

@@ -86,7 +86,7 @@ ul.nav #ln_home{
     justify-self: start; 
 }
 ul.nav li a{
-     text-decoration:none;
+    text-decoration:none;
     font-weight:500;
     color:#fff;
 }
@@ -107,8 +107,8 @@ h2.section-title{
 }
 
 .slide-to-co, #img-box, .img-relative{
-     position:relative;
-     grid-row:1;
+    position:relative;
+    grid-row:1;
 }
 #img-box{
     grid-column:1/span 7;
@@ -168,6 +168,7 @@ p.metier{
     border-radius: 50px;
     padding:2% 5%;
     font-size:1em;
+    text-align: center;
 }
 .bt-link:hover{
     background-color: #2081FF;
@@ -251,18 +252,24 @@ p.metier{
     position:absolute;
     z-index:333;
 }
-
+section#accueil{
+    margin-top:0;
+}
 /*** home page : video section***/
 section.index-section{
     display:grid;
     grid-template-columns:repeat(16, 1fr);
-    margin:0; padding:0;
+    margin:2% 0 0 0; padding:0;
     height:100vh;
 }
 
-section#video video{
+section#video .video{
     grid-column:2/span 14;
     align-self:center;
+    margin-bottom: 2%;
+}
+video{
+    max-height: 99vh!important;
 }
 
 /*** homepage : formation section ***/
@@ -294,7 +301,7 @@ section#formations{
     text-align: center;
     align-content:space-around;
     z-index: 2;
-    padding:3% 7%;
+    padding:10%;
 }
 .white-block img{
     width:90%;
@@ -324,7 +331,6 @@ section#formations{
     border-bottom:3px solid #fff;
 }
 .white-block .bt-link{
-    height:2rem;
     width:10rem;
     border:1px solid #2081ff;
     box-shadow: none;
@@ -383,20 +389,25 @@ ol li {
     grid-column:3/span 8;
     font-weight:700;
     display:inline-block;
+    z-index:2;
 }
 
 #apropos img{
     grid-column:12/span 4;
     grid-row:3;
-    width : 100%;
     border:none;
+    justify-self:center;
 }
-#apropos .bt-link{
+#apropos .container-bt-link{
     color:#000;
     grid-column:12/span 4;
     grid-row:4;
-    align-self: center;
-    
+    align-self: end;
+    justify-items:center;
+    display:grid;
+}
+#apropos .bt-link{
+    color:#000;
 }
 #apropos .bt-link:hover{
     color:#fff;
@@ -433,15 +444,15 @@ ol li {
     height: auto;
 }
 #who-i-am, #description, #discover{
-     width:100%;
-     height: auto;
+    width:100%;
+    height: auto;
     z-index: 2;
-      
+
 }
 #who-i-am{
     grid-column:8/-1;
     grid-row:1;
-   
+
 }
 #description{
     grid-column:2/10;
@@ -451,8 +462,8 @@ ol li {
 #discover{
     grid-column:12/ span 15;
     grid-row:2;
-     z-index: 2;
-     text-align: center;
+    z-index: 2;
+    text-align: center;
 }
 .apropos-page .white-block p{
     font-size:0.75em;
@@ -849,22 +860,45 @@ table.table, #chg-password{
 /*********************/
 /**** Animations *****/
 /*********************/
-[class*="reveal-"]{
-	opacity:0;
-	transform:translateY(50px);
+.reveal [class*="reveal-"]{
+    opacity:0;
+    transform:translateY(75px);
 }
 
-.reveal-visible{
-	opacity:1;
-	transform:translateY(0);
-	transition: 2s ease;
+.reveal-visible [class*="reveal-"]{
+    opacity:1;
+    transform:translateY(0);
+    /*transition: 0.1s ease;*/
 }
 .reveal-2{
-  transition-delay:.5s;
+    transition-duration: 1s!important;
+    transition-timing-function: ease-out!important;
 }
 .reveal-3{
-  transition-delay:1s;
+    transition-duration: 1.5s!important;
+    transition-timing-function: ease-in-out!important;
 }
 .reveal-4{
-  transition-delay:1.5s;
+    transition-delay:1.5s!important;
+}
+
+.slide-to-co.animate{
+    transform: scaleX(-40%);
+    transition-duration: 1.5s;
+}
+
+.img-relative.animate img{
+    transform: translateX(-40%);
+    transition-duration: 1.5s;
+}
+.accroche.animate{
+    opacity:0;
+    transition-duration: 1.5s;
+}
+#fieldset_connection.hidden{
+     transform: translateX(100%);
+}
+#fieldset_connection.animate{
+    transform: translateX(0);
+    transition-duration: .5s;
 }

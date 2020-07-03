@@ -25,6 +25,13 @@ $(document).ready(function () {
             $("#ln_home a").css('color', "#2572ff");
         }
     }
+    if (RegExp("local\/|#accueil$").test(window.location.href)) {
+       $("#ln_connection").blur(function(){
+           $(".slide-to-co").addClass("animate");
+           $(".img-relative").addClass("animate");
+           $("#fieldset-connection").addClass("animate");
+       })
+    }
     //change highlight on admin menu
     if (RegExp("admin\/$").test(window.location.href)) {
         $("#formations-tab").addClass("active");

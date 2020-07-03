@@ -1,4 +1,4 @@
-const ratio = .1
+const ratio = .5
 const options = {
     root: null,
     rootMargin: '0px',
@@ -15,6 +15,6 @@ const handleIntersect = function (entries, observer) {
     })
 }
 const observer = new IntersectionObserver(handleIntersect, options)
-document.querySelectorAll('[class*="reveal-"]').forEach(function(r){
+document.querySelectorAll('.reveal').forEach(function(r){
     observer.observe(r)
 })
