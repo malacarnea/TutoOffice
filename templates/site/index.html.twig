@@ -39,11 +39,11 @@
 
         <section id="formations" class="index-section" data-spy>
             <h2 class="section-title title-white-border">A vous de choisir</h2>
-            <div class="blue-band">
+            <div class="blue-band reveal-3">
 
 
             </div>
-            <div class="floater">
+            <div class="floater reveal-2">
                 <div class="white-block">
                     <h3>Tutoriels en ligne</h3>
                     <img src="{{ asset("build/images/picto_ordinateur.png") }}" alt="Tutoriels en ligne"/>
@@ -57,11 +57,11 @@
             </div>
         </section>
         <section id="apropos" class="index-section" data-spy>
-            <div class="gradient-blue">
+            <div class="gradient-blue reveal-3">
 
             </div>
             <h2 class="section-title" id="more-h2">Les</h2>
-            <div class="white-block">
+            <div class="white-block reveal-2">
                 <ol>
                     <li>Je prends en compte vos besoins précis par téléphone</li>
                     <li>Nous fixons ensemble un programme sur mesure</li>
@@ -70,15 +70,15 @@
                     <li>En tant que client, vous aurez accès à l'ensemble des tutoriels vidéo concernant votre formation</li>
                 </ol>
             </div> 
-            <img src="{{ asset("build/images/Josselin_clair.jpg") }}" alt="Josselin Balde"/>
-            <a class='bt-link' href="{{ path("apropos") }}">Découvrir mon parcours</a>
+            <img class="reveal-2" src="{{ asset("build/images/Josselin_clair.jpg") }}" alt="Josselin Balde"/>
+            <a class='bt-link reveal-2' href="{{ path("apropos") }}">Découvrir mon parcours</a>
         </section>
     </div>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
     {{ encore_entry_script_tags('scrollspy') }}
-
+    {{ encore_entry_script_tags('animations') }}
     <!-- Renders app.js & a webpack runtime.js file
         <script src="/build/runtime.js"></script>
         <script src="/build/app.js"></script> -->

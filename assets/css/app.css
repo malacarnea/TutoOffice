@@ -329,6 +329,7 @@ section#formations{
     border:1px solid #2081ff;
     box-shadow: none;
 }
+
 /*** home page #apropos ***/
 .gradient-blue{
     background: transparent linear-gradient(14deg, #2969FF 0%, #00D3FF 100%) 0% 0% no-repeat padding-box;
@@ -534,18 +535,15 @@ p.developpement{
 /***********************/
 /*** Connection page ***/
 /***********************/
-#connection-page{
-    justify-content: center;
-    align-content: center;
-    grid-template-columns:repeat(16, 1fr);
-}
 #fieldset_connection{
     background-color: #FFFFFF;
     border:none;
     box-shadow: 0px 3px 15px #0044FF;
     opacity: 1;
-    grid-column:6/span 6;
-    padding:5%;
+    height:50%;
+    width:auto;
+    margin:0 auto;
+    padding:2% 5%;
 }
 
 #fieldset_connection > h1{
@@ -554,6 +552,7 @@ p.developpement{
     letter-spacing: 0px;
     color: #2081FF;
     opacity: 1;
+    margin-top: 0;
 }
 
 #fieldset_connection form{
@@ -569,7 +568,6 @@ p.developpement{
 
 input[type="text"], input[type="password"], input[type="email"], input[type="number"]{
     height:5vh;
-    width:80%;
     padding-left:2%;
     margin: 2% auto;
     border-radius:4px;
@@ -846,4 +844,27 @@ table.table, #chg-password{
 #chg-password{
     color:#fff;
     grid-row:3; 
+}
+
+/*********************/
+/**** Animations *****/
+/*********************/
+[class*="reveal-"]{
+	opacity:0;
+	transform:translateY(50px);
+}
+
+.reveal-visible{
+	opacity:1;
+	transform:translateY(0);
+	transition: 2s ease;
+}
+.reveal-2{
+  transition-delay:.5s;
+}
+.reveal-3{
+  transition-delay:1s;
+}
+.reveal-4{
+  transition-delay:1.5s;
 }
