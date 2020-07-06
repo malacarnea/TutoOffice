@@ -30,10 +30,11 @@ $(document).ready(function () {
     //homepage to login animations
     if (RegExp("local\/|#accueil$").test(window.location.href)) {
        $("#ln_connection").click(function(){
+           $(".slide-fieldset").addClass("animate");
            $(".slide-to-co").addClass("animate");
            $(".img-relative img").addClass("animate");
            $(".accroche").addClass("animate");
-           $(".slide-fieldset").addClass("animate");
+           
            setTimeout(function(){
                 window.location.assign("/login");
            }, 1500)
