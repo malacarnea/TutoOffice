@@ -16,19 +16,10 @@ class SiteController extends AbstractController
     {
         return $this->render('site/index.html.twig', [
             'controller_name' => 'SiteController',
+            'error'=>null,
         ]);
     }
     
-    /**
-     * @Route("/connection", name="connection")
-     * @return type
-     */
-     public function connection()
-    {
-        return $this->render('site/connexion.html.twig', [
-            'controller_name' => 'SiteController',
-        ]);
-    }
     
     /**
      * @Route("/apropos", name="apropos")

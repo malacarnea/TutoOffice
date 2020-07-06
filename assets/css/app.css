@@ -11,6 +11,7 @@ html, body, #global{
     font-family: Montserrat, sans-serif;
     font-size: 1em;
     margin:0;
+    overflow-x: hidden;
 }
 
 body{
@@ -39,6 +40,17 @@ header{
     box-shadow: 0px 3px 10px #00000029;
     z-index:999;
 }
+
+header.transparent-header{
+    background: transparent;
+    box-shadow: none;
+    position:absolute;
+}
+
+.transparent-header nav ul li#ln_home a{
+    color: #2572ff;
+}
+
 .alert{
     grid-column:1/-1;  
 }
@@ -110,32 +122,36 @@ h2.section-title{
     position:relative;
     grid-row:1;
 }
-#img-box{
-    grid-column:1/span 7;
-}
+
 #slide{
-    grid-column:8/ -1;
+    grid-column:7/ -1;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    flex-wrap:nowrap;
+    flex-shrink: 1;
 }
 .img-relative{
     margin:0;
     grid-column:1/-1;
+    
 }
 .slide-to-co, #connection-page{
     background: transparent linear-gradient(216deg, #2969FF 0%, #00D3FF 100%) 0% 0% no-repeat padding-box;
     opacity: 1;
-    display:grid;
-    align-items: center;
     height:100vh;
 }
-.slide-to-co{
-    grid-template-columns: repeat(10, 1fr);
-    grid-column-gap: 16px;
+#connection-page{
+    display:grid;
+    align-items:center;
 }
 
 .accroche{
-    grid-column: 3/10;
+    grid-column: 9/-1;
+    grid-row:1;
     color:#fff;
     z-index:999;
+    align-self: center;
 }
 p.josselin{
     font-weight: 600;
@@ -551,8 +567,8 @@ p.developpement{
     border:none;
     box-shadow: 0px 3px 15px #0044FF;
     opacity: 1;
-    height:50%;
-    width:auto;
+    height:50vh;
+    width:75vh;
     margin:0 auto;
     padding:2% 5%;
 }
@@ -878,27 +894,49 @@ table.table, #chg-password{
     transition-duration: 1.5s!important;
     transition-timing-function: ease-in-out!important;
 }
-.reveal-4{
-    transition-delay:1.5s!important;
+
+
+@keyframes grow{
+    from{
+        margin-right:0;
+        margin-left:40%;
+        width:60%;
+    }
+    to{
+        width:100%;
+        margin-left:0;
+        margin-right:0;
+    }
 }
 
-.slide-to-co.animate{
-    transform: scaleX(-40%);
-    transition-duration: 1.5s;
+
+#slide.animate{
+    position:absolute;
+    animation-name: grow;
+    animation-duration: .9s;
+    animation-fill-mode: forwards;
+
+/*transition-duration: 1s;*/
+width:100%;
+    
 }
 
-.img-relative.animate img{
-    transform: translateX(-40%);
-    transition-duration: 1.5s;
+.img-relative img.animate{
+    position:absolute;
+    transform: translateX(-1000%);
+    transition-duration: 1.2s;
 }
 .accroche.animate{
     opacity:0;
-    transition-duration: 1.5s;
+    transition-duration: 1.1s;
 }
-#fieldset_connection.hidden{
-     transform: translateX(100%);
+.slide-fieldset{
+    transform: translateX(calc(50% + 80vh));
+    
 }
-#fieldset_connection.animate{
+.slide-fieldset.animate{
+    display:absolute;
     transform: translateX(0);
-    transition-duration: .5s;
+    transition-duration: 1.1s;
+    transition-delay: .5s;
 }

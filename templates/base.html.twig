@@ -13,7 +13,7 @@
     </head>
     <body>
         <div id="global">
-            <header class="fixed-top">
+            <header class="fixed-top transparent-header">
                 <nav id="main-navbar">
                     <ul class="nav">
                         <li id="ln_home"><a href="{{ path('accueil')~"#accueil" }}">Accueil</a></li>
@@ -23,8 +23,8 @@
                                 <a href="{{ path('accueil')~"#formations" }}">Formations</a>
                             </li>
                             <li id="ln_apropos"><a href="{{ path('accueil')~"#apropos" }}">À propos</a></li>
-                        {% endblock %}
-                        <li id="ln_connection">
+                            {% endblock %}
+                        <li >
                             {% if is_granted("ROLE_USER") %}
                                 <div class="dropdown">
                                     <button class="dropdown-toggle" type="button" id="menu-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,9 +36,13 @@
                                         <a href="{{ path('app_logout') }}" class="dropdown-item">Déconnexion</a>
                                     </div>
                                 </div>
-                                {% else %}   
-                                    <a href="{{ path('app_login') }}">Connexion</a>
-                                {% endif %}
+                            {% else %}   
+{#                                <a id="ln_connection" class="bt-link" href="{{ path('app_login') }}">Connexion</a>#}
+                                                                         <button id="ln_connection" class="bt-link" type="button"  >
+                                Connexion
+                                                                    </button>
+                            
+                            {% endif %}
                         </li>
                     </ul>
                 </nav>

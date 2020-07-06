@@ -4,41 +4,6 @@
 
 {% block body %}
     <div id="connection-page">
-        <fieldset id="fieldset_connection" class="hidden animate">
-            <h1>Connexion</h1>
-            <form method="post">
-                {% if error %}
-                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                {% endif %}
-
-                {% if app.user %}
-                    <div class="mb-3">
-                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-                    </div>
-                {% endif %}
-
-                <input type="email" value="" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-
-                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
-
-                <input type="hidden" name="_csrf_token"
-                       value="{{ csrf_token('authenticate') }}"
-                       >
-                <a href="{{ path("app_forgot_password_request") }}">Mot de passe oublié ?</a>
-                {#
-                    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                    See https://symfony.com/doc/current/security/remember_me.html
-            
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" name="_remember_me"> Remember me
-                        </label>
-                    </div>
-                #}
-
-                <input class="bt-link" type="submit" value="Se Connecter">
-            </form>
-
-        </fieldset>
+        {{ include("security/form_connection.html.twig") }}
     </div>
 {% endblock %}
