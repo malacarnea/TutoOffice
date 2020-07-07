@@ -16,29 +16,29 @@ import $ from 'jquery';
 require('popper.js');
 require('bootstrap');
 require('select2');
+
 $(document).ready(function () {
     //unset gradiant background on header when visit home page and login page.
-    if (!RegExp("login|local\/|#accueil$").test(window.location.href)) {
-        $('header').removeClass("transparent-header");
-        
-    }else{
+    if (RegExp("login|local\/$|#accueil$").test(window.location.href)) {
         if (RegExp("login").test(window.location.href)) {
             $("#ln_home a").css('color', "#fff");
         }
+    } else {
+        $('header').removeClass("transparent-header");
     }
-    
+
     //homepage to login animations
     if (RegExp("local\/|#accueil$").test(window.location.href)) {
-       $("#ln_connection").click(function(){
-           $(".slide-fieldset").addClass("animate");
-           $(".slide-to-co").addClass("animate");
-           $(".img-relative img").addClass("animate");
-           $(".accroche").addClass("animate");
-           
-           setTimeout(function(){
+        $("#ln_connection").click(function () {
+            $(".slide-fieldset").addClass("animate");
+            $(".slide-to-co").addClass("animate");
+            $(".img-relative img").addClass("animate");
+            $(".accroche").addClass("animate");
+
+            setTimeout(function () {
                 window.location.assign("/login");
-           }, 1500)
-       });
+            }, 1500)
+        });
     }
     //change highlight on admin menu
     if (RegExp("admin\/$").test(window.location.href)) {
@@ -64,7 +64,7 @@ $('#formBox').on('show.bs.modal', function (event) {
 });
 
 $('[data-spy="scroll"]').on('activate.bs.scrollspy', function () {
-  console.log("in");
+    console.log("in");
 });
 
 function callModalBySaveBtn(e) {

@@ -950,8 +950,4 @@ width:100%;
     animation: slide 1s ease-in .5s;
     animation-fill-mode: forwards;
     
-    /*transform : translateX(0);*/
-/*    transition-duration: 1.5s;
-    transition-timing-function: ease-out;
-    transition-delay: 1s;*/
 }

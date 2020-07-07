@@ -1,6 +1,6 @@
 const ratio = .6
 let observer = null
-console.log("scrollspy");
+
 const callback = function (entries) {
     entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -10,15 +10,30 @@ const callback = function (entries) {
 }
 const activate = function (elem) {
     const id = elem.getAttribute('id')
-    const anchor = document.querySelector(`a[href="/#${id}"]`)
-    if (anchor === null) {
-        return null
+    if (id !== "video") {
+        const anchor = document.querySelector(`a[href="/#${id}"]`)
+        if (anchor === null) {
+            return null
+        }
+        anchor.parentElement.parentElement
+                .querySelectorAll('.active')
+                .forEach(node => node.classList.remove('active'))
+        anchor.classList.add('active')
     }
-    anchor.parentElement.parentElement
-            .querySelectorAll('.active')
-            .forEach(node => node.classList.remove('active'))
-    anchor.classList.add('active')
+    displayHeader(id)
 }
+
+const displayHeader = function (id) {
+    let header = document.querySelector("header")
+    if (id === "accueil") {
+        if (!header.classList.contains("transparent-header")) {
+            header.classList.add("transparent-header")
+        }
+    } else {
+        header.classList.remove("transparent-header")
+    }
+}
+
 const debounce = function (callback, delay) {
     let timer;
     return function () {
@@ -41,6 +56,7 @@ const observe = function (elems) {
     })
     spies.forEach(elem => observer.observe(elem))
 }
+
 const spies = document.querySelectorAll('[data-spy]')
 
 
