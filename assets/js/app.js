@@ -48,6 +48,15 @@ $(document).ready(function () {
         $("#users-tab").addClass("active");
         $("#formations-tab").removeClass("active");
     }
+
+    //reveal block apropos page
+    $(".apropos-page.reveal")
+            .addClass('reveal-visible')
+            .find("[class*='reveal-']")
+            .each(function () {
+                $(this).addClass('reveal-visible');
+             });
+
 });
 
 $('#formBox').on('show.bs.modal', function (event) {
@@ -106,10 +115,7 @@ function callModalBySaveBtn(e) {
 }
 
 
-
 const imagesContext = require.context('../images', true, /\.(png|jpg|jpeg|gif|ico|svg|webp)$/);
 imagesContext.keys().forEach(imagesContext);
 
-//const videosContext = require.context('../videos', true, /\.(mp4)$/);
-//videosContext.keys().forEach(videosContext);
 

@@ -476,22 +476,30 @@ ol li {
     margin: 10% auto;
 }
 #discover{
-    grid-column:12/ span 15;
+    grid-column:12/ span 4;
     grid-row:2;
     z-index: 2;
     text-align: center;
 }
+
+.apropos-page .white-block{
+    text-align:left;
+    padding:4% 10%;
+}
+
 .apropos-page .white-block p{
-    font-size:0.75em;
+    font-size:.8em;
 }
 .apropos-page .white-block img{
     width:40%;
     height:auto;
 }
 #who-i-am h1{
-    color:#2081FF;
+    margin-top:0;
     font-size:1.3em;
     font-weight:bold;
+    text-align: left;
+    width:100%;
 }
 /* home page : footer */
 
@@ -680,7 +688,7 @@ input[type="submit"]{
     color:#2081FF;
 }
 
-.tabpanel-block h1, #who-i-am h1, .tuto-title h1{
+.tabpanel-block h1, .tuto-title h1{
     font-size:1.3em;
     padding:0;
     margin:0;
@@ -698,8 +706,11 @@ input[type="submit"]{
     padding-top: 1%;
     border-bottom:3px solid #2081ff;
 }
-
-.title-page{
+#who-i-am h1:after{
+    width:12%;
+    margin-bottom: 1%;
+}
+.title-page, .informations-pages{
     grid-column: 1/ -1;
     display:grid;
     grid-template-columns:3fr 1fr;
@@ -802,6 +813,18 @@ th label {
 
 label{
     display:block;
+}
+
+/*************************/
+/*** Legal Notice ********/
+/*************************/
+.informations-pages{
+    grid-template-columns:1fr;
+    
+}
+
+.informations-pages h2{
+    margin-top:2%;
 }
 
 /*** Tutoviewer page ***/

@@ -42,4 +42,14 @@ class SiteController extends AbstractController
             'controller_name' => 'SiteController',
         ]);
     }
+    
+    /**
+     * @Route("/rules", name="rules")
+     * @return type
+     */
+    public function rules(){
+        return $this->render('site/rules.html.twig',[
+            'controller_name'=>'SiteCOntroller',
+        ]);
+    }
 }
