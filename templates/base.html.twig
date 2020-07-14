@@ -16,7 +16,12 @@
             <header class="fixed-top transparent-header">
                 <nav id="main-navbar">
                     <ul class="nav">
-                        <li id="ln_home"><a href="{{ path('accueil')~"#accueil" }}">Accueil</a></li>
+                        <li>
+{#                            <a href="{{ path('accueil')~"#accueil" }}">Accueil</a>#}
+                                 <button id="ln_home" type="button" >
+                                Accueil
+                               </button>
+                        </li>
 
                         {% block customNav %}
                             <li id="ln_formations">

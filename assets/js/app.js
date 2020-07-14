@@ -21,25 +21,26 @@ $(document).ready(function () {
     //unset gradiant background on header when visit home page and login page.
     if (RegExp("login|local\/$|#accueil$").test(window.location.href)) {
         if (RegExp("login").test(window.location.href)) {
-            $("#ln_home a").css('color', "#fff");
+            $("#ln_home").css('color', "#fff");
+            $("#ln_home").click(function(){
+                animate("animate reverse");
+//                 setTimeout(function () {
+//                    window.location.assign("/");
+//                }, 1500)
+            })
+        } else {
+            //homepage to login animations
+            $("#ln_connection").click(function () {
+                animate("animate");
+                setTimeout(function () {
+                    window.location.assign("/login");
+                }, 1500)
+            });
         }
     } else {
         $('header').removeClass("transparent-header");
     }
 
-    //homepage to login animations
-    if (RegExp("local\/|#accueil$").test(window.location.href)) {
-        $("#ln_connection").click(function () {
-            $(".slide-fieldset").addClass("animate");
-            $(".slide-to-co").addClass("animate");
-            $(".img-relative img").addClass("animate");
-            $(".accroche").addClass("animate");
-
-            setTimeout(function () {
-                window.location.assign("/login");
-            }, 1500)
-        });
-    }
     //change highlight on admin menu
     if (RegExp("admin\/$").test(window.location.href)) {
         $("#formations-tab").addClass("active");
@@ -55,7 +56,7 @@ $(document).ready(function () {
             .find("[class*='reveal-']")
             .each(function () {
                 $(this).addClass('reveal-visible');
-             });
+            });
 
 });
 
@@ -75,6 +76,13 @@ $('#formBox').on('show.bs.modal', function (event) {
 $('[data-spy="scroll"]').on('activate.bs.scrollspy', function () {
     console.log("in");
 });
+
+function animate(classAnim) {
+    $(".slide-to-co").addClass(classAnim);
+    $(".img-relative img").addClass(classAnim);
+    $(".accroche").addClass(classAnim);
+     $(".slide-fieldset").addClass(classAnim);
+}
 
 function callModalBySaveBtn(e) {
     var button = $(this);

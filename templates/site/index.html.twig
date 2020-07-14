@@ -8,31 +8,7 @@
 {% block content %}
     <div id="index">
         <section id="accueil" class="index-section" data-spy>
-
-            <div class="slide-to-co index" id="slide">
-                 <div class="slide-fieldset">
-                    {{ include("security/form_connection.html.twig") }} 
-                </div>
-            </div>
-            <div class="accroche">
-                <p class="josselin title-white-border">Josselin Balde</p>
-                <h1>Devenez un expert des outils bureautiques</h1>
-                <p class="metier">Formateur indépendant et passionné</p>
-                <a class="bt-link bt-accueil" href="#formations">Voir les formations</a>
-              
-            </div>
-            <div class="img-relative">
-                <div id="baton"><img src="{{ asset('build/images/Baton.png') }}"/></div>
-                <div id="diagramme"><img src="{{ asset('build/images/Diagramme.png') }}"/></div>
-                <div id="document"><img src="{{ asset('build/images/Document.png') }}"/></div>
-                <img id="livres" src="{{ asset('build/images/Livres.png') }}"/>
-                <img id="illustration_accueil" src="{{ asset('build/images/illustration_accueil.png') }}"/>
-                <img id="cafe" src="{{ asset('build/images/cafe_souris.png') }}"/>
-                <img id="plante" src="{{ asset('build/images/plante.png') }}"/>
-                
-            </div>
-
-
+            {{ include("site/home.html.twig") }}   
         </section>
         <section id="video" class="index-section reveal" data-spy>
             <div class="video reveal-2">
