@@ -8,7 +8,7 @@
 {% for formation in formations %}
     <div class="fieldset-formation">
         <div class="formation-header-title">
-            <i class="fas fa-chevron-right"></i>
+            <div class="chevron"><i class="fas fa-chevron-right"></i></div>
             <h2>{{ formation.formation.title }} 
             </h2>
             {% if(is_granted('ROLE_ADMIN')) %}

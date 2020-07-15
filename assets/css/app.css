@@ -50,7 +50,6 @@ header.transparent-header{
 .transparent-header nav ul li #ln_home{
     color: #2572ff;
     border:none;
-    background: transparent;
 }
 
 .alert{
@@ -96,21 +95,22 @@ a{
 button{
     border:none;
 }
-ul.nav #ln_home{
+ul.nav li #ln_home{
     justify-self: start; 
+    background: transparent;
 }
-ul.nav li a{
-    text-decoration:none;
+ul.nav li a, ul.nav li button{
     font-weight:500;
     color:#fff;
+}
+
+ul.nav li a{
+    text-decoration:none;
 }
 header nav ul.nav li a:hover, header nav ul.nav li a.active{
     border-bottom:2px solid #fff;
 }
 
-a:visited{
-    color:#2572FF;
-}
 img{
     height:100%;
 }
@@ -157,7 +157,7 @@ h2.section-title{
     grid-column: 9/-1;
     grid-row:1;
     color:#fff;
-    z-index:999;
+    z-index:5;
     align-self: center;
 }
 p.josselin{
@@ -206,8 +206,13 @@ p.metier{
     padding:3% 10%;
     color:#2572FF;
 }
-#ln_connection a, #ln_connection button{
+#ln_connection a, #ln_connection button, .dropdown-menu a.dropdown-item{
     color:#2572FF;
+}
+
+.dropdown-menu a.dropdown-item:hover, .dropdown-menu a.dropdown-item:focus{
+    background:transparent;
+     color:#2572FF;
 }
 #ln_connection button{
     background-color: transparent;
@@ -217,7 +222,6 @@ p.metier{
     font-size:1em;
     font-weight: 550;
 }
-
 
 #baton{
     top : 22%;
@@ -586,6 +590,7 @@ p.developpement{
     width:75vh;
     margin:0 auto;
     padding:2% 5%;
+    z-index:9999;
 }
 
 #fieldset_connection > h1{
@@ -681,12 +686,17 @@ input[type="submit"]{
     grid-column:1/ span 14;
     padding:1%;
 }
+
+.formation-header-title:hover{
+    cursor:pointer;
+}
+
 .tabpanel-block{
     display:grid;
     grid-template-columns: repeat(16, 1fr);
 }
 .tabpanel-block h1,.tabpanel-block h2,.tabpanel-block h3, 
-.formation-header-title i{
+.formation-header-title .chevron{
     display:inline;
 }
 .tabpanel-block h1,.tabpanel-block h2,.tabpanel-block h3, 
@@ -704,7 +714,8 @@ input[type="submit"]{
 .tabpanel-block h2,.tabpanel-block h3 {
     font-size:1em;
 }
-.tabpanel-block h1:after, #who-i-am h1:after{
+.tabpanel-block h1:after, #who-i-am h1:after, .dropdown-menu a.dropdown-item:hover:after,
+button#ln_home:hover:after{
     content:"";
     display:block;
     height:0;
@@ -756,6 +767,7 @@ ul.chapters{
     grid-row:2;
     padding:2% 0 0 0;
     margin:0;
+    display:none;
 }
 
 ul.tutorials{
@@ -942,16 +954,21 @@ table.table, #chg-password{
 
 @keyframes slide{
     from{
-        display:block;
+        transform: translateX(calc(50% + 150vh));
+        display:block; 
     }
     to{
+        display:block; 
        transform : translateX(0);
     }
 }
 
 @keyframes slide_images{
+    from{
+        left:0;
+    }
     to{
-        left: -100%;
+        left: -100vh;
     }
 }
 @keyframes hide_accroche{
@@ -966,15 +983,15 @@ table.table, #chg-password{
 #slide.animate{
     position:absolute;
     animation-name: grow;
-    animation-duration: 1.5s;
+    animation-duration: 1.3s;
     animation-fill-mode: forwards;
     width:100%;
 }
 
-.img-relative img.animate{
+.img-relative.animate{
     animation-name: slide_images;
-    animation-duration:1.4s;
-    animation-timing-function: ease-in;
+    animation-duration:.7s;
+    animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
 
@@ -986,8 +1003,9 @@ table.table, #chg-password{
 }
 
 .slide-fieldset{
-    display:none;
+    z-index:9999;
     transform: translateX(calc(50% + 150vh));
+    display:none;
 }
 #connection-page .slide-to-co .slide-fieldset{
     display:block;
@@ -1000,8 +1018,8 @@ table.table, #chg-password{
 #connection-page .accroche{
     opacity:0;
 }
-#connection-page .img-relative img{
-    left:-100%;
+#connection-page .img-relative{
+    left:-100vh;
 }
 
 .slide-fieldset.animate{
@@ -1010,6 +1028,16 @@ table.table, #chg-password{
     animation-fill-mode: forwards;
 }
 
-.reverse{
+.animate.reverse{
     animation-direction: reverse;
 }
+.formation-header-title i.fas.fa-chevron-right{
+    transform:rotate(0);
+    transition: transform .2s linear;
+}
+
+.formation-header-title i.fas.fa-chevron-right.down{
+    transform:rotate(90deg);
+    transition: transform .2s linear;
+}
+

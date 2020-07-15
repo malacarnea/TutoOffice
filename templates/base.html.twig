@@ -17,10 +17,14 @@
                 <nav id="main-navbar">
                     <ul class="nav">
                         <li>
-{#                            <a href="{{ path('accueil')~"#accueil" }}">Accueil</a>#}
-                                 <button id="ln_home" type="button" >
-                                Accueil
-                               </button>
+                            {% if(controller_action is defined and (controller_action == "login" or controller_action=="index")) %}
+                                
+                                <button id="ln_home" type="button" >
+                                    Accueil
+                                </button>
+                            {% else %}
+                                <a id="ln_home" href="{{ path('accueil')~"#accueil" }}">Accueil</a>
+                            {% endif %}
                         </li>
 
                         {% block customNav %}
@@ -32,21 +36,24 @@
                         <li >
                             {% if is_granted("ROLE_USER") %}
                                 <div class="dropdown">
-                                    <button class="dropdown-toggle" type="button" id="menu-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="dropdown-toggle bt-link" type="button" id="ln_connection" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Mon espace
                                     </button>
-                                    <div class="dropdown-menu" aria-labelledby="menu-user">
+                                    <div class="dropdown-menu" aria-labelledby="ln_connection">
                                         <a href="{{ path('profile') }}" class="dropdown-item">Mon Profil</a>
-                                        <a href='{{ is_granted("ROLE_TRAINEE")?path("formations"):path("admin.index.formations") }}' class="dropdown-item">Formation</a>
+                                        <a href='{{ is_granted("ROLE_TRAINEE")?path("formations"):path("admin.index.formations") }}' class="dropdown-item">Formations</a>
                                         <a href="{{ path('app_logout') }}" class="dropdown-item">Déconnexion</a>
                                     </div>
                                 </div>
                             {% else %}   
-{#                                <a id="ln_connection" class="bt-link" href="{{ path('app_login') }}">Connexion</a>#}
-                                                                         <button id="ln_connection" class="bt-link" type="button"  >
-                                Connexion
-                                                                    </button>
-                            
+                                {% if(controller_action is defined and (controller_action == "login" or controller_action=="index")) %}
+                                    <button id="ln_connection" class="bt-link connection-bt" type="button"  >
+                                        Connexion
+                                    </button>
+                                {% else %}
+                                    <a id="ln_connection" class="bt-link" href="{{ path('app_login') }}">Connexion</a>
+                                    
+                                {% endif %}
                             {% endif %}
                         </li>
                     </ul>

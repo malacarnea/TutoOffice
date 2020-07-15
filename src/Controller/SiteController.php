@@ -15,7 +15,7 @@ class SiteController extends AbstractController
     public function index()
     {
         return $this->render('site/index.html.twig', [
-            'controller_name' => 'SiteController',
+            'controller_action' => 'index',
             'error'=>null,
         ]);
     }
@@ -28,7 +28,7 @@ class SiteController extends AbstractController
      public function apropos()
     {
         return $this->render('site/apropos.html.twig', [
-            'controller_name' => 'SiteController',
+            'controller_action' => 'apropos',
         ]);
     }
     
@@ -39,7 +39,7 @@ class SiteController extends AbstractController
      public function legal_notice()
     {
         return $this->render('site/legal_notice.html.twig', [
-            'controller_name' => 'SiteController',
+            'controller_action' => 'legal-notice',
         ]);
     }
     
@@ -49,7 +49,7 @@ class SiteController extends AbstractController
      */
     public function rules(){
         return $this->render('site/rules.html.twig',[
-            'controller_name'=>'SiteCOntroller',
+            'controller_action'=>'rules',
         ]);
     }
 }

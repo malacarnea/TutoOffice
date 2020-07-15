@@ -24,14 +24,16 @@ $(document).ready(function () {
             $("#ln_home").css('color', "#fff");
             $("#ln_home").click(function(){
                 animate("animate reverse");
-//                 setTimeout(function () {
-//                    window.location.assign("/");
-//                }, 1500)
+                 $("#ln_home").css('color', '#2572ff');
+                 setTimeout(function () {
+                    window.location.assign("/");
+                }, 1500)
             })
         } else {
             //homepage to login animations
-            $("#ln_connection").click(function () {
+            $("#ln_connection.connection-bt").click(function () {
                 animate("animate");
+                $("#ln_home").css('color', '#ffffff');
                 setTimeout(function () {
                     window.location.assign("/login");
                 }, 1500)
@@ -58,6 +60,16 @@ $(document).ready(function () {
                 $(this).addClass('reveal-visible');
             });
 
+    $('.formation-header-title').click(function(e){
+        console.log("in");
+        $(this).parent().find("ul.chapters").fadeToggle("slow");
+        let itemI=$(this).find("i.fas.fa-chevron-right");
+        if(itemI.hasClass("down")){
+            itemI.removeClass("down");
+        }else{
+            itemI.addClass("down");
+        }
+    });
 });
 
 $('#formBox').on('show.bs.modal', function (event) {
@@ -79,9 +91,10 @@ $('[data-spy="scroll"]').on('activate.bs.scrollspy', function () {
 
 function animate(classAnim) {
     $(".slide-to-co").addClass(classAnim);
-    $(".img-relative img").addClass(classAnim);
+    $(".slide-fieldset").addClass(classAnim);
+    $(".img-relative").addClass(classAnim);
     $(".accroche").addClass(classAnim);
-     $(".slide-fieldset").addClass(classAnim);
+     
 }
 
 function callModalBySaveBtn(e) {
