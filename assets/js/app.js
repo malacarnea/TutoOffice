@@ -60,9 +60,9 @@ $(document).ready(function () {
                 $(this).addClass('reveal-visible');
             });
 
-    $('.formation-header-title').click(function(e){
+    $('.formation-header-title .chevron').click(function(e){
         console.log("in");
-        $(this).parent().find("ul.chapters").fadeToggle("slow");
+        $(this).parent().parent().find("ul.chapters").fadeToggle("slow");
         let itemI=$(this).find("i.fas.fa-chevron-right");
         if(itemI.hasClass("down")){
             itemI.removeClass("down");

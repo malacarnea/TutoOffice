@@ -687,8 +687,10 @@ input[type="submit"]{
     padding:1%;
 }
 
-.formation-header-title:hover{
+.formation-header-title i:hover, .formation-header-title .chevron:hover,
+i[data-action="modify"]:hover, i[data-action="add"]:hover{
     cursor:pointer;
+    color: #555;
 }
 
 .tabpanel-block{
@@ -784,9 +786,7 @@ i[data-action="add"]{
     margin-left:10px;
 
 }
-i[data-action="modify"]:hover, i[data-action="add"]:hover{
-    cursor:pointer;
-}
+
 
 i[data-action="delete"]{
     color:grey;
