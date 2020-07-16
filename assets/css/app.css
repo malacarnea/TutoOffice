@@ -52,6 +52,13 @@ header.transparent-header{
     border:none;
 }
 
+.transparent-header nav ul li #ln_home:hover:after{
+    content:"";
+    display: block;
+    border-bottom : 2px solid #2572ff;
+    width: 100%;
+}
+
 .alert{
     grid-column:1/-1;  
 }
@@ -111,6 +118,11 @@ header nav ul.nav li a:hover, header nav ul.nav li a.active{
     border-bottom:2px solid #fff;
 }
 
+ button#ln_home:hover:after{
+     content:"";
+     width:100%;
+    border-bottom:2px solid #fff;
+}
 img{
     height:100%;
 }
@@ -212,7 +224,7 @@ p.metier{
 
 .dropdown-menu a.dropdown-item:hover, .dropdown-menu a.dropdown-item:focus{
     background:transparent;
-     color:#2572FF;
+    color:#2572FF;
 }
 #ln_connection button{
     background-color: transparent;
@@ -553,7 +565,7 @@ ul.social-link{
 }
 ul.social-link li a img{
     /*clip-path: url("../../node_modules/@fortawesome/fontawesome-free/svgs/brands/linkedin-in.svg");*/
-    
+
     height:38px;
 }
 ul.social-link li a i#tuto-com{
@@ -711,8 +723,7 @@ i[data-action="modify"]:hover, i[data-action="add"]:hover{
 .tabpanel-block h2,.tabpanel-block h3 {
     font-size:1em;
 }
-.tabpanel-block h1:after, #who-i-am h1:after, .dropdown-menu a.dropdown-item:hover:after,
-button#ln_home:hover:after{
+.tabpanel-block h1:after, #who-i-am h1:after, .dropdown-menu a.dropdown-item:hover:after{
     content:"";
     display:block;
     height:0;
@@ -834,7 +845,7 @@ label{
 /*************************/
 .informations-pages{
     grid-template-columns:1fr;
-    
+
 }
 
 .informations-pages h2{
@@ -954,7 +965,7 @@ table.table, #chg-password{
     }
     to{
         display:block; 
-       transform : translateX(0);
+        transform : translateX(0);
     }
 }
 
