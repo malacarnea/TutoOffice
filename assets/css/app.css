@@ -551,22 +551,17 @@ ul.social-link{
     align-items:center;
     grid-column-gap:0.6rem;
 }
-ul.social-link li:nth-child(1) a{
+ul.social-link li a img{
     /*clip-path: url("../../node_modules/@fortawesome/fontawesome-free/svgs/brands/linkedin-in.svg");*/
-    display:inline-block;
-    background: url("../../node_modules/@fortawesome/fontawesome-free/svgs/brands/linkedin-in.svg") #fff no-repeat;
-    /*color:#999;*/
-    padding:33%;
-    border-radius:50px;
-    font-size:1.4rem; 
+    
+    height:38px;
 }
 ul.social-link li a i#tuto-com{
     color:#fff;
     font-size:2.4rem;
 }
-ul.social-link li a img{
+ul.social-link li:nth-child(3) a img{
     width:152px;
-    height:48px;
 }
 
 footer div:nth-child(2){
