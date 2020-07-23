@@ -56,7 +56,7 @@ class ProfileController extends AbstractController {
         $access = $user->getAccess();
         $now = new \DateTime();
         //if first connection, update date
-        if ($firstConnect == null) {
+        if ($firstConnect === NULL) {
             $user->setDateFirstConnect($now);
             $firstConnect = $now;
             $this->em->persist($user);
@@ -65,7 +65,7 @@ class ProfileController extends AbstractController {
         $firstConnect->add($access);
         $toSend = null;
 
-        if ($firstConnect > $now) {
+        if ($firstConnect >= $now) {
             $formations = $user->getFormations();
             $toSend = $fls->getFormationsCT($formations);
         }
