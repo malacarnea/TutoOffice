@@ -27,6 +27,7 @@ class Tutorials
     /**
      * @Assert\NotBlank
      * @Assert\Type("string")
+     * @Assert\Regex(pattern="/(^[0-9]+\.[0-9]+\.)/", message="Le titre doit débuter selon ce modèle : '1.1.' Attention à bien re-sélectionner la vidéo après correction du titre.")
      * @Assert\Length(min=10, max=255, minMessage="Le titre est trop court. Il doit avoir au moins 10 caractères.", maxMessage="Le titre est trop long. Il doit faire moins de 255 caractères.")
      * @ORM\Column(type="string", length=255)
      */

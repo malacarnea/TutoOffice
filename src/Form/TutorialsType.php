@@ -23,8 +23,9 @@ class TutorialsType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
                 ->add("title", TextType::class, [
-                    'attr' => ['name' => 'title'],
+                    'attr' => ['name' => 'title',],
                     'label' => "Titre",
+                    
                 ])
                 ->add("tuto", VichFileType::class, [
                     'required' => false,

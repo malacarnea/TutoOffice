@@ -21,8 +21,8 @@ class ChaptersType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
                 ->add("title", TextType::class, [
-                    'attr' => ['name' => 'title', 'placeholder' => 'Titre du chapitre'],
-                    'label' => false,
+                    'attr' => ['name' => 'title',],
+                    'label' => "Titre",
                 ])
                 ->add('formation', HiddenType::class, [
                     'invalid_message' => 'Le transformer a buggé',
@@ -36,7 +36,6 @@ class ChaptersType extends AbstractType {
         $resolver->setDefaults([
             'data_class' => Chapters::class,
         ]);
-//         $resolver->setAllowedTypes('id', Formations::class);
     }
 
 }

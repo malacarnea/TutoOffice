@@ -81,7 +81,7 @@ class Formations
         return $this;
     }
     
-    public function getChapters() : ?Chapters{
+    public function getChapters() : ?Collection{
         return $this->chapters;
     }
     public function addChapter(Chapters $chap){
@@ -100,7 +100,7 @@ class Formations
     /**
      * @return Collection|User[]
      */
-    public function getUsers(): Collection
+    public function getUsers(): ?Collection
     {
         return $this->users;
     }

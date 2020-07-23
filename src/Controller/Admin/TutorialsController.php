@@ -34,6 +34,7 @@ class TutorialsController extends AbstractController {
         if ($request->request->has('id_parent')) {
             $id = intval($request->request->get('id_parent'));
             $chapter = $this->em->getRepository(Chapters::class)->find($id);
+            $tuto->setTitle(explode(".", $chapter->getTitle())[0].".".(count($chapter->getTutorials())+1).". ");
             $tuto->setChapter($chapter);
         }
         $form = $this->createForm(TutorialsType::class, $tuto);

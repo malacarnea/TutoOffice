@@ -35,6 +35,7 @@ class ChaptersController extends AbstractController {
             $id = intval($request->request->get('id_parent'));
             $formation = $this->em->getRepository(Formations::class)->find($id);
             $chapter->setFormation($formation);
+            $chapter->setTitle((count($formation->getChapters())+1).". ");
         }
         $form = $this->createForm(ChaptersType::class, $chapter);
         //save data from submitted form

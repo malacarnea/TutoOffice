@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Formations;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\Validator\Constraints as Assert;
@@ -23,6 +24,7 @@ class Chapters
     /**
      * @Assert\NotBlank
      * @Assert\Type("string")
+     * @Assert\Regex(pattern="/(^[0-9]+\.)/", message="Le titre doit débuter selon ce modèle : '1.'")
      * @Assert\Length(min=10, max=255, minMessage="Le titre est trop court. Il doit avoir au moins 10 caractères.", maxMessage="Le titre est trop long. Il doit faire moins de 255 caractères.")
      * @ORM\Column(type="string", length=255)
      */
@@ -34,7 +36,7 @@ class Chapters
     protected $formation;
     
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Tutorials", cascade={"persist", "remove"}, mappedBy="chapter")
+     * @ORM\OneToMany(targetEntity="App\Entity\Tutorials", cascade={"persist", "remove"}, mappedBy="chapter", fetch="EAGER")
      */
     protected $tutorials;
     
@@ -66,7 +68,7 @@ class Chapters
         $this->formation=$form;
     }
     
-    public function getTutorials():?Tutorials {
+    public function getTutorials():?Collection{
         return $this->tutorials;
     }
     
