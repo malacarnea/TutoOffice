@@ -170,7 +170,9 @@ h2.section-title{
     grid-row:1;
     color:#fff;
     z-index:5;
+    display:grid;
     align-self: center;
+    align-content: center;
 }
 p.josselin{
     font-weight: 600;
@@ -233,6 +235,9 @@ p.metier{
     color:#0FABFF;
     font-size:1em;
     font-weight: 550;
+    padding:1% 2%;
+    margin-top:3%;
+    width: 50%;
 }
 
 #baton{
@@ -913,10 +918,7 @@ a.tuto-nav{
     font-weight:600;
     
 }
-.cookies-band span{
-    color:white;
-    font-weight:600;
-}
+
 
 /*** Styles rewritten ***/
 span.select2-selection.select2-selection--multiple,
