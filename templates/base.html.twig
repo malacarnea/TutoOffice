@@ -1,87 +1,89 @@
-<!DOCTYPE html>
+{#<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         {# <META HTTP-EQUIV="refresh" CONTENT="2">#}
-        <title>{% block title %}Josselin Balde - Formateur indépendant{% endblock %}</title>
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-            <!-- Renders a link tag (if your module requires any CSS)
-             <link rel="stylesheet" href="/build/app.css"> -->
-        {% endblock %}
-    </head>
-    <body>
-        <div id="global">
-            <header class="fixed-top transparent-header">
-                <nav id="main-navbar">
-                    <ul class="nav">
-                        <li>
-                            {% if(controller_action is defined and controller_action == "login") %}
-                                
-                                <button id="ln_home" type="button" >
-                                    Accueil
+<title>{% block title %}Josselin Balde - Formateur indépendant{% endblock %}</title>
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+    <!-- Renders a link tag (if your module requires any CSS)
+     <link rel="stylesheet" href="/build/app.css"> -->
+{% endblock %}
+</head>
+<body>
+    <div id="global">
+        <header class="fixed-top transparent-header">
+            <nav id="main-navbar">
+                <ul class="nav">
+                    <li>
+                        {% if(controller_action is defined and controller_action == "login") %}
+
+                            <button id="ln_home" type="button" >
+                                Accueil
+                            </button>
+                        {% else %}
+                            <a id="ln_home" href="{{ path('accueil')~"#accueil" }}">Accueil</a>
+                        {% endif %}
+                    </li>
+
+                    {% block customNav %}
+                        <li id="ln_formations">
+                            <a href="{{ path('accueil')~"#formations" }}">Formations</a>
+                        </li>
+                        <li id="ln_apropos"><a href="{{ path('accueil')~"#apropos" }}">À propos</a></li>
+                        {% endblock %}
+                    <li >
+                        {% if is_granted("ROLE_USER") %}
+                            <div class="dropdown">
+                                <button class="dropdown-toggle bt-link" type="button" id="ln_connection" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Mon espace
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="ln_connection">
+                                    <a href="{{ path('profile') }}" class="dropdown-item">Mon Profil</a>
+                                    <a href='{{ is_granted("ROLE_TRAINEE")?path("formations"):path("admin.index.formations") }}' class="dropdown-item">Formations</a>
+                                    <a href="{{ path('app_logout') }}" class="dropdown-item">Déconnexion</a>
+                                </div>
+                            </div>
+                        {% else %}   
+                            {% if(controller_action is defined and (controller_action == "login" or controller_action=="index")) %}
+                                <button id="ln_connection" class="bt-link connection-bt" type="button"  >
+                                    Connexion
                                 </button>
                             {% else %}
-                                <a id="ln_home" href="{{ path('accueil')~"#accueil" }}">Accueil</a>
+                                <a id="ln_connection" class="bt-link" href="{{ path('app_login') }}">Connexion</a>
+
                             {% endif %}
-                        </li>
-
-                        {% block customNav %}
-                            <li id="ln_formations">
-                                <a href="{{ path('accueil')~"#formations" }}">Formations</a>
-                            </li>
-                            <li id="ln_apropos"><a href="{{ path('accueil')~"#apropos" }}">À propos</a></li>
-                            {% endblock %}
-                        <li >
-                            {% if is_granted("ROLE_USER") %}
-                                <div class="dropdown">
-                                    <button class="dropdown-toggle bt-link" type="button" id="ln_connection" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Mon espace
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="ln_connection">
-                                        <a href="{{ path('profile') }}" class="dropdown-item">Mon Profil</a>
-                                        <a href='{{ is_granted("ROLE_TRAINEE")?path("formations"):path("admin.index.formations") }}' class="dropdown-item">Formations</a>
-                                        <a href="{{ path('app_logout') }}" class="dropdown-item">Déconnexion</a>
-                                    </div>
-                                </div>
-                            {% else %}   
-                                {% if(controller_action is defined and (controller_action == "login" or controller_action=="index")) %}
-                                    <button id="ln_connection" class="bt-link connection-bt" type="button"  >
-                                        Connexion
-                                    </button>
-                                {% else %}
-                                    <a id="ln_connection" class="bt-link" href="{{ path('app_login') }}">Connexion</a>
-                                    
-                                {% endif %}
-                            {% endif %}
-                        </li>
-                    </ul>
-                </nav>
-            </header>
+                        {% endif %}
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
 
-            {% block body %}
-                {% block content %}
-                {% endblock %}
-
-                {{ include("site/footer.html.twig") }}
+        {% block body %}
+            {% block content %}
             {% endblock %}
 
+            {{ include("site/footer.html.twig") }}
+        {% endblock %}
+        <div class="cookies-band">
+            <span>Ce site utilise les cookies pour son bon fonctionnement.</span> <button type="button" class="btn btn-primary" id="cookies-agree">Accepter</button>
+            <button type="button" class="btn btn-danger" id="cookies-disagree">Refuser</button>
         </div>
-        {% block test %}
-        {% endblock %}
+    </div>
 
-        <!-- <script src="https://code.jquery.com/jquery-3.4.1.js"
-                 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-         crossorigin="anonymous"></script>
-         <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>-->
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
 
-            <!-- Renders app.js & a webpack runtime.js file
-                <script src="/build/runtime.js"></script>
-                <script src="/build/app.js"></script> -->
-        {% endblock %}
-    </body>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.js"
+             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+     crossorigin="anonymous"></script>
+     <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>-->
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+
+        <!-- Renders app.js & a webpack runtime.js file
+            <script src="/build/runtime.js"></script>
+            <script src="/build/app.js"></script> -->
+    {% endblock %}
+</body>
 </html>

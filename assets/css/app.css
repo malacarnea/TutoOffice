@@ -898,6 +898,26 @@ a.tuto-nav{
     font-size:1.7em;
 }
 
+/*** Cookies style ***/
+.cookies-band{
+    background-color: rgba(0,0,0, .7);
+    bottom: 0px;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 10fr 1fr 1fr;
+    align-items:center;
+    justify-items:center;
+    justify-content:center;
+    width: 100%;
+    color:white;
+    font-weight:600;
+    
+}
+.cookies-band span{
+    color:white;
+    font-weight:600;
+}
+
 /*** Styles rewritten ***/
 span.select2-selection.select2-selection--multiple,
 span.select2-selection.select2-selection--single,
