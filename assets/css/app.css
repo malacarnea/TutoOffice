@@ -241,57 +241,57 @@ p.metier{
 }
 
 #baton{
-    top : 22%;
-    left : 21%;
-    height : 19%;
+    top : 22vh;
+    left : 21vh;
+    height : 19vh;
     width : auto;
     position:absolute;
     z-index:999;
 }
 #diagramme{
-    top:21%;
-    left:15%;
-    height:23%;
+    top:21vh;
+    left:15vh;
+    height:23vh;
     width:auto;
     position:absolute;
     z-index:222;
 }
 #document{
-    top:10%;
-    left:24%;
-    height:19%;
+    top:10vh;
+    left:24vh;
+    height:19vh;
     width:auto;
     position:absolute;
     z-index:222;
 }
 #illustration_accueil{
-    top:36%;
-    left:21%;
-    height:46%;
+    top:36vh;
+    left:21vh;
+    height:46vh;
     width:auto;
     position:absolute;
     z-index:222;
 }
 #cafe{
-    top:52%;
-    left:38%;
-    height:13%;
+    top:52vh;
+    left:38vh;
+    height:13vh;
     width:auto;
     position:absolute;
     z-index:333;
 }
 #plante{
-    top:53%;
-    left:15%;
-    height:26%;
+    top:53vh;
+    left:15vh;
+    height:26vh;
     width:auto;
     position:absolute;
     z-index:333;
 }
 #livres{
-    top:73%;
-    left:21%;
-    height:11%;
+    top:73vh;
+    left:21vh;
+    height:11vh;
     width:auto;
     position:absolute;
     z-index:333;

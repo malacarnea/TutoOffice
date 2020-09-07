@@ -3,7 +3,7 @@ import '../../node_modules/@fortawesome/fontawesome-free/css/all.css';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../node_modules/select2/dist/css/select2.min.css';
 import '../css/app.css';
-
+import '../css/mobiles.css';
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
 require('popper.js');
