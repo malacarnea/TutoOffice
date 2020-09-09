@@ -13,17 +13,17 @@
 </head>
 <body>
     <div id="global">
-        <header class="fixed-top transparent-header">
+        <header class="fixed-top header--transparent">
             <nav id="main-navbar">
                 <ul class="nav">
                     <li>
                         {% if(controller_action is defined and controller_action == "login") %}
 
-                            <button id="ln_home" type="button" >
+                            <button id="ln_home" class="ln--home" type="button" >
                                 Accueil
                             </button>
                         {% else %}
-                            <a id="ln_home" href="{{ path('accueil')~"#accueil" }}">Accueil</a>
+                            <a id="ln_home" class="ln--home" href="{{ path('accueil')~"#accueil" }}">Accueil</a>
                         {% endif %}
                     </li>
 

@@ -1,30 +1,24 @@
 {% set classAnime = "" %}
-{#{% if(animated) %}
-{% set classAnime = " animate" %}
-{% endif %}#}
-        
+<div class="slide-to-co index{{ classAnime }}" id="slide">
+    <div class="slide-fieldset">
+        {{ include("security/form_connection.html.twig") }} 
+    </div>
+</div>
+<div class="accroche">
+    <p class="josselin title-white-border">Josselin Balde</p>
+    <h1>Devenez un expert des outils bureautiques</h1>
+    <p class="metier">Formateur indépendant et passionné</p>
+    <a class="bt-link bt-accueil" href="#formations">Voir les formations</a>
 
+</div>
+<div class="img-relative">
 
-            <div class="slide-to-co index{{ classAnime }}" id="slide">
-                 <div class="slide-fieldset">
-                    {{ include("security/form_connection.html.twig") }} 
-                </div>
-            </div>
-            <div class="accroche">
-                <p class="josselin title-white-border">Josselin Balde</p>
-                <h1>Devenez un expert des outils bureautiques</h1>
-                <p class="metier">Formateur indépendant et passionné</p>
-                <a class="bt-link bt-accueil" href="#formations">Voir les formations</a>
-              
-            </div>
-            <div class="img-relative">
-                
-                <img id="baton" src="{{ asset('build/images/Baton.png') }}"/>
-                <img id="diagramme" src="{{ asset('build/images/Diagramme.png') }}"/>
-                <img id="document"src="{{ asset('build/images/Document.png') }}"/>
-                <img id="livres" src="{{ asset('build/images/Livres.png') }}"/>
-                <img id="illustration_accueil" src="{{ asset('build/images/illustration_accueil.png') }}"/>
-                <img id="cafe" src="{{ asset('build/images/cafe_souris.png') }}"/>
-                <img id="plante" src="{{ asset('build/images/plante.png') }}"/>
-                
-            </div>
+    <img id="baton" src="{{ asset('build/images/Baton.png') }}"/>
+    <img id="diagramme" src="{{ asset('build/images/Diagramme.png') }}"/>
+    <img id="document"src="{{ asset('build/images/Document.png') }}"/>
+    <img id="livres" src="{{ asset('build/images/Livres.png') }}"/>
+    <img id="illustration_accueil" src="{{ asset('build/images/illustration_accueil.png') }}"/>
+    <img id="cafe" src="{{ asset('build/images/cafe_souris.png') }}"/>
+    <img id="plante" src="{{ asset('build/images/plante.png') }}"/>
+
+</div>

@@ -41,18 +41,18 @@ header{
     z-index:999;
 }
 
-header.transparent-header{
+header.header--transparent{
     background: transparent;
     box-shadow: none;
     position:absolute;
 }
 
-.transparent-header nav ul li #ln_home{
+.header--transparent nav ul li .ln--home{
     color: #2572ff;
     border:none;
 }
 
-.transparent-header nav ul li #ln_home:hover:after{
+.header--transparent nav ul li .ln--home:hover:after{
     content:"";
     display: block;
     border-bottom : 2px solid #2572ff;
@@ -102,7 +102,7 @@ a{
 button{
     border:none;
 }
-ul.nav li #ln_home{
+ul.nav li .ln--home{
     justify-self: start; 
     background: transparent;
 }
@@ -114,20 +114,19 @@ ul.nav li a, ul.nav li button{
 ul.nav li a{
     text-decoration:none;
 }
-header nav ul.nav li a:hover, header nav ul.nav li a.active{
+header nav ul.nav li a:hover, header nav ul.nav li a.active, button.ln--home:hover:after{
     border-bottom:2px solid #fff;
 }
 
- button#ln_home:hover:after{
+ button.ln--home:hover:after{
      content:"";
      width:100%;
-    border-bottom:2px solid #fff;
 }
 img{
     height:100%;
 }
 
-h2.section-title{
+.index__section h2{
     color:#fff;
     font-weight: 600;
 }
@@ -218,15 +217,14 @@ p.metier{
     border-radius: 50px;
     font-size:1em;
     padding:3% 10%;
-    color:#2572FF;
 }
-#ln_connection a, #ln_connection button, .dropdown-menu a.dropdown-item{
+#ln_connection, #ln_connection a, #ln_connection button, .dropdown-menu a.dropdown-item, 
+.dropdown-menu a.dropdown-item:hover, .dropdown-menu a.dropdown-item:focus{
     color:#2572FF;
 }
 
 .dropdown-menu a.dropdown-item:hover, .dropdown-menu a.dropdown-item:focus{
     background:transparent;
-    color:#2572FF;
 }
 #ln_connection button{
     background-color: transparent;
@@ -300,7 +298,7 @@ section#accueil{
     margin-top:0;
 }
 /*** home page : video section***/
-section.index-section{
+section.index__section{
     display:grid;
     grid-template-columns:repeat(16, 1fr);
     margin:2% 0 0 0; padding:0;
@@ -363,7 +361,7 @@ section#formations{
     font-weight: 600;
     font-size:1.1em;
 }
-#formations h2.section-title{
+#formations h2{
     grid-column:1/-1;
     grid-row:3;
     z-index:2;

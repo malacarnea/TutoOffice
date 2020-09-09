@@ -6,11 +6,11 @@
 
 {% endblock %}
 {% block content %}
-    <div id="index">
-        <section id="accueil" class="index-section" data-spy>
+    <div id="index" class="index">
+        <section id="accueil" class="index__section" data-spy>
             {{ include("site/home.html.twig") }}   
         </section>
-        <section id="video" class="index-section reveal" data-spy>
+        <section id="video" class="index__section reveal" data-spy>
             <div class="video reveal-2">
                 <video controls>
                     <source src="{{ asset('videos/presentation.mp4') }}"
@@ -19,8 +19,8 @@
             </div>
         </section>
 
-        <section id="formations" class="index-section reveal" data-spy>
-            <h2 class="section-title title-white-border">A vous de choisir</h2>
+        <section id="formations" class="index__section reveal" data-spy>
+            <h2 class="title-white-border">A vous de choisir</h2>
             <div class="blue-band reveal-3">
             </div>
             <div class="floater reveal-2">
@@ -36,10 +36,10 @@
                 </div>
             </div>
         </section>
-        <section id="apropos" class="index-section reveal" data-spy>
+        <section id="apropos" class="index__section reveal" data-spy>
             <div class="gradient-blue reveal-3">
             </div>
-            <h2 class="section-title" id="more-h2">Les</h2>
+            <h2 id="more-h2">Les</h2>
             <div class="white-block reveal-2">
                 <ol>
                     <li>Je prends en compte vos besoins précis par téléphone</li>
