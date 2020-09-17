@@ -70,7 +70,7 @@ header.header--transparent{
     padding-top: 6px; /* This creates some space between the element and the border. */
     border-bottom: 2px solid #fff; /* This creates the border. Replace black with whatever color you want. */
 }
-#index{
+.index{
     align-self: auto;
     display:grid;
     grid-template-rows: repeat(4, 1fr);
@@ -131,9 +131,10 @@ img{
     font-weight: 600;
 }
 
-.slide-to-co, #img-box, .img-relative{
+.slide-to-co, .img-relative{
     position:relative;
     grid-row:1;
+    top: 0;
 }
 
 
@@ -238,74 +239,74 @@ p.metier{
     width: 50%;
 }
 
-#baton{
-    top : 22vh;
-    left : 21vh;
-    height : 19vh;
+img.baton{
+    top : 22%;
+    left : 21%;
+    height : 19%;
     width : auto;
     position:absolute;
     z-index:999;
 }
-#diagramme{
-    top:21vh;
-    left:15vh;
-    height:23vh;
+img.diagramme{
+    top:21%;
+    left:15%;
+    height:23%;
     width:auto;
     position:absolute;
     z-index:222;
 }
-#document{
-    top:10vh;
-    left:24vh;
-    height:19vh;
+img.document{
+    top:10%;
+    left:24%;
+    height:19%;
     width:auto;
     position:absolute;
     z-index:222;
 }
-#illustration_accueil{
-    top:36vh;
-    left:21vh;
-    height:46vh;
+img.illustration_accueil{
+    top:36%;
+    left:21%;
+    height:46%;
     width:auto;
     position:absolute;
     z-index:222;
 }
-#cafe{
-    top:52vh;
-    left:38vh;
-    height:13vh;
+img.cafe{
+    top:52%;
+    left:38%;
+    height:13%;
     width:auto;
     position:absolute;
     z-index:333;
 }
-#plante{
-    top:53vh;
-    left:15vh;
-    height:26vh;
+img.plante{
+    top:53%;
+    left:15%;
+    height:26%;
     width:auto;
     position:absolute;
     z-index:333;
 }
-#livres{
-    top:73vh;
-    left:21vh;
-    height:11vh;
+img.livres{
+    top:73%;
+    left:21%;
+    height:11%;
     width:auto;
     position:absolute;
     z-index:333;
 }
-section#accueil{
+section.accueil{
     margin-top:0;
 }
 /*** home page : video section***/
 section.index__section{
     display:grid;
     grid-template-columns:repeat(16, 1fr);
-    margin:2% 0 0 0; padding:0;
+    margin: 0 0 5% 0; padding:0;
     height:100vh;
 }
 
-section#video .video{
+section.video .video{
     grid-column:2/span 14;
     align-self:center;
     margin-bottom: 2%;
@@ -315,7 +316,7 @@ video{
 }
 
 /*** homepage : formation section ***/
-section#formations{
+section.formations{
     grid-template-rows:repeat(16, 1fr);
 }
 .blue-band{

@@ -1,0 +1,90 @@
+/*** Mobile Style ***/
+@media (min-width:769) and (max-width:1080px){
+
+}
+@media (max-width:1080px){
+
+}
+@media (max-width:768px){
+    section{
+        grid-template-columns:repeat(8, 1fr);
+    }
+    section.index__section{
+        grid-template-rows:40% 60%;
+        
+    }
+    section.index__section .slide-to-co{
+        grid-column: 1/-1;
+        grid-row:2;
+        height:60%;
+    }
+    section.index__section .accroche{
+        grid-column: 2/8;
+        postion:absolute;
+        grid-row:2;
+    }
+
+    .img-relative{
+        height:100%;
+    }
+    img.baton{
+        top : 22%;
+        left : 21%;
+        width : 19%;
+        height : auto;
+        position:absolute;
+        z-index:999;
+    }
+    img.diagramme{
+        top:21%;
+        left:15%;
+        width:23%;
+        height:auto;
+        position:absolute;
+        z-index:222;
+    }
+    img.document{
+        top:10%;
+        left:24%;
+        width:19%;
+        height:auto;
+        position:absolute;
+        z-index:222;
+    }
+    img.illustration_accueil{
+        top:36%;
+        left:21%;
+        width:46%;
+        height:auto;
+        position:absolute;
+        z-index:222;
+    }
+    img.cafe{
+        top:52%;
+        left:38%;
+        width:13%;
+        height:auto;
+        position:absolute;
+        z-index:333;
+    }
+    img.plante{
+        top:53%;
+        left:15%;
+        width:26%;
+        height:auto;
+        position:absolute;
+        z-index:333;
+    }
+    img.livres{
+        top:73%;
+        left:21%;
+        width:11%;
+        height:auto;
+        position:absolute;
+        z-index:333;
+    }
+    
+    section.formations{
+        grid-template-rows:1fr;
+    }
+}
