@@ -34,7 +34,7 @@ $(document).ready(function () {
             });
         }
     } else {
-        $('header').removeClass("transparent-header");
+        $('header').removeClass("header--transparent");
     }
 
     //change highlight on admin menu

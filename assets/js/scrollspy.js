@@ -26,11 +26,11 @@ const activate = function (elem) {
 const displayHeader = function (id) {
     let header = document.querySelector("header")
     if (id === "accueil") {
-        if (!header.classList.contains("transparent-header")) {
-            header.classList.add("transparent-header")
+        if (!header.classList.contains("header--transparent")) {
+            header.classList.add("header--transparent")
         }
     } else {
-        header.classList.remove("transparent-header")
+        header.classList.remove("header--transparent")
     }
 }
 

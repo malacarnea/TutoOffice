@@ -107,6 +107,9 @@ ul.nav li .ln--home{
     justify-self: start; 
     background: transparent;
 }
+ul.nav li.ln--icon{
+    display:none;
+}
 ul.nav li a, ul.nav li button{
     font-weight:500;
     color:#fff;
@@ -435,6 +438,11 @@ ol li {
     font-weight:700;
     display:inline-block;
     z-index:2;
+    
+}
+
+p.ptitle{
+    font-size: 1.8em;
 }
 
 .index__section--apropos img{
@@ -537,7 +545,6 @@ footer{
     opacity: 1;
     color:#fff;
     margin-top:5%;
-    padding-top:3%;
     align-self: end;
     justify-items:center;
     display:grid;
@@ -581,7 +588,9 @@ ul.social-link li a i{
 ul.social-link li:nth-child(3) a img{
     width:152px;
 }
-
+footer .footer__block{
+    margin-top:5%;
+}
 footer .footer__block:nth-child(2){
     justify-items:center;
     display:grid;

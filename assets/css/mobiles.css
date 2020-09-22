@@ -16,6 +16,21 @@
     p.ptitle.title-white-border:after{
         border-bottom:5px solid #fff;
     }
+    
+    ul.nav{
+        font-size:2em;
+    }
+    ul.nav li:not(:first-child){
+        display:none;
+    }
+    ul.nav li.ln--icon{
+        display:block;
+        justify-self:end;
+        
+    }
+    ul.nav li.ln--icon a i{
+        color:#ffffff;
+    }
     section.index__section--accueil{
         grid-template-rows:45% 55%;
     }
@@ -200,9 +215,9 @@
         grid-template-rows:repeat(3, 1fr);
         grid-row-gap:.6em;
         height: auto;
-        font-size:2.2em;
+        font-size:2.5em;
         justify-items: start;
-        padding:5%;
+        padding:5% 10% 15%;
     }
 
     footer .footer__block:nth-child(2){
@@ -223,6 +238,10 @@
     ul.social-link li a i{
         font-size:3em;
 
+    }
+    
+    .developpement{
+        margin-top: 10%;
     }
 
 
