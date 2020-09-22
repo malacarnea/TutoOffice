@@ -45,7 +45,25 @@ $(document).ready(function () {
         $("#users-tab").addClass("active");
         $("#formations-tab").removeClass("active");
     }
-
+    //display responsive menu
+    let elem = $("ul.nav");
+    let ul = elem[0];
+    $(".ln--icon a").click(function (e) {
+        if (ul.className === "nav") {
+            ul.className += " responsive";
+            $("header").css('height', "18em");
+            $("nav").css("align-items", "start");
+        } else {
+            ul.className = "nav";
+            $("header").css('height', "6em");
+            $("nav").css("align-items", "center");
+        }
+    });
+    $(".ln--slarge a").click(function (e) {
+        ul.className = "nav";
+        $("header").css('height', "6em");
+        $("nav").css("align-items", "center");
+    });
     //reveal block apropos page
     $(".apropos-page.reveal")
             .addClass('reveal-visible')

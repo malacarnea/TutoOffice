@@ -29,12 +29,12 @@
                     </li>
                     
                     {% block customNav %}
-                        <li id="ln_formations">
+                        <li class="ln--slarge" id="ln_formations">
                             <a href="{{ path('accueil')~"#formations" }}">Formations</a>
                         </li>
-                        <li id="ln_apropos"><a href="{{ path('accueil')~"#apropos" }}">À propos</a></li>
+                        <li class="ln--slarge" id="ln_apropos"><a href="{{ path('accueil')~"#apropos" }}">À propos</a></li>
                         {% endblock %}
-                    <li >
+                    <li class="ln--slarge">
                         {% if is_granted("ROLE_USER") %}
                             <div class="dropdown">
                                 <button class="dropdown-toggle bt-link" type="button" id="ln_connection" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
