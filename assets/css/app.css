@@ -498,23 +498,23 @@ p.ptitle{
     width:100%;
     height: auto;
 }
-#who-i-am, #description, #discover{
+.who-i-am, .description, .discover{
     width:100%;
     height: auto;
     z-index: 2;
 
 }
-#who-i-am{
+.who-i-am{
     grid-column:8/-1;
     grid-row:1;
 
 }
-#description{
+.description{
     grid-column:2/10;
     grid-row:2;
     margin: 10% auto;
 }
-#discover{
+.discover{
     grid-column:12/ span 4;
     grid-row:2;
     z-index: 2;
@@ -533,7 +533,7 @@ p.ptitle{
     width:40%;
     height:auto;
 }
-#who-i-am h1{
+.who-i-am h1{
     margin-top:0;
     font-size:1.3em;
     font-weight:bold;
