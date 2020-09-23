@@ -1,8 +1,17 @@
 /** Mobile Style **/
-@media all and (min-width:769) and (max-width:1080px){
 
+/* Between smartphone and ipad*/
+@media screen and (min-device-width:461px) and (max-device-width:1024px){
+.slide-fieldset{
+        grid-column:4/14;
+    }
+    .connection__fieldset{
+        /*max-height: 40vh;*/
+    }
 }
-@media all and (min-device-height:1024px){
+
+/* ipad*/
+@media screen and (min-device-height:1024px){
     .index{
         grid-template-rows: repeat(4, auto);
         align-items: start;
@@ -23,6 +32,14 @@
         height:30vh;
     }
 }
+
+/* Size under ipad*/
+@media screen and (device-width:768px){
+    .apropos-page .white-block p{
+        font-size:.65em;
+    }
+}
+/* Smartphones */
 @media screen and (max-device-width:460px){
     .index{
         grid-template-rows: 100vh auto auto auto;
@@ -328,6 +345,16 @@
     .discover{
         grid-column: 4/14;
         grid-row:4;
+    }
+    
+    
+    /*** CONNECTION PAGE ***/
+    .connection__fieldset{
+        width:90%;
+        height:auto;
+    }
+    .slide-fieldset{
+        grid-column:3/15;
     }
 
 }
