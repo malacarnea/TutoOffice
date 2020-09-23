@@ -2,10 +2,28 @@
 @media all and (min-width:769) and (max-width:1080px){
 
 }
-@media all and (max-width:1080px){
-
+@media all and (min-device-height:1024px){
+   .index{
+       grid-template-rows: repeat(4, auto);
+       align-items: start;
+    }
+    section{
+        height:auto;
+    }
+    .white-block{
+        height:25vh;
+    }
+    .blue-band{
+        height:30vh;
+    }
+    .gradient-blue{
+        height: 60vh;
+    }
+    .index__section--apropos img{
+        height:30vh;
+    }
 }
-@media screen and (max-device-width:768px){
+@media screen and (max-device-width:460px){
     .index{
         grid-template-rows: 100vh auto auto auto;
     }

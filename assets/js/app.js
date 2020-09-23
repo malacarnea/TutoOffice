@@ -59,11 +59,15 @@ $(document).ready(function () {
             $("nav").css("align-items", "center");
         }
     });
-    $(".ln--slarge a").click(function (e) {
-        ul.className = "nav";
-        $("header").css('height', "6em");
-        $("nav").css("align-items", "center");
-    });
+
+    let viewport_width = $(window).height();
+    if (viewport_width <= 460) {
+        $(".ln--slarge a").click(function (e) {
+            ul.className = "nav";
+            $("header").css('height', "6em");
+            $("nav").css("align-items", "center");
+        });
+    }
     //reveal block apropos page
     $(".apropos-page.reveal")
             .addClass('reveal-visible')
