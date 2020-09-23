@@ -367,6 +367,7 @@ video{
     color:#2081ff;
     font-weight: 600;
     font-size:1.1em;
+    text-align: center;
 }
 .index__section--formations p.ptitle{
     grid-column:1/-1;
@@ -494,11 +495,8 @@ p.ptitle{
     grid-column:2/ 6;
     grid-row:1;
     align-self:start;
-    z-index: 2;
-    width:100%;
-    height: auto;
 }
-.who-i-am, .description, .discover{
+.apropos-page img.img-josselin, .who-i-am, .description, .discover{
     width:100%;
     height: auto;
     z-index: 2;
@@ -523,7 +521,7 @@ p.ptitle{
 
 .apropos-page .white-block{
     text-align:left;
-    padding:4% 10%;
+    padding:7% 10%;
 }
 
 .apropos-page .white-block p{
