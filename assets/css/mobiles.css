@@ -38,9 +38,20 @@
     .apropos-page .white-block p{
         font-size:.65em;
     }
+    .onglets .tab-content .tabpanel-block .title-page .bt-link{
+        font-size:1em;
+        grid-row:2;
+        grid-column: 1/-1;
+    }
+    .onglets .tab-content .tabpanel-block .title-page{
+        grid-template-columns:1fr;
+        grid-template-rows:1fr 1fr;
+        grid-row-gap: 3%;
+    }
 }
+
 /* Smartphones */
-@media screen and (max-device-width:460px){
+@media screen and (max-width:460px){
     .index{
         grid-template-rows: 100vh auto auto auto;
     }
@@ -357,4 +368,13 @@
         grid-column:3/15;
     }
 
+    /*** USERS PAGES ***/
+    .onglets{
+        font-size:1em;
+        margin-top: 6em;
+    }
+
+    .onglets ul.nav{
+        font-size:1em;
+    }
 }
