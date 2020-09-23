@@ -103,13 +103,13 @@
         width:100%;
     }
     img.baton{
-        top : calc(22vh/1.5);
+        top : calc(12vh/1.5);
         left:21%;
         height : calc(20vh/1.5);
         width : auto;
     }
     img.diagramme{
-        top:calc(21vh/1.5);
+        top:calc(11vh/1.5);
         left:9%;
         height:calc(23vh/1.5);
         width:auto;
@@ -117,7 +117,7 @@
         z-index:222;
     }
     img.document{
-        top:calc(10vh/1.5);
+        top:calc(1vh/1.5);
         left:27%;
         height:calc(19vh/1.5);
         width:auto;
@@ -125,7 +125,7 @@
         z-index:222;
     }
     img.illustration_accueil{
-        top:calc(36vh/1.5);
+        top:calc(26vh/1.5);
         left:21%;
         height:calc(46vh/1.5);
         width:auto;
@@ -133,7 +133,7 @@
         z-index:222;
     }
     img.cafe{
-        top:calc(52vh/1.5);
+        top:calc(42vh/1.5);
         left:70%;
         height:calc(13vh/1.5);
         width:auto;
@@ -141,7 +141,7 @@
         z-index:333;
     }
     img.plante{
-        top:calc(50vh/1.5);
+        top:calc(40vh/1.5);
         left:11%;
         height:calc(26vh/1.5);
         width:auto;
@@ -149,7 +149,7 @@
         z-index:333;
     }
     img.livres{
-        top:calc(73vh/1.5);
+        top:calc(63vh/1.5);
         left:25%;
         height:calc(11vh/1.5);
         width:auto;

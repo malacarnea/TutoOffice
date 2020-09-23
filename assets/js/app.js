@@ -73,7 +73,6 @@ $(document).ready(function () {
             });
 
     $('.formation-header-title .chevron').click(function (e) {
-        console.log("in");
         $(this).parent().parent().find("ul.chapters").fadeToggle("slow");
         let itemI = $(this).find("i.fas.fa-chevron-right");
         if (itemI.hasClass("down")) {
@@ -151,14 +150,11 @@ function callModalBySaveBtn(e) {
 
 
 let button = document.querySelector("#cookies-agree");
-console.log(document.cookie);
 checkCookie();
 button.addEventListener("click", function (e) {
     setCookie("AcceptCookies", "toto", 365);
     document.querySelector(".cookies-band").style = "display:none";
 });
-// setCookie("Test", "toto",0);
-console.log(document.cookie);
 
 function setCookie(cname, cvalue, exdays) {
     let d = new Date();
@@ -185,10 +181,8 @@ function getCookie(cname) {
 function checkCookie() {
     let cookiesExists = getCookie("AcceptCookies");
     if (cookiesExists === "") {
-        console.log("no cookies");
         document.querySelector(".cookies-band").style = "display:grid";
     } else {
-        console.log("yes cookies");
         document.querySelector(".cookies-band").style = "display:none";
     }
 }
