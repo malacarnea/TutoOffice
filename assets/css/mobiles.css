@@ -5,9 +5,6 @@
     .slide-fieldset{
         grid-column:4/14;
     }
-    .connection__fieldset{
-        /*max-height: 40vh;*/
-    }
 }
 
 /* ipad*/
@@ -15,6 +12,13 @@
     .index{
         grid-template-rows: repeat(4, auto);
         align-items: start;
+    }
+    .fade-transparent{
+        opacity: 0;
+        height:100%;
+        width:100%;
+        position:absolute;
+        margin: 0;
     }
     section{
         height:auto;
@@ -37,7 +41,6 @@
 @media screen and (max-device-width:768px){
     .onglets{
         grid-column:1/-1;
-        font-size:2em;
     }
     .onglets .tab-content, .nav-tabs{
         grid-column:2/span 14;
@@ -59,9 +62,7 @@
         width:90%;
     }
     /*** PAGE TUTOVIEWER ***/
-    .tutoviewer-template{
-        font-size:2em;
-    }
+   
     .tuto-block{
         grid-column:1/-1;
         grid-row:3/8;
@@ -90,15 +91,9 @@
     .index{
         grid-template-rows: 100vh auto auto auto;
     }
-    .bt-link{
-        font-size:2em;
-    }
 
     p.ptitle.title-white-border:after{
         border-bottom:5px solid #fff;
-    }
-    header{
-        height: 6em;
     }
     header nav{
         display:grid;
@@ -109,7 +104,6 @@
     }
 
     .main-ul-nav{
-        font-size:2em;
         width:90%;
     }
     .main-ul-nav li:not(:first-child){
@@ -163,19 +157,10 @@
     section.index__section .accroche *{
         margin: 0 0 1em 0;
     }
-    section.index__section .accroche p.josselin{
-        font-size:3em;
-    }
     p.josselin.title-white-border:after{
         padding-top: 2em;
     }
 
-    section.index__section .accroche h1{
-        font-size:3.6em;
-    }
-    section.index__section .accroche p.metier{
-        font-size:3.2em;
-    }
     section.index__section .accroche .bt-link.bt-accueil{
         justify-self:center;
     }
@@ -261,7 +246,7 @@
         grid-row-gap:5%;
     }
     .index__section p.ptitle{
-        font-size:3.2em;
+        /*font-size:3.2em;*/
         grid-row:1;
         justify-self:center;
         margin: 5% 0;
@@ -281,7 +266,7 @@
         grid-row:2;
     }
     .white-block h2{
-        font-size:2.4em;
+        /*font-size:2.4em;*/
     }
     .white-block .bt-link{
         width: 75%;
@@ -305,7 +290,7 @@
     .index__section--apropos .white-block{
         grid-row:2/4;
         top:20%;
-        font-size:1.9em;
+        /*font-size:1.9em;*/
     }
 
     .index__section--apropos img{
@@ -329,7 +314,6 @@
         grid-template-rows:repeat(3, 1fr);
         grid-row-gap:.6em;
         height: auto;
-        font-size:2.5em;
         justify-items: start;
         padding:5% 10% 15%;
     }
@@ -348,10 +332,6 @@
     }
     ul.social-link li:nth-child(3) a img{
         width:8em;
-    }
-    ul.social-link li a i{
-        font-size:3em;
-
     }
 
     .developpement{
@@ -375,7 +355,6 @@
         margin-top:35%;
     }
     .who-i-am, .description{
-        font-size:2.5em;
         grid-column:2/16;
     }
     .apropos-page img.img-josselin{

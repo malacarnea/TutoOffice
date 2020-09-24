@@ -9,7 +9,7 @@ import $ from 'jquery';
 require('popper.js');
 require('bootstrap');
 require('select2');
-
+let headerH=0;
 
 $(document).ready(function () {
     //unset gradiant background on header when visit home page and login page.
@@ -46,13 +46,15 @@ $(document).ready(function () {
         $("#formations-tab").removeClass("active");
     }
     //display responsive menu
-    let elem = $("ul.nav");
+    let elem = $("ul.main-ul-nav.nav");
     let ul = elem[0];
     $(".ln--icon a").click(function (e) {
         if (ul.className === "main-ul-nav nav") {
             ul.className += " responsive";
-            $("header").css('height', "18em");
+            headerH= $("header").height()*3;
+            $("header").height(headerH);
             $("nav").css("align-items", "start");
+            $("#global").append("<div class='fade-transparent'></div>");
         } else {
             resizeHeader(ul);
         }
@@ -101,6 +103,7 @@ $('#formBox').on('show.bs.modal', function (event) {
 
     });
 });
+
 /*
  * update header display
  * @param {elem} ul
@@ -108,7 +111,7 @@ $('#formBox').on('show.bs.modal', function (event) {
  */
 function resizeHeader(ul) {
     ul.className = "main-ul-nav nav";
-    $("header").css('height', "6em");
+    $("header").height(headerH/3);
     $("nav").css("align-items", "center");
 }
 function animate(classAnim) {
