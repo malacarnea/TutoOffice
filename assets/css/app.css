@@ -87,7 +87,7 @@ nav{
 ul{
     list-style: none;  
 }
-ul.nav{
+.main-ul-nav{
     display:grid;
     grid-template-columns: 4fr repeat(3, 1fr);
     justify-items:start;
@@ -103,19 +103,19 @@ a, ul.nav li a, .developpement a{
 button{
     border:none;
 }
-ul.nav li .ln--home{
+.main-ul-nav li .ln--home{
     justify-self: start; 
     background: transparent;
 }
-ul.nav li.ln--icon{
+.main-ul-nav li.ln--icon{
     display:none;
 }
-ul.nav li a, ul.nav li button{
+.main-ul-nav li a, .main-ul-nav li button{
     font-weight:500;
     color:#fff;
 }
 
-header nav ul.nav li a:hover, header nav ul.nav li a.active, button.ln--home:hover:after{
+.main-ul-nav li a:hover, .main-ul-nav li a.active, button.ln--home:hover:after{
     border-bottom:2px solid #fff;
 }
 
@@ -678,7 +678,7 @@ input[type="submit"]{
     grid-template-rows:1fr auto;
 }
 .nav-tabs{
-    grid-column:3;
+    grid-column:3/span 6;
     grid-row:1;
     margin:0;
     border-bottom: none;
@@ -724,7 +724,7 @@ i[data-action="modify"]:hover, i[data-action="add"]:hover{
     display:inline;
 }
 .tabpanel-block h1,.tabpanel-block h2,.tabpanel-block h3, 
-.formation-header-title i, #who-i-am h1, .tuto-title h1,
+.formation-header-title i, .who-i-am h1, .tuto-title h1,
 .tuto-title p{
     color:#2081FF;
 }
@@ -738,7 +738,7 @@ i[data-action="modify"]:hover, i[data-action="add"]:hover{
 .tabpanel-block h2,.tabpanel-block h3 {
     font-size:1em;
 }
-.tabpanel-block h1:after, #who-i-am h1:after, .dropdown-menu a.dropdown-item:hover:after{
+.tabpanel-block h1:after, .who-i-am h1:after, .dropdown-menu a.dropdown-item:hover:after{
     content:"";
     display:block;
     height:0;
@@ -747,7 +747,7 @@ i[data-action="modify"]:hover, i[data-action="add"]:hover{
     padding-top: 1%;
     border-bottom:3px solid #2081ff;
 }
-#who-i-am h1:after{
+.who-i-am h1:after{
     width:12%;
     margin-bottom: 1%;
 }
@@ -780,7 +780,6 @@ a.btn-tutorials{
     border-radius:14px;
     font-size:0.75em;
     padding:2px 10px;
-
 }
 .tutorials li{
     margin:1% 0 0 0;
@@ -805,10 +804,7 @@ i[data-action="modify"]{
 i[data-action="add"]{
     color:#00cc00;
     margin-left:10px;
-
 }
-
-
 i[data-action="delete"]{
     color:grey;
     margin-left:10px;

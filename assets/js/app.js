@@ -49,23 +49,19 @@ $(document).ready(function () {
     let elem = $("ul.nav");
     let ul = elem[0];
     $(".ln--icon a").click(function (e) {
-        if (ul.className === "nav") {
+        if (ul.className === "main-ul-nav nav") {
             ul.className += " responsive";
             $("header").css('height', "18em");
             $("nav").css("align-items", "start");
         } else {
-            ul.className = "nav";
-            $("header").css('height', "6em");
-            $("nav").css("align-items", "center");
+            resizeHeader(ul);
         }
     });
 
     let viewport_width = $(window).height();
     if (viewport_width <= 460) {
         $(".ln--slarge a").click(function (e) {
-            ul.className = "nav";
-            $("header").css('height', "6em");
-            $("nav").css("align-items", "center");
+            resizeHeader(ul);
         });
     }
     //reveal block apropos page
@@ -105,8 +101,16 @@ $('#formBox').on('show.bs.modal', function (event) {
 
     });
 });
-
-
+/*
+ * update header display
+ * @param {elem} ul
+ * @returns {undefined}
+ */
+function resizeHeader(ul) {
+    ul.className = "main-ul-nav nav";
+    $("header").css('height', "6em");
+    $("nav").css("align-items", "center");
+}
 function animate(classAnim) {
     $(".slide-to-co").addClass(classAnim);
     $(".slide-fieldset").addClass(classAnim);
