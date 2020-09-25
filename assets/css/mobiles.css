@@ -13,13 +13,7 @@
         grid-template-rows: repeat(4, auto);
         align-items: start;
     }
-    .fade-transparent{
-        opacity: 0;
-        height:100%;
-        width:100%;
-        position:absolute;
-        margin: 0;
-    }
+    
     section{
         height:auto;
     }
@@ -38,7 +32,16 @@
 }
 
 /* Size under ipad*/
+@media screen and (max-device-width:1024px){
+    .tabpanel-block__t-list-members{
+        overflow-x: scroll;
+    }
+}
+
 @media screen and (max-device-width:768px){
+    .index{
+        font-size:.85em;
+    }
     .onglets{
         grid-column:1/-1;
     }
@@ -90,20 +93,30 @@
 @media screen and (max-device-width:460px){
     .index{
         grid-template-rows: 100vh auto auto auto;
-        font-size:.85em;
     }
-
+    .fade-transparent{
+        opacity: .1;
+        height:100%;
+        width:100%;
+        position:absolute;
+        margin: 0;
+        background-color: #000;
+        z-index:1024;
+    }
     p.ptitle.title-white-border:after{
-        border-bottom:5px solid #fff;
+        border-bottom:3px solid #fff;
     }
     header nav{
         display:grid;
         align-items: center;
     }
-    .ln--home{
+    header.header--transparent nav ul.main-ul-nav li a.ln--home,
+    header nav ul.main-ul-nav li.ln--icon a{
         color:#fff;
     }
-
+    header.header--transparent nav ul.main-ul-nav li.ln--icon a{
+        color: #2572ff;
+    }
     .main-ul-nav{
         width:90%;
     }
@@ -114,28 +127,27 @@
         display:block;
     }
 
-    .main-ul-nav li.ln--icon a i{
-        color:#ffffff;
-    }
     .main-ul-nav li:last-child{
         justify-self:end;
+        grid-column:5;
     }
 
     .main-ul-nav.nav.responsive {
         position: relative;
-        grid-template-columns:1fr;
+        grid-template-columns:1fr 1fr;
         grid-template-rows:repeat(4, 1fr);
         grid-row-gap:0.5em;
     }
 
-    .main-ul-nav.nav.responsive li a.icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
+   
     .main-ul-nav.nav.responsive li{
         display: block;
         text-align: left;
+          grid-column:1;
+    }
+     .main-ul-nav.nav.responsive li.ln--icon{
+         grid-row:1;
+         grid-column:2;
     }
     section.index__section{
         padding-top:2em;
@@ -308,10 +320,13 @@
         margin-bottom: 0;
         grid-template-columns:1fr;
         grid-template-rows:repeat(3, 1fr);
-        grid-row-gap:.6em;
         height: auto;
         justify-items: start;
+        grid-row-gap:0;
         padding:5% 10% 15%;
+    }
+    footer .footer__block{
+        margin-top:0;
     }
 
     footer .footer__block:nth-child(2){

@@ -747,6 +747,10 @@ i[data-action="modify"]:hover, i[data-action="add"]:hover{
     padding-top: 1%;
     border-bottom:3px solid #2081ff;
 }
+.tabpanel-block__t-list-members{
+    width:100%;
+    grid-column:1/-1;
+}
 .who-i-am h1:after{
     width:12%;
     margin-bottom: 1%;

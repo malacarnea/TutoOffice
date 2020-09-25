@@ -9,8 +9,8 @@ import $ from 'jquery';
 require('popper.js');
 require('bootstrap');
 require('select2');
-let headerH=0;
-
+let headerH = 0;
+let UL = $("header nav ul");
 $(document).ready(function () {
     //unset gradiant background on header when visit home page and login page.
     if (RegExp("login|local\/$|#accueil$").test(window.location.href)) {
@@ -45,27 +45,33 @@ $(document).ready(function () {
         $("#users-tab").addClass("active");
         $("#formations-tab").removeClass("active");
     }
+
+
     //display responsive menu
-    let elem = $("ul.main-ul-nav.nav");
-    let ul = elem[0];
     $(".ln--icon a").click(function (e) {
-        if (ul.className === "main-ul-nav nav") {
-            ul.className += " responsive";
-            headerH= $("header").height()*3;
-            $("header").height(headerH);
+        if (!UL.hasClass("responsive")) {
+            UL.addClass("responsive");
+            headerH = $("header").height() * 3;
+            $("header").animate({height: headerH + "px"});
+            if ($("header").hasClass("header--transparent")) {
+                $("header").removeClass("header--transparent");
+            }
             $("nav").css("align-items", "start");
-            $("#global").append("<div class='fade-transparent'></div>");
+            $(this).find("i")[0].className = "fas fa-times";
+            $("#global").append("<div id='fade-transparent' class='fade-transparent'></div>");
         } else {
-            resizeHeader(ul);
+            closeMenu();
         }
     });
 
-    let viewport_width = $(window).height();
+    let viewport_width = $(window).width();
     if (viewport_width <= 460) {
         $(".ln--slarge a").click(function (e) {
-            resizeHeader(ul);
+            closeMenu();
         });
     }
+
+
     //reveal block apropos page
     $(".apropos-page.reveal")
             .addClass('reveal-visible')
@@ -91,6 +97,11 @@ $(document).ready(function () {
 
 });
 
+//close menu on mobile
+$(document).on("click",".fade-transparent", function (e) {
+    closeMenu();
+});
+
 $('#formBox').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget); // Button that triggered the modal
     var modal = $(this);
@@ -106,13 +117,25 @@ $('#formBox').on('show.bs.modal', function (event) {
 
 /*
  * update header display
- * @param {elem} ul
+ * @param {undefined}
  * @returns {undefined}
  */
-function resizeHeader(ul) {
-    ul.className = "main-ul-nav nav";
-    $("header").height(headerH/3);
+function resizeHeader() {
+    UL.removeClass("responsive");
+    $("header").height(headerH / 3);
     $("nav").css("align-items", "center");
+}
+/*
+ * close menu resizing header
+ * @param {undefined}
+ * @returns {undefined}
+ */
+function closeMenu() {
+    resizeHeader();
+    //remove transparent fade
+    $(".fade-transparent").remove();
+    //change icon cros in icon menu
+    $("a.icon i").removeClass('fas fa-times').addClass("fa fa-bars");
 }
 function animate(classAnim) {
     $(".slide-to-co").addClass(classAnim);

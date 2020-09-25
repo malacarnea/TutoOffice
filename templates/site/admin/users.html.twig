@@ -22,7 +22,8 @@
         <h1>Listes des membres</h1> 
         <input type="button" class="bt-link" data-action="add" data-url="/admin/users/add" data-toggle='modal' data-target="#formBox" value="+ Nouveau Membre"/>
     </div>
+    <div class="tabpanel-block__t-list-members">
     {{ include('site/admin/users/index.html.twig', {'users':users}) }}
-
+    </div>
 </div>
 {% endblock %}
