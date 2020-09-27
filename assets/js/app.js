@@ -9,8 +9,10 @@ import $ from 'jquery';
 require('popper.js');
 require('bootstrap');
 require('select2');
+
 let headerH = 0;
 let UL = $("header nav ul");
+
 $(document).ready(function () {
     //unset gradiant background on header when visit home page and login page.
     if (RegExp("login|local\/$|#accueil$").test(window.location.href)) {
