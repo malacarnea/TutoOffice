@@ -30,7 +30,6 @@ $(document).ready(function () {
             $("#ln_connection.connection-bt").click(function () {
                 animate("animate");
                 $("#ln_home").css('color', '#ffffff');
-                alert("in connection");
                 setTimeout(function () {
                     window.location.assign("/login");
                 }, 1500)
