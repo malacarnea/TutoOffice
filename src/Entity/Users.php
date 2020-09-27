@@ -31,6 +31,7 @@ class Users implements UserInterface
     private $email;
 
     /**
+     * @Assert\NotBlank(message="Choisissez un role pour ce membre.")
      * @ORM\Column(type="json")
      */
     private $roles = [];
@@ -51,27 +52,27 @@ class Users implements UserInterface
     private $password;
 
     /**
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Le champ 'Prénom' ne peut pas être vide.")
      * @Assert\Length(max=255)
      * @ORM\Column(type="string", length=255)
      */
     private $firstname;
 
     /**
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Le champ 'Nom' ne peut pas être vide.")
      * @Assert\Length(max=255)
      * @ORM\Column(type="string", length=255)
      */
     private $lastname;
 
     /**
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Choisissez une ou plusieurs formations.")
      * @ORM\ManyToMany(targetEntity="App\Entity\Formations", inversedBy="users")
      */
     private $formations;
 
     /**
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Sélectionnez une période d'accès.")
      * @ORM\Column(type="dateinterval")
      */
     private $access;
@@ -180,7 +181,7 @@ class Users implements UserInterface
 
     public function setFirstname(string $firstname): self
     {
-        $this->firstname = $firstname;
+        $this->firstname = strtoupper($firstname[0]).strtolower(substr($firstname, 1));
 
         return $this;
     }
@@ -192,7 +193,7 @@ class Users implements UserInterface
 
     public function setLastname(string $lastname): self
     {
-        $this->lastname = $lastname;
+        $this->lastname = strtoupper($lastname);
 
         return $this;
     }

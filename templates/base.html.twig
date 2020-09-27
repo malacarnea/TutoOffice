@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}Josselin Balde - Formateur indépendant{% endblock %}</title>
+        <title>{% block title %}Josselin Balde - Formateur Indépendant{% endblock %}</title>
+      {% block description %}
+        <meta name="description" content="Josselin Baldé, Formateur indépendant en bureautique sur les logiciels Word, Excel et PowerPoint. Découvrez mes formations en présentiel et mes tutoriels en ligne. Accessible tout niveau.">
+      {% endblock %}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
             <!-- Renders a link tag (if your module requires any CSS)

@@ -35,7 +35,7 @@ class UsersController extends AbstractController {
 
         if ($form->isSubmitted() && $form->isValid()) {
             $plainPassword= $user->getPlainPassword();
-            $this->addFlash('success', "L'utilisateur a bien été ajouté. password : " . $plainPassword);
+            $this->addFlash('success', "L'utilisateur ".$user->getFirstname()." ".$user->getLastname()." a bien été ajouté.");
             $encoded = $encoder->encodePassword($user, $plainPassword);
             $user->setPassword($encoded);
 
