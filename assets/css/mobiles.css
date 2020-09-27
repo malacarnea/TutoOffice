@@ -2,8 +2,20 @@
 
 /* Between smartphone and ipad*/
 @media screen and (min-device-width:461px) and (max-device-width:1024px){
+    .accroche{
+        margin-top:48px;
+    }
     .slide-fieldset{
         grid-column:4/14;
+    }
+    .index__section--formations .floater .white-block{
+        padding:10% 5%;
+    }
+    .index__section--formations .floater .white-block .bt-link{
+        width:90%;
+    }
+    footer{
+        margin-top:10%;
     }
 }
 
@@ -246,7 +258,7 @@
 
     .index__section--formations{
         grid-template-rows:repeat(5,1fr);
-        margin-bottom: 30%;
+        margin-bottom: 40%;
         height: 60vh;
     }
     .blue-band{

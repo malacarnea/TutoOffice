@@ -15,7 +15,7 @@ let UL = $("header nav ul");
 
 $(document).ready(function () {
     //unset gradiant background on header when visit home page and login page.
-    if (RegExp("login|local\/$|#accueil$").test(window.location.href)) {
+    if (RegExp("login|local\/$|fr\/$|io\/$|#accueil$").test(window.location.href)) {
         if (RegExp("login").test(window.location.href)) {
             $("#ln_home").css('color', "#fff");
             $("#ln_home").click(function () {
@@ -30,6 +30,7 @@ $(document).ready(function () {
             $("#ln_connection.connection-bt").click(function () {
                 animate("animate");
                 $("#ln_home").css('color', '#ffffff');
+                alert("in connection");
                 setTimeout(function () {
                     window.location.assign("/login");
                 }, 1500)
