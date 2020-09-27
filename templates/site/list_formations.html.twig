@@ -8,9 +8,10 @@
 {% for formation in formations %}
     <div class="fieldset-formation">
         <div class="formation-header-title">
-            <div class="chevron"><i class="fas fa-chevron-right"></i></div>
+            <div class="chevron"><i class="fas fa-chevron-right"></i>
             <h2>{{ formation.formation.title }} 
             </h2>
+            </div>
             {% if(is_granted('ROLE_ADMIN')) %}
                 <div class="btn-ctl" data-field="formation" data-id="{{ formation.formation.id }}"> <i class="fas fa-pen" data-action="modify" data-url="/admin/formations/edit/{{ formation.formation.id }}" data-toggle='modal' data-target="#formBox"></i>
                     {{ include('site/admin/formations/_delete_form.html.twig', {'id':formation.formation.id}) }}
