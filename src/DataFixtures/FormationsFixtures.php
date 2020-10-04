@@ -6,7 +6,7 @@ use App\Entity\Formations;
 use App\DataFixtures\CategoriesFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 
 class FormationsFixtures extends Fixture implements DependentFixtureInterface
 {

@@ -15,7 +15,7 @@ let UL = $("header nav ul");
 
 $(document).ready(function () {
     //unset gradiant background on header when visit home page and login page.
-    if (RegExp("login|local\/$|fr\/$|io\/$|#accueil$").test(window.location.href)) {
+    if (RegExp("login|local\/$|fr\/$|net\/$|io\/$|#accueil$").test(window.location.href)) {
         if (RegExp("login").test(window.location.href)) {
             $("#ln_home").css('color', "#fff");
             $("#ln_home").click(function () {

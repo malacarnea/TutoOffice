@@ -7,7 +7,7 @@ use App\Entity\Tutorials;
 use App\DataFixtures\ChaptersFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 
 class TutorialsFixtures extends Fixture implements DependentFixtureInterface
 {
