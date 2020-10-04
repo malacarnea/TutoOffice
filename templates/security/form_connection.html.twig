@@ -1,6 +1,6 @@
 <fieldset id="fieldset_connection" class="connection__fieldset">
     <h1>Connexion</h1>
-    <form method="post">
+    <form method="post" action="{{ path('app_login') }}">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
