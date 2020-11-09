@@ -1,3 +1,4 @@
+# see https://symfony.com/doc/current/reference/configuration/framework.html
 framework:
     secret: '%env(APP_SECRET)%'
     #csrf_protection: true
@@ -10,14 +11,7 @@ framework:
         cookie_secure: auto
         cookie_samesite: lax
 
-    # esi: true
+    #esi: true
     #fragments: true
     php_errors:
         log: true
-
-    trusted_hosts:
-        - localhost
-        - josselinbalde.local
-        - josselinbalde.fr
-        - josselb.cluster030.hosting.ovh.net
-        - 2a10f4314e7d.ngrok.io 

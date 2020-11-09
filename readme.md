@@ -29,6 +29,9 @@ Prepare for production environement :
 > composer remove symfony/dotenv
 > composer require symfony/dotenv
 
+*** If there are problems with doctrine migrations
+>composer recipes:install --force -v
+
 *** Prod server ***
 Create a .env file for environment variables
 > composer dump-env prod
